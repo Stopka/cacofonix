@@ -1,0 +1,5 @@
+query Performance($performanceId: String!){
+  Performance(id:$performanceId, draft: false) {
+    ...Performance
+  }
+}

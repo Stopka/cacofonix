@@ -1,0 +1,5 @@
+fragment PerformanceSummary on Performance {
+  id
+  title
+  description
+}

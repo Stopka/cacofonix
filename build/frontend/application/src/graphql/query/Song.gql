@@ -1,0 +1,5 @@
+query Song($songId: String!){
+  Song(id:$songId, draft: false) {
+    ...Song
+  }
+}

@@ -1,0 +1,5 @@
+application/node_modules
+application/src/.next
+application/src/.vscode
+application/.vscode
+application/.next

@@ -1,0 +1,12 @@
+query ShowSetting{
+  Setting(draft: false) {
+    show {
+      value {
+        __typename
+        ... on Show{
+          id
+        }
+      }
+    }
+  }
+}

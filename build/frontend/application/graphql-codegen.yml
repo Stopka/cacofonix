@@ -1,0 +1,17 @@
+overwrite: true
+schema:
+  - 'http://payload:3000/api/graphql'
+documents:
+  - './src/**/*.gql'
+generates:
+  src/graphql/generated/schema.graphql:
+    plugins:
+      - 'schema-ast'
+  src/graphql/generated/types.ts:
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typed-document-node'
+    config:
+      dedupeFragments: true
+

@@ -1,0 +1,7 @@
+fragment Image on Media {
+    id
+    title
+    url
+    alt
+    mimeType
+}

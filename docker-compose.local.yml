@@ -1,0 +1,26 @@
+version: "3.9"
+
+services:
+  frontend:
+    image: skorpil/cacofonix-frontend:dev
+    labels:
+      - "traefik.http.routers.frontend.tls.certresolver=local"
+    environment:
+      NODE_ENV: development
+    build:
+      target: dev
+    volumes:
+      - ./build/frontend/application:/srv
+  payload:
+    volumes:
+      - ./build/payload/application:/home/node/app
+      - ./build/payload/application/node_modules:/home/node/app/node_modules
+    labels:
+      - "traefik.http.routers.payload.tls.certresolver=local"
+    environment:
+      NODE_ENV: development
+#    ports:
+#      -
+  mongo:
+    ports:
+      - "27017:27017"

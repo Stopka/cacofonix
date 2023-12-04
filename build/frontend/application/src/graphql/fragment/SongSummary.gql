@@ -1,0 +1,5 @@
+fragment SongSummary on Song {
+  id
+  title
+  description
+}

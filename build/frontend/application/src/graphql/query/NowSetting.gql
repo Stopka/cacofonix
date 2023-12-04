@@ -1,0 +1,11 @@
+query NowSetting{
+  Setting(draft: false, locale: en) {
+    now {
+      value {
+        __typename
+        ... Song
+        ... Performance
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+:root{
+  --font-serif: "Noto Serif", serif;
+}
+
+.field-type.relationship.program{
+  .value-container {
+    .rs__value-container {
+      .multi-value {
+        flex-basis: calc(100% - 4rem);
+        .relationship--multi-value-label{
+          flex-grow: 1;
+          flex-basis: auto;
+          >.relationship--multi-value-label__content{
+            flex-grow: 1;
+            max-width: inherit;
+          }
+          >button{
+            flex-grow: 0;
+          }
+        }
+        >button{
+          flex-basis: auto;
+        }
+      }
+    }
+  }
+}

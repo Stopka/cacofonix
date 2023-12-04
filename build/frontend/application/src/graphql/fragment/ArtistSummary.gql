@@ -1,0 +1,5 @@
+fragment ArtistSummary on Artist{
+  id
+  title
+  url
+}

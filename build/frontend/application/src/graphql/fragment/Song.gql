@@ -1,0 +1,21 @@
+fragment Song on Song{
+  id
+  title,
+  description,
+  artists{
+    value {
+      ...ArtistSummary
+    }
+  },
+  lyricsAuthors{
+    value {
+      ...ArtistSummary
+    }
+  }
+  musicAuthors{
+    value {
+      ...ArtistSummary
+    }
+  },
+  lyrics
+}

@@ -1,0 +1,14 @@
+$color-mode-type: media-query;
+@import '~bootstrap/scss/bootstrap';
+@import 'material-symbols';
+
+.material-symbols-outlined.material-symbols-outlined {
+  font-size: inherit;
+  vertical-align: middle;
+}
+
+.navbar-brand{
+  img{
+    max-width: 2rem;
+  }
+}

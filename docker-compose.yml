@@ -1,0 +1,87 @@
+version: "3.9"
+
+x-defaults: &defaults
+  restart: always
+  logging:
+    driver: "json-file"
+    options:
+      max-file: "10"
+      max-size: "1M"
+
+services:
+  frontend:
+    image: skorpil/cacofonix-frontend:latest
+    restart: always
+    build:
+      context: ./build/frontend
+      target: prod
+    environment:
+      - 'MATOMO_URL=${MATOMO_URL}'
+      - 'MATOMO_SITE_ID=${MATOMO_SITE_ID}'
+      - 'TZ=${TIMEZONE}'
+      - 'GRAPHQL_URL=http://payload:3000/api/graphql'
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.frontend.rule=Host(`${HOST}`)"
+      - "traefik.http.routers.frontend.entrypoints=https"
+      - "traefik.http.routers.frontend.tls=true"
+      - "traefik.http.routers.frontend.tls.certresolver=letsencrypt"
+      - "traefik.http.services.frontend.loadbalancer.server.port=3000"
+    networks:
+      proxy:
+      cacofonix:
+    depends_on:
+      - payload
+
+  payload:
+    <<: *defaults
+    image: node:18-alpine
+    volumes:
+      - payload-uploads:/home/node/app/uploads
+    working_dir: /home/node/app/
+    command: sh -c "yarn install && yarn dev"
+    depends_on:
+      - mongo
+    networks:
+      cacofonix:
+      proxy:
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.payload.rule=Host(`${HOST}`)&&PathPrefix(`/admin`,`/api`,`/uploads`)"
+      - "traefik.http.routers.payload.entrypoints=https"
+      - "traefik.http.routers.payload.tls=true"
+      - "traefik.http.routers.payload.tls.certresolver=letsencrypt"
+      - "traefik.http.services.payload.loadbalancer.server.port=3000"
+    environment:
+      TZ: ${TIMEZONE}
+      MONGODB_URI: mongodb://root:${MONGO_PASSWORD}@mongo:27017/admin
+      PORT: 3000
+      PAYLOAD_SECRET: ${PAYLOAD_SECRET}
+      SERVER_URL: https://${HOST}
+
+  mongo:
+    <<: *defaults
+    image: mongo:latest
+    networks:
+      cacofonix:
+    command:
+      - --storageEngine=wiredTiger
+    volumes:
+      - mongo-data:/data/db
+    environment:
+      TZ: ${TIMEZONE}
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
+
+networks:
+  cacofonix:
+  proxy:
+    external: true
+    name: proxy
+  mail:
+    external: true
+    name: mail
+
+volumes:
+  mongo-data:
+  payload-uploads:

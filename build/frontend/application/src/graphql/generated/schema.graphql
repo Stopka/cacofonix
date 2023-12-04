@@ -1,0 +1,6707 @@
+type Access {
+  artists: artistsAccess
+  canAccessAdmin: Boolean!
+  media: mediaAccess
+  payload_preferences: payload_preferencesAccess
+  performances: performancesAccess
+  performers: performersAccess
+  settings: settingsAccess
+  shows: showsAccess
+  songs: songsAccess
+  users: usersAccess
+}
+
+type Artist {
+  _status: Artist__status
+  createdAt: DateTime
+  description(depth: Int): JSON
+  id: String
+  title: String
+  updatedAt: DateTime
+  url: String
+}
+
+enum ArtistUpdate__status_MutationInput {
+  draft
+  published
+}
+
+type ArtistVersion {
+  createdAt: DateTime
+  id: String
+  latest: Boolean
+  parent(fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType): Artist
+  updatedAt: DateTime
+  version: ArtistVersion_Version
+}
+
+type ArtistVersion_Version {
+  _status: ArtistVersion_Version__status
+  createdAt: DateTime
+  description(depth: Int): JSON
+  title: String
+  updatedAt: DateTime
+  url: String
+}
+
+enum ArtistVersion_Version__status {
+  draft
+  published
+}
+
+enum Artist__status {
+  draft
+  published
+}
+
+enum Artist__status_Input {
+  draft
+  published
+}
+
+enum Artist__status_MutationInput {
+  draft
+  published
+}
+
+input Artist__status_operator {
+  all: [Artist__status_Input]
+  equals: Artist__status_Input
+  exists: Boolean
+  in: [Artist__status_Input]
+  not_equals: Artist__status_Input
+  not_in: [Artist__status_Input]
+}
+
+input Artist_createdAt_operator {
+  equals: DateTime
+  exists: Boolean
+  greater_than: DateTime
+  greater_than_equal: DateTime
+  less_than: DateTime
+  less_than_equal: DateTime
+  like: DateTime
+  not_equals: DateTime
+}
+
+input Artist_description_operator {
+  contains: JSON
+  equals: JSON
+  exists: Boolean
+  like: JSON
+  not_equals: JSON
+}
+
+input Artist_id_operator {
+  all: [String]
+  contains: String
+  equals: String
+  exists: Boolean
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input Artist_title_operator {
+  all: [String]
+  contains: String
+  equals: String
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input Artist_updatedAt_operator {
+  equals: DateTime
+  exists: Boolean
+  greater_than: DateTime
+  greater_than_equal: DateTime
+  less_than: DateTime
+  less_than_equal: DateTime
+  like: DateTime
+  not_equals: DateTime
+}
+
+input Artist_url_operator {
+  all: [String]
+  contains: String
+  equals: String
+  exists: Boolean
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input Artist_where {
+  AND: [Artist_where_and]
+  OR: [Artist_where_or]
+  _status: Artist__status_operator
+  createdAt: Artist_createdAt_operator
+  description: Artist_description_operator
+  id: Artist_id_operator
+  title: Artist_title_operator
+  updatedAt: Artist_updatedAt_operator
+  url: Artist_url_operator
+}
+
+input Artist_where_and {
+  AND: [Artist_where_and]
+  OR: [Artist_where_or]
+  _status: Artist__status_operator
+  createdAt: Artist_createdAt_operator
+  description: Artist_description_operator
+  id: Artist_id_operator
+  title: Artist_title_operator
+  updatedAt: Artist_updatedAt_operator
+  url: Artist_url_operator
+}
+
+input Artist_where_or {
+  AND: [Artist_where_and]
+  OR: [Artist_where_or]
+  _status: Artist__status_operator
+  createdAt: Artist_createdAt_operator
+  description: Artist_description_operator
+  id: Artist_id_operator
+  title: Artist_title_operator
+  updatedAt: Artist_updatedAt_operator
+  url: Artist_url_operator
+}
+
+type Artists {
+  docs: [Artist]
+  hasNextPage: Boolean
+  hasPrevPage: Boolean
+  limit: Int
+  nextPage: Int
+  offset: Int
+  page: Int
+  pagingCounter: Int
+  prevPage: Int
+  totalDocs: Int
+  totalPages: Int
+}
+
+type ArtistsCreateAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type ArtistsCreateDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type ArtistsDeleteAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type ArtistsDeleteDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type ArtistsDocAccessFields {
+  _status: ArtistsDocAccessFields__status
+  createdAt: ArtistsDocAccessFields_createdAt
+  description: ArtistsDocAccessFields_description
+  title: ArtistsDocAccessFields_title
+  updatedAt: ArtistsDocAccessFields_updatedAt
+  url: ArtistsDocAccessFields_url
+}
+
+type ArtistsDocAccessFields__status {
+  create: ArtistsDocAccessFields__status_Create
+  delete: ArtistsDocAccessFields__status_Delete
+  read: ArtistsDocAccessFields__status_Read
+  update: ArtistsDocAccessFields__status_Update
+}
+
+type ArtistsDocAccessFields__status_Create {
+  permission: Boolean!
+}
+
+type ArtistsDocAccessFields__status_Delete {
+  permission: Boolean!
+}
+
+type ArtistsDocAccessFields__status_Read {
+  permission: Boolean!
+}
+
+type ArtistsDocAccessFields__status_Update {
+  permission: Boolean!
+}
+
+type ArtistsDocAccessFields_createdAt {
+  create: ArtistsDocAccessFields_createdAt_Create
+  delete: ArtistsDocAccessFields_createdAt_Delete
+  read: ArtistsDocAccessFields_createdAt_Read
+  update: ArtistsDocAccessFields_createdAt_Update
+}
+
+type ArtistsDocAccessFields_createdAt_Create {
+  permission: Boolean!
+}
+
+type ArtistsDocAccessFields_createdAt_Delete {
+  permission: Boolean!
+}
+
+type ArtistsDocAccessFields_createdAt_Read {
+  permission: Boolean!
+}
+
+type ArtistsDocAccessFields_createdAt_Update {
+  permission: Boolean!
+}
+
+type ArtistsDocAccessFields_description {
+  create: ArtistsDocAccessFields_description_Create
+  delete: ArtistsDocAccessFields_description_Delete
+  read: ArtistsDocAccessFields_description_Read
+  update: ArtistsDocAccessFields_description_Update
+}
+
+type ArtistsDocAccessFields_description_Create {
+  permission: Boolean!
+}
+
+type ArtistsDocAccessFields_description_Delete {
+  permission: Boolean!
+}
+
+type ArtistsDocAccessFields_description_Read {
+  permission: Boolean!
+}
+
+type ArtistsDocAccessFields_description_Update {
+  permission: Boolean!
+}
+
+type ArtistsDocAccessFields_title {
+  create: ArtistsDocAccessFields_title_Create
+  delete: ArtistsDocAccessFields_title_Delete
+  read: ArtistsDocAccessFields_title_Read
+  update: ArtistsDocAccessFields_title_Update
+}
+
+type ArtistsDocAccessFields_title_Create {
+  permission: Boolean!
+}
+
+type ArtistsDocAccessFields_title_Delete {
+  permission: Boolean!
+}
+
+type ArtistsDocAccessFields_title_Read {
+  permission: Boolean!
+}
+
+type ArtistsDocAccessFields_title_Update {
+  permission: Boolean!
+}
+
+type ArtistsDocAccessFields_updatedAt {
+  create: ArtistsDocAccessFields_updatedAt_Create
+  delete: ArtistsDocAccessFields_updatedAt_Delete
+  read: ArtistsDocAccessFields_updatedAt_Read
+  update: ArtistsDocAccessFields_updatedAt_Update
+}
+
+type ArtistsDocAccessFields_updatedAt_Create {
+  permission: Boolean!
+}
+
+type ArtistsDocAccessFields_updatedAt_Delete {
+  permission: Boolean!
+}
+
+type ArtistsDocAccessFields_updatedAt_Read {
+  permission: Boolean!
+}
+
+type ArtistsDocAccessFields_updatedAt_Update {
+  permission: Boolean!
+}
+
+type ArtistsDocAccessFields_url {
+  create: ArtistsDocAccessFields_url_Create
+  delete: ArtistsDocAccessFields_url_Delete
+  read: ArtistsDocAccessFields_url_Read
+  update: ArtistsDocAccessFields_url_Update
+}
+
+type ArtistsDocAccessFields_url_Create {
+  permission: Boolean!
+}
+
+type ArtistsDocAccessFields_url_Delete {
+  permission: Boolean!
+}
+
+type ArtistsDocAccessFields_url_Read {
+  permission: Boolean!
+}
+
+type ArtistsDocAccessFields_url_Update {
+  permission: Boolean!
+}
+
+type ArtistsFields {
+  _status: ArtistsFields__status
+  createdAt: ArtistsFields_createdAt
+  description: ArtistsFields_description
+  title: ArtistsFields_title
+  updatedAt: ArtistsFields_updatedAt
+  url: ArtistsFields_url
+}
+
+type ArtistsFields__status {
+  create: ArtistsFields__status_Create
+  delete: ArtistsFields__status_Delete
+  read: ArtistsFields__status_Read
+  update: ArtistsFields__status_Update
+}
+
+type ArtistsFields__status_Create {
+  permission: Boolean!
+}
+
+type ArtistsFields__status_Delete {
+  permission: Boolean!
+}
+
+type ArtistsFields__status_Read {
+  permission: Boolean!
+}
+
+type ArtistsFields__status_Update {
+  permission: Boolean!
+}
+
+type ArtistsFields_createdAt {
+  create: ArtistsFields_createdAt_Create
+  delete: ArtistsFields_createdAt_Delete
+  read: ArtistsFields_createdAt_Read
+  update: ArtistsFields_createdAt_Update
+}
+
+type ArtistsFields_createdAt_Create {
+  permission: Boolean!
+}
+
+type ArtistsFields_createdAt_Delete {
+  permission: Boolean!
+}
+
+type ArtistsFields_createdAt_Read {
+  permission: Boolean!
+}
+
+type ArtistsFields_createdAt_Update {
+  permission: Boolean!
+}
+
+type ArtistsFields_description {
+  create: ArtistsFields_description_Create
+  delete: ArtistsFields_description_Delete
+  read: ArtistsFields_description_Read
+  update: ArtistsFields_description_Update
+}
+
+type ArtistsFields_description_Create {
+  permission: Boolean!
+}
+
+type ArtistsFields_description_Delete {
+  permission: Boolean!
+}
+
+type ArtistsFields_description_Read {
+  permission: Boolean!
+}
+
+type ArtistsFields_description_Update {
+  permission: Boolean!
+}
+
+type ArtistsFields_title {
+  create: ArtistsFields_title_Create
+  delete: ArtistsFields_title_Delete
+  read: ArtistsFields_title_Read
+  update: ArtistsFields_title_Update
+}
+
+type ArtistsFields_title_Create {
+  permission: Boolean!
+}
+
+type ArtistsFields_title_Delete {
+  permission: Boolean!
+}
+
+type ArtistsFields_title_Read {
+  permission: Boolean!
+}
+
+type ArtistsFields_title_Update {
+  permission: Boolean!
+}
+
+type ArtistsFields_updatedAt {
+  create: ArtistsFields_updatedAt_Create
+  delete: ArtistsFields_updatedAt_Delete
+  read: ArtistsFields_updatedAt_Read
+  update: ArtistsFields_updatedAt_Update
+}
+
+type ArtistsFields_updatedAt_Create {
+  permission: Boolean!
+}
+
+type ArtistsFields_updatedAt_Delete {
+  permission: Boolean!
+}
+
+type ArtistsFields_updatedAt_Read {
+  permission: Boolean!
+}
+
+type ArtistsFields_updatedAt_Update {
+  permission: Boolean!
+}
+
+type ArtistsFields_url {
+  create: ArtistsFields_url_Create
+  delete: ArtistsFields_url_Delete
+  read: ArtistsFields_url_Read
+  update: ArtistsFields_url_Update
+}
+
+type ArtistsFields_url_Create {
+  permission: Boolean!
+}
+
+type ArtistsFields_url_Delete {
+  permission: Boolean!
+}
+
+type ArtistsFields_url_Read {
+  permission: Boolean!
+}
+
+type ArtistsFields_url_Update {
+  permission: Boolean!
+}
+
+type ArtistsReadAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type ArtistsReadDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type ArtistsReadVersionsAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type ArtistsReadVersionsDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type ArtistsUpdateAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type ArtistsUpdateDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+"""
+A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
+"""
+scalar DateTime
+
+"""
+A field whose value conforms to the standard internet email address format as specified in HTML Spec: https://html.spec.whatwg.org/multipage/input.html#valid-e-mail-address.
+"""
+scalar EmailAddress
+
+enum FallbackLocaleInputType {
+  en
+  none
+}
+
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSON
+
+"""
+The `JSONObject` scalar type represents JSON objects as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSONObject
+
+enum LocaleInputType {
+  en
+}
+
+type Media {
+  alt: String
+  createdAt: DateTime
+  filename: String
+  filesize: Float
+  height: Float
+  id: String
+  mimeType: String
+  title: String
+  updatedAt: DateTime
+  url: String
+  width: Float
+}
+
+type MediaCreateAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type MediaCreateDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type MediaDeleteAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type MediaDeleteDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type MediaDocAccessFields {
+  alt: MediaDocAccessFields_alt
+  createdAt: MediaDocAccessFields_createdAt
+  filename: MediaDocAccessFields_filename
+  filesize: MediaDocAccessFields_filesize
+  height: MediaDocAccessFields_height
+  mimeType: MediaDocAccessFields_mimeType
+  title: MediaDocAccessFields_title
+  updatedAt: MediaDocAccessFields_updatedAt
+  url: MediaDocAccessFields_url
+  width: MediaDocAccessFields_width
+}
+
+type MediaDocAccessFields_alt {
+  create: MediaDocAccessFields_alt_Create
+  delete: MediaDocAccessFields_alt_Delete
+  read: MediaDocAccessFields_alt_Read
+  update: MediaDocAccessFields_alt_Update
+}
+
+type MediaDocAccessFields_alt_Create {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_alt_Delete {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_alt_Read {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_alt_Update {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_createdAt {
+  create: MediaDocAccessFields_createdAt_Create
+  delete: MediaDocAccessFields_createdAt_Delete
+  read: MediaDocAccessFields_createdAt_Read
+  update: MediaDocAccessFields_createdAt_Update
+}
+
+type MediaDocAccessFields_createdAt_Create {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_createdAt_Delete {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_createdAt_Read {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_createdAt_Update {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_filename {
+  create: MediaDocAccessFields_filename_Create
+  delete: MediaDocAccessFields_filename_Delete
+  read: MediaDocAccessFields_filename_Read
+  update: MediaDocAccessFields_filename_Update
+}
+
+type MediaDocAccessFields_filename_Create {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_filename_Delete {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_filename_Read {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_filename_Update {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_filesize {
+  create: MediaDocAccessFields_filesize_Create
+  delete: MediaDocAccessFields_filesize_Delete
+  read: MediaDocAccessFields_filesize_Read
+  update: MediaDocAccessFields_filesize_Update
+}
+
+type MediaDocAccessFields_filesize_Create {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_filesize_Delete {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_filesize_Read {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_filesize_Update {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_height {
+  create: MediaDocAccessFields_height_Create
+  delete: MediaDocAccessFields_height_Delete
+  read: MediaDocAccessFields_height_Read
+  update: MediaDocAccessFields_height_Update
+}
+
+type MediaDocAccessFields_height_Create {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_height_Delete {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_height_Read {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_height_Update {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_mimeType {
+  create: MediaDocAccessFields_mimeType_Create
+  delete: MediaDocAccessFields_mimeType_Delete
+  read: MediaDocAccessFields_mimeType_Read
+  update: MediaDocAccessFields_mimeType_Update
+}
+
+type MediaDocAccessFields_mimeType_Create {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_mimeType_Delete {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_mimeType_Read {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_mimeType_Update {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_title {
+  create: MediaDocAccessFields_title_Create
+  delete: MediaDocAccessFields_title_Delete
+  read: MediaDocAccessFields_title_Read
+  update: MediaDocAccessFields_title_Update
+}
+
+type MediaDocAccessFields_title_Create {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_title_Delete {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_title_Read {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_title_Update {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_updatedAt {
+  create: MediaDocAccessFields_updatedAt_Create
+  delete: MediaDocAccessFields_updatedAt_Delete
+  read: MediaDocAccessFields_updatedAt_Read
+  update: MediaDocAccessFields_updatedAt_Update
+}
+
+type MediaDocAccessFields_updatedAt_Create {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_updatedAt_Delete {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_updatedAt_Read {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_updatedAt_Update {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_url {
+  create: MediaDocAccessFields_url_Create
+  delete: MediaDocAccessFields_url_Delete
+  read: MediaDocAccessFields_url_Read
+  update: MediaDocAccessFields_url_Update
+}
+
+type MediaDocAccessFields_url_Create {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_url_Delete {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_url_Read {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_url_Update {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_width {
+  create: MediaDocAccessFields_width_Create
+  delete: MediaDocAccessFields_width_Delete
+  read: MediaDocAccessFields_width_Read
+  update: MediaDocAccessFields_width_Update
+}
+
+type MediaDocAccessFields_width_Create {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_width_Delete {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_width_Read {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_width_Update {
+  permission: Boolean!
+}
+
+type MediaFields {
+  alt: MediaFields_alt
+  createdAt: MediaFields_createdAt
+  filename: MediaFields_filename
+  filesize: MediaFields_filesize
+  height: MediaFields_height
+  mimeType: MediaFields_mimeType
+  title: MediaFields_title
+  updatedAt: MediaFields_updatedAt
+  url: MediaFields_url
+  width: MediaFields_width
+}
+
+type MediaFields_alt {
+  create: MediaFields_alt_Create
+  delete: MediaFields_alt_Delete
+  read: MediaFields_alt_Read
+  update: MediaFields_alt_Update
+}
+
+type MediaFields_alt_Create {
+  permission: Boolean!
+}
+
+type MediaFields_alt_Delete {
+  permission: Boolean!
+}
+
+type MediaFields_alt_Read {
+  permission: Boolean!
+}
+
+type MediaFields_alt_Update {
+  permission: Boolean!
+}
+
+type MediaFields_createdAt {
+  create: MediaFields_createdAt_Create
+  delete: MediaFields_createdAt_Delete
+  read: MediaFields_createdAt_Read
+  update: MediaFields_createdAt_Update
+}
+
+type MediaFields_createdAt_Create {
+  permission: Boolean!
+}
+
+type MediaFields_createdAt_Delete {
+  permission: Boolean!
+}
+
+type MediaFields_createdAt_Read {
+  permission: Boolean!
+}
+
+type MediaFields_createdAt_Update {
+  permission: Boolean!
+}
+
+type MediaFields_filename {
+  create: MediaFields_filename_Create
+  delete: MediaFields_filename_Delete
+  read: MediaFields_filename_Read
+  update: MediaFields_filename_Update
+}
+
+type MediaFields_filename_Create {
+  permission: Boolean!
+}
+
+type MediaFields_filename_Delete {
+  permission: Boolean!
+}
+
+type MediaFields_filename_Read {
+  permission: Boolean!
+}
+
+type MediaFields_filename_Update {
+  permission: Boolean!
+}
+
+type MediaFields_filesize {
+  create: MediaFields_filesize_Create
+  delete: MediaFields_filesize_Delete
+  read: MediaFields_filesize_Read
+  update: MediaFields_filesize_Update
+}
+
+type MediaFields_filesize_Create {
+  permission: Boolean!
+}
+
+type MediaFields_filesize_Delete {
+  permission: Boolean!
+}
+
+type MediaFields_filesize_Read {
+  permission: Boolean!
+}
+
+type MediaFields_filesize_Update {
+  permission: Boolean!
+}
+
+type MediaFields_height {
+  create: MediaFields_height_Create
+  delete: MediaFields_height_Delete
+  read: MediaFields_height_Read
+  update: MediaFields_height_Update
+}
+
+type MediaFields_height_Create {
+  permission: Boolean!
+}
+
+type MediaFields_height_Delete {
+  permission: Boolean!
+}
+
+type MediaFields_height_Read {
+  permission: Boolean!
+}
+
+type MediaFields_height_Update {
+  permission: Boolean!
+}
+
+type MediaFields_mimeType {
+  create: MediaFields_mimeType_Create
+  delete: MediaFields_mimeType_Delete
+  read: MediaFields_mimeType_Read
+  update: MediaFields_mimeType_Update
+}
+
+type MediaFields_mimeType_Create {
+  permission: Boolean!
+}
+
+type MediaFields_mimeType_Delete {
+  permission: Boolean!
+}
+
+type MediaFields_mimeType_Read {
+  permission: Boolean!
+}
+
+type MediaFields_mimeType_Update {
+  permission: Boolean!
+}
+
+type MediaFields_title {
+  create: MediaFields_title_Create
+  delete: MediaFields_title_Delete
+  read: MediaFields_title_Read
+  update: MediaFields_title_Update
+}
+
+type MediaFields_title_Create {
+  permission: Boolean!
+}
+
+type MediaFields_title_Delete {
+  permission: Boolean!
+}
+
+type MediaFields_title_Read {
+  permission: Boolean!
+}
+
+type MediaFields_title_Update {
+  permission: Boolean!
+}
+
+type MediaFields_updatedAt {
+  create: MediaFields_updatedAt_Create
+  delete: MediaFields_updatedAt_Delete
+  read: MediaFields_updatedAt_Read
+  update: MediaFields_updatedAt_Update
+}
+
+type MediaFields_updatedAt_Create {
+  permission: Boolean!
+}
+
+type MediaFields_updatedAt_Delete {
+  permission: Boolean!
+}
+
+type MediaFields_updatedAt_Read {
+  permission: Boolean!
+}
+
+type MediaFields_updatedAt_Update {
+  permission: Boolean!
+}
+
+type MediaFields_url {
+  create: MediaFields_url_Create
+  delete: MediaFields_url_Delete
+  read: MediaFields_url_Read
+  update: MediaFields_url_Update
+}
+
+type MediaFields_url_Create {
+  permission: Boolean!
+}
+
+type MediaFields_url_Delete {
+  permission: Boolean!
+}
+
+type MediaFields_url_Read {
+  permission: Boolean!
+}
+
+type MediaFields_url_Update {
+  permission: Boolean!
+}
+
+type MediaFields_width {
+  create: MediaFields_width_Create
+  delete: MediaFields_width_Delete
+  read: MediaFields_width_Read
+  update: MediaFields_width_Update
+}
+
+type MediaFields_width_Create {
+  permission: Boolean!
+}
+
+type MediaFields_width_Delete {
+  permission: Boolean!
+}
+
+type MediaFields_width_Read {
+  permission: Boolean!
+}
+
+type MediaFields_width_Update {
+  permission: Boolean!
+}
+
+type MediaReadAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type MediaReadDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type MediaUpdateAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type MediaUpdateDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+input Media_alt_operator {
+  all: [String]
+  contains: String
+  equals: String
+  exists: Boolean
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input Media_createdAt_operator {
+  equals: DateTime
+  exists: Boolean
+  greater_than: DateTime
+  greater_than_equal: DateTime
+  less_than: DateTime
+  less_than_equal: DateTime
+  like: DateTime
+  not_equals: DateTime
+}
+
+input Media_filename_operator {
+  all: [String]
+  contains: String
+  equals: String
+  exists: Boolean
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input Media_filesize_operator {
+  equals: Float
+  exists: Boolean
+  greater_than: Float
+  greater_than_equal: Float
+  less_than: Float
+  less_than_equal: Float
+  not_equals: Float
+}
+
+input Media_height_operator {
+  equals: Float
+  exists: Boolean
+  greater_than: Float
+  greater_than_equal: Float
+  less_than: Float
+  less_than_equal: Float
+  not_equals: Float
+}
+
+input Media_id_operator {
+  all: [String]
+  contains: String
+  equals: String
+  exists: Boolean
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input Media_mimeType_operator {
+  all: [String]
+  contains: String
+  equals: String
+  exists: Boolean
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input Media_title_operator {
+  all: [String]
+  contains: String
+  equals: String
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input Media_updatedAt_operator {
+  equals: DateTime
+  exists: Boolean
+  greater_than: DateTime
+  greater_than_equal: DateTime
+  less_than: DateTime
+  less_than_equal: DateTime
+  like: DateTime
+  not_equals: DateTime
+}
+
+input Media_url_operator {
+  all: [String]
+  contains: String
+  equals: String
+  exists: Boolean
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input Media_where {
+  AND: [Media_where_and]
+  OR: [Media_where_or]
+  alt: Media_alt_operator
+  createdAt: Media_createdAt_operator
+  filename: Media_filename_operator
+  filesize: Media_filesize_operator
+  height: Media_height_operator
+  id: Media_id_operator
+  mimeType: Media_mimeType_operator
+  title: Media_title_operator
+  updatedAt: Media_updatedAt_operator
+  url: Media_url_operator
+  width: Media_width_operator
+}
+
+input Media_where_and {
+  AND: [Media_where_and]
+  OR: [Media_where_or]
+  alt: Media_alt_operator
+  createdAt: Media_createdAt_operator
+  filename: Media_filename_operator
+  filesize: Media_filesize_operator
+  height: Media_height_operator
+  id: Media_id_operator
+  mimeType: Media_mimeType_operator
+  title: Media_title_operator
+  updatedAt: Media_updatedAt_operator
+  url: Media_url_operator
+  width: Media_width_operator
+}
+
+input Media_where_or {
+  AND: [Media_where_and]
+  OR: [Media_where_or]
+  alt: Media_alt_operator
+  createdAt: Media_createdAt_operator
+  filename: Media_filename_operator
+  filesize: Media_filesize_operator
+  height: Media_height_operator
+  id: Media_id_operator
+  mimeType: Media_mimeType_operator
+  title: Media_title_operator
+  updatedAt: Media_updatedAt_operator
+  url: Media_url_operator
+  width: Media_width_operator
+}
+
+input Media_width_operator {
+  equals: Float
+  exists: Boolean
+  greater_than: Float
+  greater_than_equal: Float
+  less_than: Float
+  less_than_equal: Float
+  not_equals: Float
+}
+
+type Mutation {
+  createArtist(data: mutationArtistInput!, draft: Boolean, locale: LocaleInputType): Artist
+  createMedia(data: mutationMediaInput!, draft: Boolean, locale: LocaleInputType): Media
+  createPayloadPreference(data: mutationPayloadPreferenceInput!, draft: Boolean, locale: LocaleInputType): PayloadPreference
+  createPerformance(data: mutationPerformanceInput!, draft: Boolean, locale: LocaleInputType): Performance
+  createPerformer(data: mutationPerformerInput!, draft: Boolean, locale: LocaleInputType): Performer
+  createShow(data: mutationShowInput!, draft: Boolean, locale: LocaleInputType): Show
+  createSong(data: mutationSongInput!, draft: Boolean, locale: LocaleInputType): Song
+  createUser(data: mutationUserInput!, draft: Boolean, locale: LocaleInputType): User
+  deleteArtist(id: String!): Artist
+  deleteMedia(id: String!): Media
+  deletePayloadPreference(id: String!): PayloadPreference
+  deletePerformance(id: String!): Performance
+  deletePerformer(id: String!): Performer
+  deleteShow(id: String!): Show
+  deleteSong(id: String!): Song
+  deleteUser(id: String!): User
+  forgotPasswordUser(disableEmail: Boolean, email: String!, expiration: Int): Boolean!
+  loginUser(email: String, password: String): usersLoginResult
+  logoutUser: String
+  refreshTokenUser(token: String): usersRefreshedUser
+  resetPasswordUser(password: String, token: String): usersResetPassword
+  restoreVersionArtist(id: String): Artist
+  restoreVersionPerformance(id: String): Performance
+  restoreVersionPerformer(id: String): Performer
+  restoreVersionSetting(id: String): Setting
+  restoreVersionShow(id: String): Show
+  restoreVersionSong(id: String): Song
+  unlockUser(email: String!): Boolean!
+  updateArtist(autosave: Boolean, data: mutationArtistUpdateInput!, draft: Boolean, id: String!, locale: LocaleInputType): Artist
+  updateMedia(autosave: Boolean, data: mutationMediaUpdateInput!, draft: Boolean, id: String!, locale: LocaleInputType): Media
+  updatePayloadPreference(autosave: Boolean, data: mutationPayloadPreferenceUpdateInput!, draft: Boolean, id: String!, locale: LocaleInputType): PayloadPreference
+  updatePerformance(autosave: Boolean, data: mutationPerformanceUpdateInput!, draft: Boolean, id: String!, locale: LocaleInputType): Performance
+  updatePerformer(autosave: Boolean, data: mutationPerformerUpdateInput!, draft: Boolean, id: String!, locale: LocaleInputType): Performer
+  updateSetting(data: mutationSettingInput!, draft: Boolean, locale: LocaleInputType): Setting
+  updateShow(autosave: Boolean, data: mutationShowUpdateInput!, draft: Boolean, id: String!, locale: LocaleInputType): Show
+  updateSong(autosave: Boolean, data: mutationSongUpdateInput!, draft: Boolean, id: String!, locale: LocaleInputType): Song
+  updateUser(autosave: Boolean, data: mutationUserUpdateInput!, draft: Boolean, id: String!, locale: LocaleInputType): User
+  verifyEmailUser(token: String): Boolean
+}
+
+type PayloadPreference {
+  createdAt: DateTime
+  id: String
+  key: String
+  updatedAt: DateTime
+  user(fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType): PayloadPreference_User_Relationship!
+  value: JSON
+}
+
+input PayloadPreferenceUpdate_UserRelationshipInput {
+  relationTo: PayloadPreferenceUpdate_UserRelationshipInputRelationTo
+  value: JSON
+}
+
+enum PayloadPreferenceUpdate_UserRelationshipInputRelationTo {
+  users
+}
+
+union PayloadPreference_User = User
+
+input PayloadPreference_UserRelationshipInput {
+  relationTo: PayloadPreference_UserRelationshipInputRelationTo
+  value: JSON
+}
+
+enum PayloadPreference_UserRelationshipInputRelationTo {
+  users
+}
+
+enum PayloadPreference_User_RelationTo {
+  users
+}
+
+type PayloadPreference_User_Relationship {
+  relationTo: PayloadPreference_User_RelationTo
+  value: PayloadPreference_User
+}
+
+input PayloadPreference_createdAt_operator {
+  equals: DateTime
+  exists: Boolean
+  greater_than: DateTime
+  greater_than_equal: DateTime
+  less_than: DateTime
+  less_than_equal: DateTime
+  like: DateTime
+  not_equals: DateTime
+}
+
+input PayloadPreference_id_operator {
+  all: [String]
+  contains: String
+  equals: String
+  exists: Boolean
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input PayloadPreference_key_operator {
+  all: [String]
+  contains: String
+  equals: String
+  exists: Boolean
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input PayloadPreference_updatedAt_operator {
+  equals: DateTime
+  exists: Boolean
+  greater_than: DateTime
+  greater_than_equal: DateTime
+  less_than: DateTime
+  less_than_equal: DateTime
+  like: DateTime
+  not_equals: DateTime
+}
+
+input PayloadPreference_user_Relation {
+  relationTo: PayloadPreference_user_Relation_RelationTo
+  value: JSON
+}
+
+enum PayloadPreference_user_Relation_RelationTo {
+  users
+}
+
+input PayloadPreference_value_operator {
+  contains: JSON
+  equals: JSON
+  exists: Boolean
+  intersects: JSON
+  like: JSON
+  not_equals: JSON
+  within: JSON
+}
+
+input PayloadPreference_where {
+  AND: [PayloadPreference_where_and]
+  OR: [PayloadPreference_where_or]
+  createdAt: PayloadPreference_createdAt_operator
+  id: PayloadPreference_id_operator
+  key: PayloadPreference_key_operator
+  updatedAt: PayloadPreference_updatedAt_operator
+  user: PayloadPreference_user_Relation
+  value: PayloadPreference_value_operator
+}
+
+input PayloadPreference_where_and {
+  AND: [PayloadPreference_where_and]
+  OR: [PayloadPreference_where_or]
+  createdAt: PayloadPreference_createdAt_operator
+  id: PayloadPreference_id_operator
+  key: PayloadPreference_key_operator
+  updatedAt: PayloadPreference_updatedAt_operator
+  user: PayloadPreference_user_Relation
+  value: PayloadPreference_value_operator
+}
+
+input PayloadPreference_where_or {
+  AND: [PayloadPreference_where_and]
+  OR: [PayloadPreference_where_or]
+  createdAt: PayloadPreference_createdAt_operator
+  id: PayloadPreference_id_operator
+  key: PayloadPreference_key_operator
+  updatedAt: PayloadPreference_updatedAt_operator
+  user: PayloadPreference_user_Relation
+  value: PayloadPreference_value_operator
+}
+
+type PayloadPreferences {
+  docs: [PayloadPreference]
+  hasNextPage: Boolean
+  hasPrevPage: Boolean
+  limit: Int
+  nextPage: Int
+  offset: Int
+  page: Int
+  pagingCounter: Int
+  prevPage: Int
+  totalDocs: Int
+  totalPages: Int
+}
+
+type PayloadPreferencesCreateAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type PayloadPreferencesCreateDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type PayloadPreferencesDeleteAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type PayloadPreferencesDeleteDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type PayloadPreferencesDocAccessFields {
+  createdAt: PayloadPreferencesDocAccessFields_createdAt
+  key: PayloadPreferencesDocAccessFields_key
+  updatedAt: PayloadPreferencesDocAccessFields_updatedAt
+  user: PayloadPreferencesDocAccessFields_user
+  value: PayloadPreferencesDocAccessFields_value
+}
+
+type PayloadPreferencesDocAccessFields_createdAt {
+  create: PayloadPreferencesDocAccessFields_createdAt_Create
+  delete: PayloadPreferencesDocAccessFields_createdAt_Delete
+  read: PayloadPreferencesDocAccessFields_createdAt_Read
+  update: PayloadPreferencesDocAccessFields_createdAt_Update
+}
+
+type PayloadPreferencesDocAccessFields_createdAt_Create {
+  permission: Boolean!
+}
+
+type PayloadPreferencesDocAccessFields_createdAt_Delete {
+  permission: Boolean!
+}
+
+type PayloadPreferencesDocAccessFields_createdAt_Read {
+  permission: Boolean!
+}
+
+type PayloadPreferencesDocAccessFields_createdAt_Update {
+  permission: Boolean!
+}
+
+type PayloadPreferencesDocAccessFields_key {
+  create: PayloadPreferencesDocAccessFields_key_Create
+  delete: PayloadPreferencesDocAccessFields_key_Delete
+  read: PayloadPreferencesDocAccessFields_key_Read
+  update: PayloadPreferencesDocAccessFields_key_Update
+}
+
+type PayloadPreferencesDocAccessFields_key_Create {
+  permission: Boolean!
+}
+
+type PayloadPreferencesDocAccessFields_key_Delete {
+  permission: Boolean!
+}
+
+type PayloadPreferencesDocAccessFields_key_Read {
+  permission: Boolean!
+}
+
+type PayloadPreferencesDocAccessFields_key_Update {
+  permission: Boolean!
+}
+
+type PayloadPreferencesDocAccessFields_updatedAt {
+  create: PayloadPreferencesDocAccessFields_updatedAt_Create
+  delete: PayloadPreferencesDocAccessFields_updatedAt_Delete
+  read: PayloadPreferencesDocAccessFields_updatedAt_Read
+  update: PayloadPreferencesDocAccessFields_updatedAt_Update
+}
+
+type PayloadPreferencesDocAccessFields_updatedAt_Create {
+  permission: Boolean!
+}
+
+type PayloadPreferencesDocAccessFields_updatedAt_Delete {
+  permission: Boolean!
+}
+
+type PayloadPreferencesDocAccessFields_updatedAt_Read {
+  permission: Boolean!
+}
+
+type PayloadPreferencesDocAccessFields_updatedAt_Update {
+  permission: Boolean!
+}
+
+type PayloadPreferencesDocAccessFields_user {
+  create: PayloadPreferencesDocAccessFields_user_Create
+  delete: PayloadPreferencesDocAccessFields_user_Delete
+  read: PayloadPreferencesDocAccessFields_user_Read
+  update: PayloadPreferencesDocAccessFields_user_Update
+}
+
+type PayloadPreferencesDocAccessFields_user_Create {
+  permission: Boolean!
+}
+
+type PayloadPreferencesDocAccessFields_user_Delete {
+  permission: Boolean!
+}
+
+type PayloadPreferencesDocAccessFields_user_Read {
+  permission: Boolean!
+}
+
+type PayloadPreferencesDocAccessFields_user_Update {
+  permission: Boolean!
+}
+
+type PayloadPreferencesDocAccessFields_value {
+  create: PayloadPreferencesDocAccessFields_value_Create
+  delete: PayloadPreferencesDocAccessFields_value_Delete
+  read: PayloadPreferencesDocAccessFields_value_Read
+  update: PayloadPreferencesDocAccessFields_value_Update
+}
+
+type PayloadPreferencesDocAccessFields_value_Create {
+  permission: Boolean!
+}
+
+type PayloadPreferencesDocAccessFields_value_Delete {
+  permission: Boolean!
+}
+
+type PayloadPreferencesDocAccessFields_value_Read {
+  permission: Boolean!
+}
+
+type PayloadPreferencesDocAccessFields_value_Update {
+  permission: Boolean!
+}
+
+type PayloadPreferencesFields {
+  createdAt: PayloadPreferencesFields_createdAt
+  key: PayloadPreferencesFields_key
+  updatedAt: PayloadPreferencesFields_updatedAt
+  user: PayloadPreferencesFields_user
+  value: PayloadPreferencesFields_value
+}
+
+type PayloadPreferencesFields_createdAt {
+  create: PayloadPreferencesFields_createdAt_Create
+  delete: PayloadPreferencesFields_createdAt_Delete
+  read: PayloadPreferencesFields_createdAt_Read
+  update: PayloadPreferencesFields_createdAt_Update
+}
+
+type PayloadPreferencesFields_createdAt_Create {
+  permission: Boolean!
+}
+
+type PayloadPreferencesFields_createdAt_Delete {
+  permission: Boolean!
+}
+
+type PayloadPreferencesFields_createdAt_Read {
+  permission: Boolean!
+}
+
+type PayloadPreferencesFields_createdAt_Update {
+  permission: Boolean!
+}
+
+type PayloadPreferencesFields_key {
+  create: PayloadPreferencesFields_key_Create
+  delete: PayloadPreferencesFields_key_Delete
+  read: PayloadPreferencesFields_key_Read
+  update: PayloadPreferencesFields_key_Update
+}
+
+type PayloadPreferencesFields_key_Create {
+  permission: Boolean!
+}
+
+type PayloadPreferencesFields_key_Delete {
+  permission: Boolean!
+}
+
+type PayloadPreferencesFields_key_Read {
+  permission: Boolean!
+}
+
+type PayloadPreferencesFields_key_Update {
+  permission: Boolean!
+}
+
+type PayloadPreferencesFields_updatedAt {
+  create: PayloadPreferencesFields_updatedAt_Create
+  delete: PayloadPreferencesFields_updatedAt_Delete
+  read: PayloadPreferencesFields_updatedAt_Read
+  update: PayloadPreferencesFields_updatedAt_Update
+}
+
+type PayloadPreferencesFields_updatedAt_Create {
+  permission: Boolean!
+}
+
+type PayloadPreferencesFields_updatedAt_Delete {
+  permission: Boolean!
+}
+
+type PayloadPreferencesFields_updatedAt_Read {
+  permission: Boolean!
+}
+
+type PayloadPreferencesFields_updatedAt_Update {
+  permission: Boolean!
+}
+
+type PayloadPreferencesFields_user {
+  create: PayloadPreferencesFields_user_Create
+  delete: PayloadPreferencesFields_user_Delete
+  read: PayloadPreferencesFields_user_Read
+  update: PayloadPreferencesFields_user_Update
+}
+
+type PayloadPreferencesFields_user_Create {
+  permission: Boolean!
+}
+
+type PayloadPreferencesFields_user_Delete {
+  permission: Boolean!
+}
+
+type PayloadPreferencesFields_user_Read {
+  permission: Boolean!
+}
+
+type PayloadPreferencesFields_user_Update {
+  permission: Boolean!
+}
+
+type PayloadPreferencesFields_value {
+  create: PayloadPreferencesFields_value_Create
+  delete: PayloadPreferencesFields_value_Delete
+  read: PayloadPreferencesFields_value_Read
+  update: PayloadPreferencesFields_value_Update
+}
+
+type PayloadPreferencesFields_value_Create {
+  permission: Boolean!
+}
+
+type PayloadPreferencesFields_value_Delete {
+  permission: Boolean!
+}
+
+type PayloadPreferencesFields_value_Read {
+  permission: Boolean!
+}
+
+type PayloadPreferencesFields_value_Update {
+  permission: Boolean!
+}
+
+type PayloadPreferencesReadAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type PayloadPreferencesReadDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type PayloadPreferencesUpdateAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type PayloadPreferencesUpdateDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type Performance {
+  _status: Performance__status
+  createdAt: DateTime
+  description(depth: Int): JSON
+  id: String
+  title: String
+  updatedAt: DateTime
+}
+
+enum PerformanceUpdate__status_MutationInput {
+  draft
+  published
+}
+
+type PerformanceVersion {
+  createdAt: DateTime
+  id: String
+  latest: Boolean
+  parent(fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType): Performance
+  updatedAt: DateTime
+  version: PerformanceVersion_Version
+}
+
+type PerformanceVersion_Version {
+  _status: PerformanceVersion_Version__status
+  createdAt: DateTime
+  description(depth: Int): JSON
+  title: String
+  updatedAt: DateTime
+}
+
+enum PerformanceVersion_Version__status {
+  draft
+  published
+}
+
+enum Performance__status {
+  draft
+  published
+}
+
+enum Performance__status_Input {
+  draft
+  published
+}
+
+enum Performance__status_MutationInput {
+  draft
+  published
+}
+
+input Performance__status_operator {
+  all: [Performance__status_Input]
+  equals: Performance__status_Input
+  exists: Boolean
+  in: [Performance__status_Input]
+  not_equals: Performance__status_Input
+  not_in: [Performance__status_Input]
+}
+
+input Performance_createdAt_operator {
+  equals: DateTime
+  exists: Boolean
+  greater_than: DateTime
+  greater_than_equal: DateTime
+  less_than: DateTime
+  less_than_equal: DateTime
+  like: DateTime
+  not_equals: DateTime
+}
+
+input Performance_description_operator {
+  contains: JSON
+  equals: JSON
+  exists: Boolean
+  like: JSON
+  not_equals: JSON
+}
+
+input Performance_id_operator {
+  all: [String]
+  contains: String
+  equals: String
+  exists: Boolean
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input Performance_title_operator {
+  all: [String]
+  contains: String
+  equals: String
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input Performance_updatedAt_operator {
+  equals: DateTime
+  exists: Boolean
+  greater_than: DateTime
+  greater_than_equal: DateTime
+  less_than: DateTime
+  less_than_equal: DateTime
+  like: DateTime
+  not_equals: DateTime
+}
+
+input Performance_where {
+  AND: [Performance_where_and]
+  OR: [Performance_where_or]
+  _status: Performance__status_operator
+  createdAt: Performance_createdAt_operator
+  description: Performance_description_operator
+  id: Performance_id_operator
+  title: Performance_title_operator
+  updatedAt: Performance_updatedAt_operator
+}
+
+input Performance_where_and {
+  AND: [Performance_where_and]
+  OR: [Performance_where_or]
+  _status: Performance__status_operator
+  createdAt: Performance_createdAt_operator
+  description: Performance_description_operator
+  id: Performance_id_operator
+  title: Performance_title_operator
+  updatedAt: Performance_updatedAt_operator
+}
+
+input Performance_where_or {
+  AND: [Performance_where_and]
+  OR: [Performance_where_or]
+  _status: Performance__status_operator
+  createdAt: Performance_createdAt_operator
+  description: Performance_description_operator
+  id: Performance_id_operator
+  title: Performance_title_operator
+  updatedAt: Performance_updatedAt_operator
+}
+
+type Performances {
+  docs: [Performance]
+  hasNextPage: Boolean
+  hasPrevPage: Boolean
+  limit: Int
+  nextPage: Int
+  offset: Int
+  page: Int
+  pagingCounter: Int
+  prevPage: Int
+  totalDocs: Int
+  totalPages: Int
+}
+
+type PerformancesCreateAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type PerformancesCreateDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type PerformancesDeleteAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type PerformancesDeleteDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type PerformancesDocAccessFields {
+  _status: PerformancesDocAccessFields__status
+  createdAt: PerformancesDocAccessFields_createdAt
+  description: PerformancesDocAccessFields_description
+  title: PerformancesDocAccessFields_title
+  updatedAt: PerformancesDocAccessFields_updatedAt
+}
+
+type PerformancesDocAccessFields__status {
+  create: PerformancesDocAccessFields__status_Create
+  delete: PerformancesDocAccessFields__status_Delete
+  read: PerformancesDocAccessFields__status_Read
+  update: PerformancesDocAccessFields__status_Update
+}
+
+type PerformancesDocAccessFields__status_Create {
+  permission: Boolean!
+}
+
+type PerformancesDocAccessFields__status_Delete {
+  permission: Boolean!
+}
+
+type PerformancesDocAccessFields__status_Read {
+  permission: Boolean!
+}
+
+type PerformancesDocAccessFields__status_Update {
+  permission: Boolean!
+}
+
+type PerformancesDocAccessFields_createdAt {
+  create: PerformancesDocAccessFields_createdAt_Create
+  delete: PerformancesDocAccessFields_createdAt_Delete
+  read: PerformancesDocAccessFields_createdAt_Read
+  update: PerformancesDocAccessFields_createdAt_Update
+}
+
+type PerformancesDocAccessFields_createdAt_Create {
+  permission: Boolean!
+}
+
+type PerformancesDocAccessFields_createdAt_Delete {
+  permission: Boolean!
+}
+
+type PerformancesDocAccessFields_createdAt_Read {
+  permission: Boolean!
+}
+
+type PerformancesDocAccessFields_createdAt_Update {
+  permission: Boolean!
+}
+
+type PerformancesDocAccessFields_description {
+  create: PerformancesDocAccessFields_description_Create
+  delete: PerformancesDocAccessFields_description_Delete
+  read: PerformancesDocAccessFields_description_Read
+  update: PerformancesDocAccessFields_description_Update
+}
+
+type PerformancesDocAccessFields_description_Create {
+  permission: Boolean!
+}
+
+type PerformancesDocAccessFields_description_Delete {
+  permission: Boolean!
+}
+
+type PerformancesDocAccessFields_description_Read {
+  permission: Boolean!
+}
+
+type PerformancesDocAccessFields_description_Update {
+  permission: Boolean!
+}
+
+type PerformancesDocAccessFields_title {
+  create: PerformancesDocAccessFields_title_Create
+  delete: PerformancesDocAccessFields_title_Delete
+  read: PerformancesDocAccessFields_title_Read
+  update: PerformancesDocAccessFields_title_Update
+}
+
+type PerformancesDocAccessFields_title_Create {
+  permission: Boolean!
+}
+
+type PerformancesDocAccessFields_title_Delete {
+  permission: Boolean!
+}
+
+type PerformancesDocAccessFields_title_Read {
+  permission: Boolean!
+}
+
+type PerformancesDocAccessFields_title_Update {
+  permission: Boolean!
+}
+
+type PerformancesDocAccessFields_updatedAt {
+  create: PerformancesDocAccessFields_updatedAt_Create
+  delete: PerformancesDocAccessFields_updatedAt_Delete
+  read: PerformancesDocAccessFields_updatedAt_Read
+  update: PerformancesDocAccessFields_updatedAt_Update
+}
+
+type PerformancesDocAccessFields_updatedAt_Create {
+  permission: Boolean!
+}
+
+type PerformancesDocAccessFields_updatedAt_Delete {
+  permission: Boolean!
+}
+
+type PerformancesDocAccessFields_updatedAt_Read {
+  permission: Boolean!
+}
+
+type PerformancesDocAccessFields_updatedAt_Update {
+  permission: Boolean!
+}
+
+type PerformancesFields {
+  _status: PerformancesFields__status
+  createdAt: PerformancesFields_createdAt
+  description: PerformancesFields_description
+  title: PerformancesFields_title
+  updatedAt: PerformancesFields_updatedAt
+}
+
+type PerformancesFields__status {
+  create: PerformancesFields__status_Create
+  delete: PerformancesFields__status_Delete
+  read: PerformancesFields__status_Read
+  update: PerformancesFields__status_Update
+}
+
+type PerformancesFields__status_Create {
+  permission: Boolean!
+}
+
+type PerformancesFields__status_Delete {
+  permission: Boolean!
+}
+
+type PerformancesFields__status_Read {
+  permission: Boolean!
+}
+
+type PerformancesFields__status_Update {
+  permission: Boolean!
+}
+
+type PerformancesFields_createdAt {
+  create: PerformancesFields_createdAt_Create
+  delete: PerformancesFields_createdAt_Delete
+  read: PerformancesFields_createdAt_Read
+  update: PerformancesFields_createdAt_Update
+}
+
+type PerformancesFields_createdAt_Create {
+  permission: Boolean!
+}
+
+type PerformancesFields_createdAt_Delete {
+  permission: Boolean!
+}
+
+type PerformancesFields_createdAt_Read {
+  permission: Boolean!
+}
+
+type PerformancesFields_createdAt_Update {
+  permission: Boolean!
+}
+
+type PerformancesFields_description {
+  create: PerformancesFields_description_Create
+  delete: PerformancesFields_description_Delete
+  read: PerformancesFields_description_Read
+  update: PerformancesFields_description_Update
+}
+
+type PerformancesFields_description_Create {
+  permission: Boolean!
+}
+
+type PerformancesFields_description_Delete {
+  permission: Boolean!
+}
+
+type PerformancesFields_description_Read {
+  permission: Boolean!
+}
+
+type PerformancesFields_description_Update {
+  permission: Boolean!
+}
+
+type PerformancesFields_title {
+  create: PerformancesFields_title_Create
+  delete: PerformancesFields_title_Delete
+  read: PerformancesFields_title_Read
+  update: PerformancesFields_title_Update
+}
+
+type PerformancesFields_title_Create {
+  permission: Boolean!
+}
+
+type PerformancesFields_title_Delete {
+  permission: Boolean!
+}
+
+type PerformancesFields_title_Read {
+  permission: Boolean!
+}
+
+type PerformancesFields_title_Update {
+  permission: Boolean!
+}
+
+type PerformancesFields_updatedAt {
+  create: PerformancesFields_updatedAt_Create
+  delete: PerformancesFields_updatedAt_Delete
+  read: PerformancesFields_updatedAt_Read
+  update: PerformancesFields_updatedAt_Update
+}
+
+type PerformancesFields_updatedAt_Create {
+  permission: Boolean!
+}
+
+type PerformancesFields_updatedAt_Delete {
+  permission: Boolean!
+}
+
+type PerformancesFields_updatedAt_Read {
+  permission: Boolean!
+}
+
+type PerformancesFields_updatedAt_Update {
+  permission: Boolean!
+}
+
+type PerformancesReadAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type PerformancesReadDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type PerformancesReadVersionsAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type PerformancesReadVersionsDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type PerformancesUpdateAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type PerformancesUpdateDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type Performer {
+  _status: Performer__status
+  createdAt: DateTime
+  description(depth: Int): JSON
+  id: String
+  image(fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType, where: Performer_Image_where): Media
+  title: String
+  updatedAt: DateTime
+}
+
+enum PerformerUpdate__status_MutationInput {
+  draft
+  published
+}
+
+type PerformerVersion {
+  createdAt: DateTime
+  id: String
+  latest: Boolean
+  parent(fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType): Performer
+  updatedAt: DateTime
+  version: PerformerVersion_Version
+}
+
+type PerformerVersion_Version {
+  _status: PerformerVersion_Version__status
+  createdAt: DateTime
+  description(depth: Int): JSON
+  image(fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType, where: PerformerVersion_Version_Image_where): Media
+  title: String
+  updatedAt: DateTime
+}
+
+input PerformerVersion_Version_Image_alt_operator {
+  all: [String]
+  contains: String
+  equals: String
+  exists: Boolean
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input PerformerVersion_Version_Image_createdAt_operator {
+  equals: DateTime
+  exists: Boolean
+  greater_than: DateTime
+  greater_than_equal: DateTime
+  less_than: DateTime
+  less_than_equal: DateTime
+  like: DateTime
+  not_equals: DateTime
+}
+
+input PerformerVersion_Version_Image_filename_operator {
+  all: [String]
+  contains: String
+  equals: String
+  exists: Boolean
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input PerformerVersion_Version_Image_filesize_operator {
+  equals: Float
+  exists: Boolean
+  greater_than: Float
+  greater_than_equal: Float
+  less_than: Float
+  less_than_equal: Float
+  not_equals: Float
+}
+
+input PerformerVersion_Version_Image_height_operator {
+  equals: Float
+  exists: Boolean
+  greater_than: Float
+  greater_than_equal: Float
+  less_than: Float
+  less_than_equal: Float
+  not_equals: Float
+}
+
+input PerformerVersion_Version_Image_id_operator {
+  all: [String]
+  contains: String
+  equals: String
+  exists: Boolean
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input PerformerVersion_Version_Image_mimeType_operator {
+  all: [String]
+  contains: String
+  equals: String
+  exists: Boolean
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input PerformerVersion_Version_Image_title_operator {
+  all: [String]
+  contains: String
+  equals: String
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input PerformerVersion_Version_Image_updatedAt_operator {
+  equals: DateTime
+  exists: Boolean
+  greater_than: DateTime
+  greater_than_equal: DateTime
+  less_than: DateTime
+  less_than_equal: DateTime
+  like: DateTime
+  not_equals: DateTime
+}
+
+input PerformerVersion_Version_Image_url_operator {
+  all: [String]
+  contains: String
+  equals: String
+  exists: Boolean
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input PerformerVersion_Version_Image_where {
+  AND: [PerformerVersion_Version_Image_where_and]
+  OR: [PerformerVersion_Version_Image_where_or]
+  alt: PerformerVersion_Version_Image_alt_operator
+  createdAt: PerformerVersion_Version_Image_createdAt_operator
+  filename: PerformerVersion_Version_Image_filename_operator
+  filesize: PerformerVersion_Version_Image_filesize_operator
+  height: PerformerVersion_Version_Image_height_operator
+  id: PerformerVersion_Version_Image_id_operator
+  mimeType: PerformerVersion_Version_Image_mimeType_operator
+  title: PerformerVersion_Version_Image_title_operator
+  updatedAt: PerformerVersion_Version_Image_updatedAt_operator
+  url: PerformerVersion_Version_Image_url_operator
+  width: PerformerVersion_Version_Image_width_operator
+}
+
+input PerformerVersion_Version_Image_where_and {
+  AND: [PerformerVersion_Version_Image_where_and]
+  OR: [PerformerVersion_Version_Image_where_or]
+  alt: PerformerVersion_Version_Image_alt_operator
+  createdAt: PerformerVersion_Version_Image_createdAt_operator
+  filename: PerformerVersion_Version_Image_filename_operator
+  filesize: PerformerVersion_Version_Image_filesize_operator
+  height: PerformerVersion_Version_Image_height_operator
+  id: PerformerVersion_Version_Image_id_operator
+  mimeType: PerformerVersion_Version_Image_mimeType_operator
+  title: PerformerVersion_Version_Image_title_operator
+  updatedAt: PerformerVersion_Version_Image_updatedAt_operator
+  url: PerformerVersion_Version_Image_url_operator
+  width: PerformerVersion_Version_Image_width_operator
+}
+
+input PerformerVersion_Version_Image_where_or {
+  AND: [PerformerVersion_Version_Image_where_and]
+  OR: [PerformerVersion_Version_Image_where_or]
+  alt: PerformerVersion_Version_Image_alt_operator
+  createdAt: PerformerVersion_Version_Image_createdAt_operator
+  filename: PerformerVersion_Version_Image_filename_operator
+  filesize: PerformerVersion_Version_Image_filesize_operator
+  height: PerformerVersion_Version_Image_height_operator
+  id: PerformerVersion_Version_Image_id_operator
+  mimeType: PerformerVersion_Version_Image_mimeType_operator
+  title: PerformerVersion_Version_Image_title_operator
+  updatedAt: PerformerVersion_Version_Image_updatedAt_operator
+  url: PerformerVersion_Version_Image_url_operator
+  width: PerformerVersion_Version_Image_width_operator
+}
+
+input PerformerVersion_Version_Image_width_operator {
+  equals: Float
+  exists: Boolean
+  greater_than: Float
+  greater_than_equal: Float
+  less_than: Float
+  less_than_equal: Float
+  not_equals: Float
+}
+
+enum PerformerVersion_Version__status {
+  draft
+  published
+}
+
+input Performer_Image_alt_operator {
+  all: [String]
+  contains: String
+  equals: String
+  exists: Boolean
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input Performer_Image_createdAt_operator {
+  equals: DateTime
+  exists: Boolean
+  greater_than: DateTime
+  greater_than_equal: DateTime
+  less_than: DateTime
+  less_than_equal: DateTime
+  like: DateTime
+  not_equals: DateTime
+}
+
+input Performer_Image_filename_operator {
+  all: [String]
+  contains: String
+  equals: String
+  exists: Boolean
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input Performer_Image_filesize_operator {
+  equals: Float
+  exists: Boolean
+  greater_than: Float
+  greater_than_equal: Float
+  less_than: Float
+  less_than_equal: Float
+  not_equals: Float
+}
+
+input Performer_Image_height_operator {
+  equals: Float
+  exists: Boolean
+  greater_than: Float
+  greater_than_equal: Float
+  less_than: Float
+  less_than_equal: Float
+  not_equals: Float
+}
+
+input Performer_Image_id_operator {
+  all: [String]
+  contains: String
+  equals: String
+  exists: Boolean
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input Performer_Image_mimeType_operator {
+  all: [String]
+  contains: String
+  equals: String
+  exists: Boolean
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input Performer_Image_title_operator {
+  all: [String]
+  contains: String
+  equals: String
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input Performer_Image_updatedAt_operator {
+  equals: DateTime
+  exists: Boolean
+  greater_than: DateTime
+  greater_than_equal: DateTime
+  less_than: DateTime
+  less_than_equal: DateTime
+  like: DateTime
+  not_equals: DateTime
+}
+
+input Performer_Image_url_operator {
+  all: [String]
+  contains: String
+  equals: String
+  exists: Boolean
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input Performer_Image_where {
+  AND: [Performer_Image_where_and]
+  OR: [Performer_Image_where_or]
+  alt: Performer_Image_alt_operator
+  createdAt: Performer_Image_createdAt_operator
+  filename: Performer_Image_filename_operator
+  filesize: Performer_Image_filesize_operator
+  height: Performer_Image_height_operator
+  id: Performer_Image_id_operator
+  mimeType: Performer_Image_mimeType_operator
+  title: Performer_Image_title_operator
+  updatedAt: Performer_Image_updatedAt_operator
+  url: Performer_Image_url_operator
+  width: Performer_Image_width_operator
+}
+
+input Performer_Image_where_and {
+  AND: [Performer_Image_where_and]
+  OR: [Performer_Image_where_or]
+  alt: Performer_Image_alt_operator
+  createdAt: Performer_Image_createdAt_operator
+  filename: Performer_Image_filename_operator
+  filesize: Performer_Image_filesize_operator
+  height: Performer_Image_height_operator
+  id: Performer_Image_id_operator
+  mimeType: Performer_Image_mimeType_operator
+  title: Performer_Image_title_operator
+  updatedAt: Performer_Image_updatedAt_operator
+  url: Performer_Image_url_operator
+  width: Performer_Image_width_operator
+}
+
+input Performer_Image_where_or {
+  AND: [Performer_Image_where_and]
+  OR: [Performer_Image_where_or]
+  alt: Performer_Image_alt_operator
+  createdAt: Performer_Image_createdAt_operator
+  filename: Performer_Image_filename_operator
+  filesize: Performer_Image_filesize_operator
+  height: Performer_Image_height_operator
+  id: Performer_Image_id_operator
+  mimeType: Performer_Image_mimeType_operator
+  title: Performer_Image_title_operator
+  updatedAt: Performer_Image_updatedAt_operator
+  url: Performer_Image_url_operator
+  width: Performer_Image_width_operator
+}
+
+input Performer_Image_width_operator {
+  equals: Float
+  exists: Boolean
+  greater_than: Float
+  greater_than_equal: Float
+  less_than: Float
+  less_than_equal: Float
+  not_equals: Float
+}
+
+enum Performer__status {
+  draft
+  published
+}
+
+enum Performer__status_Input {
+  draft
+  published
+}
+
+enum Performer__status_MutationInput {
+  draft
+  published
+}
+
+input Performer__status_operator {
+  all: [Performer__status_Input]
+  equals: Performer__status_Input
+  exists: Boolean
+  in: [Performer__status_Input]
+  not_equals: Performer__status_Input
+  not_in: [Performer__status_Input]
+}
+
+input Performer_createdAt_operator {
+  equals: DateTime
+  exists: Boolean
+  greater_than: DateTime
+  greater_than_equal: DateTime
+  less_than: DateTime
+  less_than_equal: DateTime
+  like: DateTime
+  not_equals: DateTime
+}
+
+input Performer_description_operator {
+  contains: JSON
+  equals: JSON
+  exists: Boolean
+  like: JSON
+  not_equals: JSON
+}
+
+input Performer_id_operator {
+  all: [String]
+  contains: String
+  equals: String
+  exists: Boolean
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input Performer_image_operator {
+  equals: String
+  not_equals: String
+}
+
+input Performer_title_operator {
+  all: [String]
+  contains: String
+  equals: String
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input Performer_updatedAt_operator {
+  equals: DateTime
+  exists: Boolean
+  greater_than: DateTime
+  greater_than_equal: DateTime
+  less_than: DateTime
+  less_than_equal: DateTime
+  like: DateTime
+  not_equals: DateTime
+}
+
+input Performer_where {
+  AND: [Performer_where_and]
+  OR: [Performer_where_or]
+  _status: Performer__status_operator
+  createdAt: Performer_createdAt_operator
+  description: Performer_description_operator
+  id: Performer_id_operator
+  image: Performer_image_operator
+  title: Performer_title_operator
+  updatedAt: Performer_updatedAt_operator
+}
+
+input Performer_where_and {
+  AND: [Performer_where_and]
+  OR: [Performer_where_or]
+  _status: Performer__status_operator
+  createdAt: Performer_createdAt_operator
+  description: Performer_description_operator
+  id: Performer_id_operator
+  image: Performer_image_operator
+  title: Performer_title_operator
+  updatedAt: Performer_updatedAt_operator
+}
+
+input Performer_where_or {
+  AND: [Performer_where_and]
+  OR: [Performer_where_or]
+  _status: Performer__status_operator
+  createdAt: Performer_createdAt_operator
+  description: Performer_description_operator
+  id: Performer_id_operator
+  image: Performer_image_operator
+  title: Performer_title_operator
+  updatedAt: Performer_updatedAt_operator
+}
+
+type Performers {
+  docs: [Performer]
+  hasNextPage: Boolean
+  hasPrevPage: Boolean
+  limit: Int
+  nextPage: Int
+  offset: Int
+  page: Int
+  pagingCounter: Int
+  prevPage: Int
+  totalDocs: Int
+  totalPages: Int
+}
+
+type PerformersCreateAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type PerformersCreateDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type PerformersDeleteAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type PerformersDeleteDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type PerformersDocAccessFields {
+  _status: PerformersDocAccessFields__status
+  createdAt: PerformersDocAccessFields_createdAt
+  description: PerformersDocAccessFields_description
+  image: PerformersDocAccessFields_image
+  title: PerformersDocAccessFields_title
+  updatedAt: PerformersDocAccessFields_updatedAt
+}
+
+type PerformersDocAccessFields__status {
+  create: PerformersDocAccessFields__status_Create
+  delete: PerformersDocAccessFields__status_Delete
+  read: PerformersDocAccessFields__status_Read
+  update: PerformersDocAccessFields__status_Update
+}
+
+type PerformersDocAccessFields__status_Create {
+  permission: Boolean!
+}
+
+type PerformersDocAccessFields__status_Delete {
+  permission: Boolean!
+}
+
+type PerformersDocAccessFields__status_Read {
+  permission: Boolean!
+}
+
+type PerformersDocAccessFields__status_Update {
+  permission: Boolean!
+}
+
+type PerformersDocAccessFields_createdAt {
+  create: PerformersDocAccessFields_createdAt_Create
+  delete: PerformersDocAccessFields_createdAt_Delete
+  read: PerformersDocAccessFields_createdAt_Read
+  update: PerformersDocAccessFields_createdAt_Update
+}
+
+type PerformersDocAccessFields_createdAt_Create {
+  permission: Boolean!
+}
+
+type PerformersDocAccessFields_createdAt_Delete {
+  permission: Boolean!
+}
+
+type PerformersDocAccessFields_createdAt_Read {
+  permission: Boolean!
+}
+
+type PerformersDocAccessFields_createdAt_Update {
+  permission: Boolean!
+}
+
+type PerformersDocAccessFields_description {
+  create: PerformersDocAccessFields_description_Create
+  delete: PerformersDocAccessFields_description_Delete
+  read: PerformersDocAccessFields_description_Read
+  update: PerformersDocAccessFields_description_Update
+}
+
+type PerformersDocAccessFields_description_Create {
+  permission: Boolean!
+}
+
+type PerformersDocAccessFields_description_Delete {
+  permission: Boolean!
+}
+
+type PerformersDocAccessFields_description_Read {
+  permission: Boolean!
+}
+
+type PerformersDocAccessFields_description_Update {
+  permission: Boolean!
+}
+
+type PerformersDocAccessFields_image {
+  create: PerformersDocAccessFields_image_Create
+  delete: PerformersDocAccessFields_image_Delete
+  read: PerformersDocAccessFields_image_Read
+  update: PerformersDocAccessFields_image_Update
+}
+
+type PerformersDocAccessFields_image_Create {
+  permission: Boolean!
+}
+
+type PerformersDocAccessFields_image_Delete {
+  permission: Boolean!
+}
+
+type PerformersDocAccessFields_image_Read {
+  permission: Boolean!
+}
+
+type PerformersDocAccessFields_image_Update {
+  permission: Boolean!
+}
+
+type PerformersDocAccessFields_title {
+  create: PerformersDocAccessFields_title_Create
+  delete: PerformersDocAccessFields_title_Delete
+  read: PerformersDocAccessFields_title_Read
+  update: PerformersDocAccessFields_title_Update
+}
+
+type PerformersDocAccessFields_title_Create {
+  permission: Boolean!
+}
+
+type PerformersDocAccessFields_title_Delete {
+  permission: Boolean!
+}
+
+type PerformersDocAccessFields_title_Read {
+  permission: Boolean!
+}
+
+type PerformersDocAccessFields_title_Update {
+  permission: Boolean!
+}
+
+type PerformersDocAccessFields_updatedAt {
+  create: PerformersDocAccessFields_updatedAt_Create
+  delete: PerformersDocAccessFields_updatedAt_Delete
+  read: PerformersDocAccessFields_updatedAt_Read
+  update: PerformersDocAccessFields_updatedAt_Update
+}
+
+type PerformersDocAccessFields_updatedAt_Create {
+  permission: Boolean!
+}
+
+type PerformersDocAccessFields_updatedAt_Delete {
+  permission: Boolean!
+}
+
+type PerformersDocAccessFields_updatedAt_Read {
+  permission: Boolean!
+}
+
+type PerformersDocAccessFields_updatedAt_Update {
+  permission: Boolean!
+}
+
+type PerformersFields {
+  _status: PerformersFields__status
+  createdAt: PerformersFields_createdAt
+  description: PerformersFields_description
+  image: PerformersFields_image
+  title: PerformersFields_title
+  updatedAt: PerformersFields_updatedAt
+}
+
+type PerformersFields__status {
+  create: PerformersFields__status_Create
+  delete: PerformersFields__status_Delete
+  read: PerformersFields__status_Read
+  update: PerformersFields__status_Update
+}
+
+type PerformersFields__status_Create {
+  permission: Boolean!
+}
+
+type PerformersFields__status_Delete {
+  permission: Boolean!
+}
+
+type PerformersFields__status_Read {
+  permission: Boolean!
+}
+
+type PerformersFields__status_Update {
+  permission: Boolean!
+}
+
+type PerformersFields_createdAt {
+  create: PerformersFields_createdAt_Create
+  delete: PerformersFields_createdAt_Delete
+  read: PerformersFields_createdAt_Read
+  update: PerformersFields_createdAt_Update
+}
+
+type PerformersFields_createdAt_Create {
+  permission: Boolean!
+}
+
+type PerformersFields_createdAt_Delete {
+  permission: Boolean!
+}
+
+type PerformersFields_createdAt_Read {
+  permission: Boolean!
+}
+
+type PerformersFields_createdAt_Update {
+  permission: Boolean!
+}
+
+type PerformersFields_description {
+  create: PerformersFields_description_Create
+  delete: PerformersFields_description_Delete
+  read: PerformersFields_description_Read
+  update: PerformersFields_description_Update
+}
+
+type PerformersFields_description_Create {
+  permission: Boolean!
+}
+
+type PerformersFields_description_Delete {
+  permission: Boolean!
+}
+
+type PerformersFields_description_Read {
+  permission: Boolean!
+}
+
+type PerformersFields_description_Update {
+  permission: Boolean!
+}
+
+type PerformersFields_image {
+  create: PerformersFields_image_Create
+  delete: PerformersFields_image_Delete
+  read: PerformersFields_image_Read
+  update: PerformersFields_image_Update
+}
+
+type PerformersFields_image_Create {
+  permission: Boolean!
+}
+
+type PerformersFields_image_Delete {
+  permission: Boolean!
+}
+
+type PerformersFields_image_Read {
+  permission: Boolean!
+}
+
+type PerformersFields_image_Update {
+  permission: Boolean!
+}
+
+type PerformersFields_title {
+  create: PerformersFields_title_Create
+  delete: PerformersFields_title_Delete
+  read: PerformersFields_title_Read
+  update: PerformersFields_title_Update
+}
+
+type PerformersFields_title_Create {
+  permission: Boolean!
+}
+
+type PerformersFields_title_Delete {
+  permission: Boolean!
+}
+
+type PerformersFields_title_Read {
+  permission: Boolean!
+}
+
+type PerformersFields_title_Update {
+  permission: Boolean!
+}
+
+type PerformersFields_updatedAt {
+  create: PerformersFields_updatedAt_Create
+  delete: PerformersFields_updatedAt_Delete
+  read: PerformersFields_updatedAt_Read
+  update: PerformersFields_updatedAt_Update
+}
+
+type PerformersFields_updatedAt_Create {
+  permission: Boolean!
+}
+
+type PerformersFields_updatedAt_Delete {
+  permission: Boolean!
+}
+
+type PerformersFields_updatedAt_Read {
+  permission: Boolean!
+}
+
+type PerformersFields_updatedAt_Update {
+  permission: Boolean!
+}
+
+type PerformersReadAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type PerformersReadDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type PerformersReadVersionsAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type PerformersReadVersionsDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type PerformersUpdateAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type PerformersUpdateDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type Query {
+  Access: Access
+  Artist(draft: Boolean, fallbackLocale: FallbackLocaleInputType, id: String!, locale: LocaleInputType): Artist
+  Artists(draft: Boolean, fallbackLocale: FallbackLocaleInputType, limit: Int, locale: LocaleInputType, page: Int, sort: String, where: Artist_where): Artists
+  Media(draft: Boolean, fallbackLocale: FallbackLocaleInputType, id: String!, locale: LocaleInputType): Media
+  PayloadPreference(draft: Boolean, fallbackLocale: FallbackLocaleInputType, id: String!, locale: LocaleInputType): PayloadPreference
+  PayloadPreferences(draft: Boolean, fallbackLocale: FallbackLocaleInputType, limit: Int, locale: LocaleInputType, page: Int, sort: String, where: PayloadPreference_where): PayloadPreferences
+  Performance(draft: Boolean, fallbackLocale: FallbackLocaleInputType, id: String!, locale: LocaleInputType): Performance
+  Performances(draft: Boolean, fallbackLocale: FallbackLocaleInputType, limit: Int, locale: LocaleInputType, page: Int, sort: String, where: Performance_where): Performances
+  Performer(draft: Boolean, fallbackLocale: FallbackLocaleInputType, id: String!, locale: LocaleInputType): Performer
+  Performers(draft: Boolean, fallbackLocale: FallbackLocaleInputType, limit: Int, locale: LocaleInputType, page: Int, sort: String, where: Performer_where): Performers
+  Setting(draft: Boolean, fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType): Setting
+  Show(draft: Boolean, fallbackLocale: FallbackLocaleInputType, id: String!, locale: LocaleInputType): Show
+  Shows(draft: Boolean, fallbackLocale: FallbackLocaleInputType, limit: Int, locale: LocaleInputType, page: Int, sort: String, where: Show_where): Shows
+  Song(draft: Boolean, fallbackLocale: FallbackLocaleInputType, id: String!, locale: LocaleInputType): Song
+  Songs(draft: Boolean, fallbackLocale: FallbackLocaleInputType, limit: Int, locale: LocaleInputType, page: Int, sort: String, where: Song_where): Songs
+  User(draft: Boolean, fallbackLocale: FallbackLocaleInputType, id: String!, locale: LocaleInputType): User
+  Users(draft: Boolean, fallbackLocale: FallbackLocaleInputType, limit: Int, locale: LocaleInputType, page: Int, sort: String, where: User_where): Users
+  allMedia(draft: Boolean, fallbackLocale: FallbackLocaleInputType, limit: Int, locale: LocaleInputType, page: Int, sort: String, where: Media_where): allMedia
+  docAccessArtist(id: String!): artistsDocAccess
+  docAccessMedia(id: String!): mediaDocAccess
+  docAccessPayloadPreference(id: String!): payload_preferencesDocAccess
+  docAccessPerformance(id: String!): performancesDocAccess
+  docAccessPerformer(id: String!): performersDocAccess
+  docAccessSetting: settingsDocAccess
+  docAccessShow(id: String!): showsDocAccess
+  docAccessSong(id: String!): songsDocAccess
+  docAccessUser(id: String!): usersDocAccess
+  initializedUser: Boolean
+  meUser: usersMe
+  versionArtist(fallbackLocale: FallbackLocaleInputType, id: String, locale: LocaleInputType): ArtistVersion
+  versionPerformance(fallbackLocale: FallbackLocaleInputType, id: String, locale: LocaleInputType): PerformanceVersion
+  versionPerformer(fallbackLocale: FallbackLocaleInputType, id: String, locale: LocaleInputType): PerformerVersion
+  versionSetting(fallbackLocale: FallbackLocaleInputType, id: String, locale: LocaleInputType): SettingVersion
+  versionShow(fallbackLocale: FallbackLocaleInputType, id: String, locale: LocaleInputType): ShowVersion
+  versionSong(fallbackLocale: FallbackLocaleInputType, id: String, locale: LocaleInputType): SongVersion
+  versionsArtists(fallbackLocale: FallbackLocaleInputType, limit: Int, locale: LocaleInputType, page: Int, sort: String, where: versionsArtist_where): versionsArtists
+  versionsPerformances(fallbackLocale: FallbackLocaleInputType, limit: Int, locale: LocaleInputType, page: Int, sort: String, where: versionsPerformance_where): versionsPerformances
+  versionsPerformers(fallbackLocale: FallbackLocaleInputType, limit: Int, locale: LocaleInputType, page: Int, sort: String, where: versionsPerformer_where): versionsPerformers
+  versionsSetting(fallbackLocale: FallbackLocaleInputType, limit: Int, locale: LocaleInputType, page: Int, sort: String, where: versionsSetting_where): versionsSetting
+  versionsShows(fallbackLocale: FallbackLocaleInputType, limit: Int, locale: LocaleInputType, page: Int, sort: String, where: versionsShow_where): versionsShows
+  versionsSongs(fallbackLocale: FallbackLocaleInputType, limit: Int, locale: LocaleInputType, page: Int, sort: String, where: versionsSong_where): versionsSongs
+}
+
+type Setting {
+  _status: Setting__status
+  createdAt: DateTime
+  now(fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType): Setting_Now_Relationship
+  show(fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType): Setting_Show_Relationship
+  updatedAt: DateTime
+}
+
+type SettingVersion {
+  createdAt: DateTime
+  id: String
+  latest: Boolean
+  updatedAt: DateTime
+  version: SettingVersion_Version
+}
+
+type SettingVersion_Version {
+  _status: SettingVersion_Version__status
+  createdAt: DateTime
+  now(fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType): SettingVersion_Version_Now_Relationship
+  show(fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType): SettingVersion_Version_Show_Relationship
+  updatedAt: DateTime
+}
+
+union SettingVersion_Version_Now = Performance | Song
+
+enum SettingVersion_Version_Now_RelationTo {
+  performances
+  songs
+}
+
+type SettingVersion_Version_Now_Relationship {
+  relationTo: SettingVersion_Version_Now_RelationTo
+  value: SettingVersion_Version_Now
+}
+
+union SettingVersion_Version_Show = Show
+
+enum SettingVersion_Version_Show_RelationTo {
+  shows
+}
+
+type SettingVersion_Version_Show_Relationship {
+  relationTo: SettingVersion_Version_Show_RelationTo
+  value: SettingVersion_Version_Show
+}
+
+enum SettingVersion_Version__status {
+  draft
+  published
+}
+
+union Setting_Now = Performance | Song
+
+input Setting_NowRelationshipInput {
+  relationTo: Setting_NowRelationshipInputRelationTo
+  value: JSON
+}
+
+enum Setting_NowRelationshipInputRelationTo {
+  performances
+  songs
+}
+
+enum Setting_Now_RelationTo {
+  performances
+  songs
+}
+
+type Setting_Now_Relationship {
+  relationTo: Setting_Now_RelationTo
+  value: Setting_Now
+}
+
+union Setting_Show = Show
+
+input Setting_ShowRelationshipInput {
+  relationTo: Setting_ShowRelationshipInputRelationTo
+  value: JSON
+}
+
+enum Setting_ShowRelationshipInputRelationTo {
+  shows
+}
+
+enum Setting_Show_RelationTo {
+  shows
+}
+
+type Setting_Show_Relationship {
+  relationTo: Setting_Show_RelationTo
+  value: Setting_Show
+}
+
+enum Setting__status {
+  draft
+  published
+}
+
+enum Setting__status_MutationInput {
+  draft
+  published
+}
+
+type SettingsDocAccessFields {
+  _status: SettingsDocAccessFields__status
+  createdAt: SettingsDocAccessFields_createdAt
+  now: SettingsDocAccessFields_now
+  show: SettingsDocAccessFields_show
+  updatedAt: SettingsDocAccessFields_updatedAt
+}
+
+type SettingsDocAccessFields__status {
+  create: SettingsDocAccessFields__status_Create
+  delete: SettingsDocAccessFields__status_Delete
+  read: SettingsDocAccessFields__status_Read
+  update: SettingsDocAccessFields__status_Update
+}
+
+type SettingsDocAccessFields__status_Create {
+  permission: Boolean!
+}
+
+type SettingsDocAccessFields__status_Delete {
+  permission: Boolean!
+}
+
+type SettingsDocAccessFields__status_Read {
+  permission: Boolean!
+}
+
+type SettingsDocAccessFields__status_Update {
+  permission: Boolean!
+}
+
+type SettingsDocAccessFields_createdAt {
+  create: SettingsDocAccessFields_createdAt_Create
+  delete: SettingsDocAccessFields_createdAt_Delete
+  read: SettingsDocAccessFields_createdAt_Read
+  update: SettingsDocAccessFields_createdAt_Update
+}
+
+type SettingsDocAccessFields_createdAt_Create {
+  permission: Boolean!
+}
+
+type SettingsDocAccessFields_createdAt_Delete {
+  permission: Boolean!
+}
+
+type SettingsDocAccessFields_createdAt_Read {
+  permission: Boolean!
+}
+
+type SettingsDocAccessFields_createdAt_Update {
+  permission: Boolean!
+}
+
+type SettingsDocAccessFields_now {
+  create: SettingsDocAccessFields_now_Create
+  delete: SettingsDocAccessFields_now_Delete
+  read: SettingsDocAccessFields_now_Read
+  update: SettingsDocAccessFields_now_Update
+}
+
+type SettingsDocAccessFields_now_Create {
+  permission: Boolean!
+}
+
+type SettingsDocAccessFields_now_Delete {
+  permission: Boolean!
+}
+
+type SettingsDocAccessFields_now_Read {
+  permission: Boolean!
+}
+
+type SettingsDocAccessFields_now_Update {
+  permission: Boolean!
+}
+
+type SettingsDocAccessFields_show {
+  create: SettingsDocAccessFields_show_Create
+  delete: SettingsDocAccessFields_show_Delete
+  read: SettingsDocAccessFields_show_Read
+  update: SettingsDocAccessFields_show_Update
+}
+
+type SettingsDocAccessFields_show_Create {
+  permission: Boolean!
+}
+
+type SettingsDocAccessFields_show_Delete {
+  permission: Boolean!
+}
+
+type SettingsDocAccessFields_show_Read {
+  permission: Boolean!
+}
+
+type SettingsDocAccessFields_show_Update {
+  permission: Boolean!
+}
+
+type SettingsDocAccessFields_updatedAt {
+  create: SettingsDocAccessFields_updatedAt_Create
+  delete: SettingsDocAccessFields_updatedAt_Delete
+  read: SettingsDocAccessFields_updatedAt_Read
+  update: SettingsDocAccessFields_updatedAt_Update
+}
+
+type SettingsDocAccessFields_updatedAt_Create {
+  permission: Boolean!
+}
+
+type SettingsDocAccessFields_updatedAt_Delete {
+  permission: Boolean!
+}
+
+type SettingsDocAccessFields_updatedAt_Read {
+  permission: Boolean!
+}
+
+type SettingsDocAccessFields_updatedAt_Update {
+  permission: Boolean!
+}
+
+type SettingsFields {
+  _status: SettingsFields__status
+  createdAt: SettingsFields_createdAt
+  now: SettingsFields_now
+  show: SettingsFields_show
+  updatedAt: SettingsFields_updatedAt
+}
+
+type SettingsFields__status {
+  create: SettingsFields__status_Create
+  delete: SettingsFields__status_Delete
+  read: SettingsFields__status_Read
+  update: SettingsFields__status_Update
+}
+
+type SettingsFields__status_Create {
+  permission: Boolean!
+}
+
+type SettingsFields__status_Delete {
+  permission: Boolean!
+}
+
+type SettingsFields__status_Read {
+  permission: Boolean!
+}
+
+type SettingsFields__status_Update {
+  permission: Boolean!
+}
+
+type SettingsFields_createdAt {
+  create: SettingsFields_createdAt_Create
+  delete: SettingsFields_createdAt_Delete
+  read: SettingsFields_createdAt_Read
+  update: SettingsFields_createdAt_Update
+}
+
+type SettingsFields_createdAt_Create {
+  permission: Boolean!
+}
+
+type SettingsFields_createdAt_Delete {
+  permission: Boolean!
+}
+
+type SettingsFields_createdAt_Read {
+  permission: Boolean!
+}
+
+type SettingsFields_createdAt_Update {
+  permission: Boolean!
+}
+
+type SettingsFields_now {
+  create: SettingsFields_now_Create
+  delete: SettingsFields_now_Delete
+  read: SettingsFields_now_Read
+  update: SettingsFields_now_Update
+}
+
+type SettingsFields_now_Create {
+  permission: Boolean!
+}
+
+type SettingsFields_now_Delete {
+  permission: Boolean!
+}
+
+type SettingsFields_now_Read {
+  permission: Boolean!
+}
+
+type SettingsFields_now_Update {
+  permission: Boolean!
+}
+
+type SettingsFields_show {
+  create: SettingsFields_show_Create
+  delete: SettingsFields_show_Delete
+  read: SettingsFields_show_Read
+  update: SettingsFields_show_Update
+}
+
+type SettingsFields_show_Create {
+  permission: Boolean!
+}
+
+type SettingsFields_show_Delete {
+  permission: Boolean!
+}
+
+type SettingsFields_show_Read {
+  permission: Boolean!
+}
+
+type SettingsFields_show_Update {
+  permission: Boolean!
+}
+
+type SettingsFields_updatedAt {
+  create: SettingsFields_updatedAt_Create
+  delete: SettingsFields_updatedAt_Delete
+  read: SettingsFields_updatedAt_Read
+  update: SettingsFields_updatedAt_Update
+}
+
+type SettingsFields_updatedAt_Create {
+  permission: Boolean!
+}
+
+type SettingsFields_updatedAt_Delete {
+  permission: Boolean!
+}
+
+type SettingsFields_updatedAt_Read {
+  permission: Boolean!
+}
+
+type SettingsFields_updatedAt_Update {
+  permission: Boolean!
+}
+
+type SettingsReadAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type SettingsReadDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type SettingsReadVersionsAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type SettingsReadVersionsDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type SettingsUpdateAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type SettingsUpdateDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type Show {
+  _status: Show__status
+  createdAt: DateTime
+  description(depth: Int): JSON
+  id: String
+  performers(fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType): [Show_Performers_Relationship!]
+  program(fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType): [Show_Program_Relationship!]
+  title: String
+  updatedAt: DateTime
+}
+
+input ShowUpdate_PerformersRelationshipInput {
+  relationTo: ShowUpdate_PerformersRelationshipInputRelationTo
+  value: JSON
+}
+
+enum ShowUpdate_PerformersRelationshipInputRelationTo {
+  performers
+}
+
+input ShowUpdate_ProgramRelationshipInput {
+  relationTo: ShowUpdate_ProgramRelationshipInputRelationTo
+  value: JSON
+}
+
+enum ShowUpdate_ProgramRelationshipInputRelationTo {
+  performances
+  songs
+}
+
+enum ShowUpdate__status_MutationInput {
+  draft
+  published
+}
+
+type ShowVersion {
+  createdAt: DateTime
+  id: String
+  latest: Boolean
+  parent(fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType): Show
+  updatedAt: DateTime
+  version: ShowVersion_Version
+}
+
+type ShowVersion_Version {
+  _status: ShowVersion_Version__status
+  createdAt: DateTime
+  description(depth: Int): JSON
+  performers(fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType): [ShowVersion_Version_Performers_Relationship!]
+  program(fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType): [ShowVersion_Version_Program_Relationship!]
+  title: String
+  updatedAt: DateTime
+}
+
+union ShowVersion_Version_Performers = Performer
+
+enum ShowVersion_Version_Performers_RelationTo {
+  performers
+}
+
+type ShowVersion_Version_Performers_Relationship {
+  relationTo: ShowVersion_Version_Performers_RelationTo
+  value: ShowVersion_Version_Performers
+}
+
+union ShowVersion_Version_Program = Performance | Song
+
+enum ShowVersion_Version_Program_RelationTo {
+  performances
+  songs
+}
+
+type ShowVersion_Version_Program_Relationship {
+  relationTo: ShowVersion_Version_Program_RelationTo
+  value: ShowVersion_Version_Program
+}
+
+enum ShowVersion_Version__status {
+  draft
+  published
+}
+
+union Show_Performers = Performer
+
+input Show_PerformersRelationshipInput {
+  relationTo: Show_PerformersRelationshipInputRelationTo
+  value: JSON
+}
+
+enum Show_PerformersRelationshipInputRelationTo {
+  performers
+}
+
+enum Show_Performers_RelationTo {
+  performers
+}
+
+type Show_Performers_Relationship {
+  relationTo: Show_Performers_RelationTo
+  value: Show_Performers
+}
+
+union Show_Program = Performance | Song
+
+input Show_ProgramRelationshipInput {
+  relationTo: Show_ProgramRelationshipInputRelationTo
+  value: JSON
+}
+
+enum Show_ProgramRelationshipInputRelationTo {
+  performances
+  songs
+}
+
+enum Show_Program_RelationTo {
+  performances
+  songs
+}
+
+type Show_Program_Relationship {
+  relationTo: Show_Program_RelationTo
+  value: Show_Program
+}
+
+enum Show__status {
+  draft
+  published
+}
+
+enum Show__status_Input {
+  draft
+  published
+}
+
+enum Show__status_MutationInput {
+  draft
+  published
+}
+
+input Show__status_operator {
+  all: [Show__status_Input]
+  equals: Show__status_Input
+  exists: Boolean
+  in: [Show__status_Input]
+  not_equals: Show__status_Input
+  not_in: [Show__status_Input]
+}
+
+input Show_createdAt_operator {
+  equals: DateTime
+  exists: Boolean
+  greater_than: DateTime
+  greater_than_equal: DateTime
+  less_than: DateTime
+  less_than_equal: DateTime
+  like: DateTime
+  not_equals: DateTime
+}
+
+input Show_description_operator {
+  contains: JSON
+  equals: JSON
+  exists: Boolean
+  like: JSON
+  not_equals: JSON
+}
+
+input Show_id_operator {
+  all: [String]
+  contains: String
+  equals: String
+  exists: Boolean
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input Show_performers_Relation {
+  relationTo: Show_performers_Relation_RelationTo
+  value: JSON
+}
+
+enum Show_performers_Relation_RelationTo {
+  performers
+}
+
+input Show_program_Relation {
+  relationTo: Show_program_Relation_RelationTo
+  value: JSON
+}
+
+enum Show_program_Relation_RelationTo {
+  performances
+  songs
+}
+
+input Show_title_operator {
+  all: [String]
+  contains: String
+  equals: String
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input Show_updatedAt_operator {
+  equals: DateTime
+  exists: Boolean
+  greater_than: DateTime
+  greater_than_equal: DateTime
+  less_than: DateTime
+  less_than_equal: DateTime
+  like: DateTime
+  not_equals: DateTime
+}
+
+input Show_where {
+  AND: [Show_where_and]
+  OR: [Show_where_or]
+  _status: Show__status_operator
+  createdAt: Show_createdAt_operator
+  description: Show_description_operator
+  id: Show_id_operator
+  performers: Show_performers_Relation
+  program: Show_program_Relation
+  title: Show_title_operator
+  updatedAt: Show_updatedAt_operator
+}
+
+input Show_where_and {
+  AND: [Show_where_and]
+  OR: [Show_where_or]
+  _status: Show__status_operator
+  createdAt: Show_createdAt_operator
+  description: Show_description_operator
+  id: Show_id_operator
+  performers: Show_performers_Relation
+  program: Show_program_Relation
+  title: Show_title_operator
+  updatedAt: Show_updatedAt_operator
+}
+
+input Show_where_or {
+  AND: [Show_where_and]
+  OR: [Show_where_or]
+  _status: Show__status_operator
+  createdAt: Show_createdAt_operator
+  description: Show_description_operator
+  id: Show_id_operator
+  performers: Show_performers_Relation
+  program: Show_program_Relation
+  title: Show_title_operator
+  updatedAt: Show_updatedAt_operator
+}
+
+type Shows {
+  docs: [Show]
+  hasNextPage: Boolean
+  hasPrevPage: Boolean
+  limit: Int
+  nextPage: Int
+  offset: Int
+  page: Int
+  pagingCounter: Int
+  prevPage: Int
+  totalDocs: Int
+  totalPages: Int
+}
+
+type ShowsCreateAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type ShowsCreateDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type ShowsDeleteAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type ShowsDeleteDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type ShowsDocAccessFields {
+  _status: ShowsDocAccessFields__status
+  createdAt: ShowsDocAccessFields_createdAt
+  description: ShowsDocAccessFields_description
+  performers: ShowsDocAccessFields_performers
+  program: ShowsDocAccessFields_program
+  title: ShowsDocAccessFields_title
+  updatedAt: ShowsDocAccessFields_updatedAt
+}
+
+type ShowsDocAccessFields__status {
+  create: ShowsDocAccessFields__status_Create
+  delete: ShowsDocAccessFields__status_Delete
+  read: ShowsDocAccessFields__status_Read
+  update: ShowsDocAccessFields__status_Update
+}
+
+type ShowsDocAccessFields__status_Create {
+  permission: Boolean!
+}
+
+type ShowsDocAccessFields__status_Delete {
+  permission: Boolean!
+}
+
+type ShowsDocAccessFields__status_Read {
+  permission: Boolean!
+}
+
+type ShowsDocAccessFields__status_Update {
+  permission: Boolean!
+}
+
+type ShowsDocAccessFields_createdAt {
+  create: ShowsDocAccessFields_createdAt_Create
+  delete: ShowsDocAccessFields_createdAt_Delete
+  read: ShowsDocAccessFields_createdAt_Read
+  update: ShowsDocAccessFields_createdAt_Update
+}
+
+type ShowsDocAccessFields_createdAt_Create {
+  permission: Boolean!
+}
+
+type ShowsDocAccessFields_createdAt_Delete {
+  permission: Boolean!
+}
+
+type ShowsDocAccessFields_createdAt_Read {
+  permission: Boolean!
+}
+
+type ShowsDocAccessFields_createdAt_Update {
+  permission: Boolean!
+}
+
+type ShowsDocAccessFields_description {
+  create: ShowsDocAccessFields_description_Create
+  delete: ShowsDocAccessFields_description_Delete
+  read: ShowsDocAccessFields_description_Read
+  update: ShowsDocAccessFields_description_Update
+}
+
+type ShowsDocAccessFields_description_Create {
+  permission: Boolean!
+}
+
+type ShowsDocAccessFields_description_Delete {
+  permission: Boolean!
+}
+
+type ShowsDocAccessFields_description_Read {
+  permission: Boolean!
+}
+
+type ShowsDocAccessFields_description_Update {
+  permission: Boolean!
+}
+
+type ShowsDocAccessFields_performers {
+  create: ShowsDocAccessFields_performers_Create
+  delete: ShowsDocAccessFields_performers_Delete
+  read: ShowsDocAccessFields_performers_Read
+  update: ShowsDocAccessFields_performers_Update
+}
+
+type ShowsDocAccessFields_performers_Create {
+  permission: Boolean!
+}
+
+type ShowsDocAccessFields_performers_Delete {
+  permission: Boolean!
+}
+
+type ShowsDocAccessFields_performers_Read {
+  permission: Boolean!
+}
+
+type ShowsDocAccessFields_performers_Update {
+  permission: Boolean!
+}
+
+type ShowsDocAccessFields_program {
+  create: ShowsDocAccessFields_program_Create
+  delete: ShowsDocAccessFields_program_Delete
+  read: ShowsDocAccessFields_program_Read
+  update: ShowsDocAccessFields_program_Update
+}
+
+type ShowsDocAccessFields_program_Create {
+  permission: Boolean!
+}
+
+type ShowsDocAccessFields_program_Delete {
+  permission: Boolean!
+}
+
+type ShowsDocAccessFields_program_Read {
+  permission: Boolean!
+}
+
+type ShowsDocAccessFields_program_Update {
+  permission: Boolean!
+}
+
+type ShowsDocAccessFields_title {
+  create: ShowsDocAccessFields_title_Create
+  delete: ShowsDocAccessFields_title_Delete
+  read: ShowsDocAccessFields_title_Read
+  update: ShowsDocAccessFields_title_Update
+}
+
+type ShowsDocAccessFields_title_Create {
+  permission: Boolean!
+}
+
+type ShowsDocAccessFields_title_Delete {
+  permission: Boolean!
+}
+
+type ShowsDocAccessFields_title_Read {
+  permission: Boolean!
+}
+
+type ShowsDocAccessFields_title_Update {
+  permission: Boolean!
+}
+
+type ShowsDocAccessFields_updatedAt {
+  create: ShowsDocAccessFields_updatedAt_Create
+  delete: ShowsDocAccessFields_updatedAt_Delete
+  read: ShowsDocAccessFields_updatedAt_Read
+  update: ShowsDocAccessFields_updatedAt_Update
+}
+
+type ShowsDocAccessFields_updatedAt_Create {
+  permission: Boolean!
+}
+
+type ShowsDocAccessFields_updatedAt_Delete {
+  permission: Boolean!
+}
+
+type ShowsDocAccessFields_updatedAt_Read {
+  permission: Boolean!
+}
+
+type ShowsDocAccessFields_updatedAt_Update {
+  permission: Boolean!
+}
+
+type ShowsFields {
+  _status: ShowsFields__status
+  createdAt: ShowsFields_createdAt
+  description: ShowsFields_description
+  performers: ShowsFields_performers
+  program: ShowsFields_program
+  title: ShowsFields_title
+  updatedAt: ShowsFields_updatedAt
+}
+
+type ShowsFields__status {
+  create: ShowsFields__status_Create
+  delete: ShowsFields__status_Delete
+  read: ShowsFields__status_Read
+  update: ShowsFields__status_Update
+}
+
+type ShowsFields__status_Create {
+  permission: Boolean!
+}
+
+type ShowsFields__status_Delete {
+  permission: Boolean!
+}
+
+type ShowsFields__status_Read {
+  permission: Boolean!
+}
+
+type ShowsFields__status_Update {
+  permission: Boolean!
+}
+
+type ShowsFields_createdAt {
+  create: ShowsFields_createdAt_Create
+  delete: ShowsFields_createdAt_Delete
+  read: ShowsFields_createdAt_Read
+  update: ShowsFields_createdAt_Update
+}
+
+type ShowsFields_createdAt_Create {
+  permission: Boolean!
+}
+
+type ShowsFields_createdAt_Delete {
+  permission: Boolean!
+}
+
+type ShowsFields_createdAt_Read {
+  permission: Boolean!
+}
+
+type ShowsFields_createdAt_Update {
+  permission: Boolean!
+}
+
+type ShowsFields_description {
+  create: ShowsFields_description_Create
+  delete: ShowsFields_description_Delete
+  read: ShowsFields_description_Read
+  update: ShowsFields_description_Update
+}
+
+type ShowsFields_description_Create {
+  permission: Boolean!
+}
+
+type ShowsFields_description_Delete {
+  permission: Boolean!
+}
+
+type ShowsFields_description_Read {
+  permission: Boolean!
+}
+
+type ShowsFields_description_Update {
+  permission: Boolean!
+}
+
+type ShowsFields_performers {
+  create: ShowsFields_performers_Create
+  delete: ShowsFields_performers_Delete
+  read: ShowsFields_performers_Read
+  update: ShowsFields_performers_Update
+}
+
+type ShowsFields_performers_Create {
+  permission: Boolean!
+}
+
+type ShowsFields_performers_Delete {
+  permission: Boolean!
+}
+
+type ShowsFields_performers_Read {
+  permission: Boolean!
+}
+
+type ShowsFields_performers_Update {
+  permission: Boolean!
+}
+
+type ShowsFields_program {
+  create: ShowsFields_program_Create
+  delete: ShowsFields_program_Delete
+  read: ShowsFields_program_Read
+  update: ShowsFields_program_Update
+}
+
+type ShowsFields_program_Create {
+  permission: Boolean!
+}
+
+type ShowsFields_program_Delete {
+  permission: Boolean!
+}
+
+type ShowsFields_program_Read {
+  permission: Boolean!
+}
+
+type ShowsFields_program_Update {
+  permission: Boolean!
+}
+
+type ShowsFields_title {
+  create: ShowsFields_title_Create
+  delete: ShowsFields_title_Delete
+  read: ShowsFields_title_Read
+  update: ShowsFields_title_Update
+}
+
+type ShowsFields_title_Create {
+  permission: Boolean!
+}
+
+type ShowsFields_title_Delete {
+  permission: Boolean!
+}
+
+type ShowsFields_title_Read {
+  permission: Boolean!
+}
+
+type ShowsFields_title_Update {
+  permission: Boolean!
+}
+
+type ShowsFields_updatedAt {
+  create: ShowsFields_updatedAt_Create
+  delete: ShowsFields_updatedAt_Delete
+  read: ShowsFields_updatedAt_Read
+  update: ShowsFields_updatedAt_Update
+}
+
+type ShowsFields_updatedAt_Create {
+  permission: Boolean!
+}
+
+type ShowsFields_updatedAt_Delete {
+  permission: Boolean!
+}
+
+type ShowsFields_updatedAt_Read {
+  permission: Boolean!
+}
+
+type ShowsFields_updatedAt_Update {
+  permission: Boolean!
+}
+
+type ShowsReadAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type ShowsReadDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type ShowsReadVersionsAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type ShowsReadVersionsDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type ShowsUpdateAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type ShowsUpdateDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type Song {
+  _status: Song__status
+  artists(fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType): [Song_Artists_Relationship!]
+  createdAt: DateTime
+  description(depth: Int): JSON
+  id: String
+  lyrics(depth: Int): JSON
+  lyricsAuthors(fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType): [Song_LyricsAuthors_Relationship!]
+  musicAuthors(fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType): [Song_MusicAuthors_Relationship!]
+  title: String
+  updatedAt: DateTime
+}
+
+input SongUpdate_ArtistsRelationshipInput {
+  relationTo: SongUpdate_ArtistsRelationshipInputRelationTo
+  value: JSON
+}
+
+enum SongUpdate_ArtistsRelationshipInputRelationTo {
+  artists
+}
+
+input SongUpdate_LyricsAuthorsRelationshipInput {
+  relationTo: SongUpdate_LyricsAuthorsRelationshipInputRelationTo
+  value: JSON
+}
+
+enum SongUpdate_LyricsAuthorsRelationshipInputRelationTo {
+  artists
+}
+
+input SongUpdate_MusicAuthorsRelationshipInput {
+  relationTo: SongUpdate_MusicAuthorsRelationshipInputRelationTo
+  value: JSON
+}
+
+enum SongUpdate_MusicAuthorsRelationshipInputRelationTo {
+  artists
+}
+
+enum SongUpdate__status_MutationInput {
+  draft
+  published
+}
+
+type SongVersion {
+  createdAt: DateTime
+  id: String
+  latest: Boolean
+  parent(fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType): Song
+  updatedAt: DateTime
+  version: SongVersion_Version
+}
+
+type SongVersion_Version {
+  _status: SongVersion_Version__status
+  artists(fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType): [SongVersion_Version_Artists_Relationship!]
+  createdAt: DateTime
+  description(depth: Int): JSON
+  lyrics(depth: Int): JSON
+  lyricsAuthors(fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType): [SongVersion_Version_LyricsAuthors_Relationship!]
+  musicAuthors(fallbackLocale: FallbackLocaleInputType, locale: LocaleInputType): [SongVersion_Version_MusicAuthors_Relationship!]
+  title: String
+  updatedAt: DateTime
+}
+
+union SongVersion_Version_Artists = Artist
+
+enum SongVersion_Version_Artists_RelationTo {
+  artists
+}
+
+type SongVersion_Version_Artists_Relationship {
+  relationTo: SongVersion_Version_Artists_RelationTo
+  value: SongVersion_Version_Artists
+}
+
+union SongVersion_Version_LyricsAuthors = Artist
+
+enum SongVersion_Version_LyricsAuthors_RelationTo {
+  artists
+}
+
+type SongVersion_Version_LyricsAuthors_Relationship {
+  relationTo: SongVersion_Version_LyricsAuthors_RelationTo
+  value: SongVersion_Version_LyricsAuthors
+}
+
+union SongVersion_Version_MusicAuthors = Artist
+
+enum SongVersion_Version_MusicAuthors_RelationTo {
+  artists
+}
+
+type SongVersion_Version_MusicAuthors_Relationship {
+  relationTo: SongVersion_Version_MusicAuthors_RelationTo
+  value: SongVersion_Version_MusicAuthors
+}
+
+enum SongVersion_Version__status {
+  draft
+  published
+}
+
+union Song_Artists = Artist
+
+input Song_ArtistsRelationshipInput {
+  relationTo: Song_ArtistsRelationshipInputRelationTo
+  value: JSON
+}
+
+enum Song_ArtistsRelationshipInputRelationTo {
+  artists
+}
+
+enum Song_Artists_RelationTo {
+  artists
+}
+
+type Song_Artists_Relationship {
+  relationTo: Song_Artists_RelationTo
+  value: Song_Artists
+}
+
+union Song_LyricsAuthors = Artist
+
+input Song_LyricsAuthorsRelationshipInput {
+  relationTo: Song_LyricsAuthorsRelationshipInputRelationTo
+  value: JSON
+}
+
+enum Song_LyricsAuthorsRelationshipInputRelationTo {
+  artists
+}
+
+enum Song_LyricsAuthors_RelationTo {
+  artists
+}
+
+type Song_LyricsAuthors_Relationship {
+  relationTo: Song_LyricsAuthors_RelationTo
+  value: Song_LyricsAuthors
+}
+
+union Song_MusicAuthors = Artist
+
+input Song_MusicAuthorsRelationshipInput {
+  relationTo: Song_MusicAuthorsRelationshipInputRelationTo
+  value: JSON
+}
+
+enum Song_MusicAuthorsRelationshipInputRelationTo {
+  artists
+}
+
+enum Song_MusicAuthors_RelationTo {
+  artists
+}
+
+type Song_MusicAuthors_Relationship {
+  relationTo: Song_MusicAuthors_RelationTo
+  value: Song_MusicAuthors
+}
+
+enum Song__status {
+  draft
+  published
+}
+
+enum Song__status_Input {
+  draft
+  published
+}
+
+enum Song__status_MutationInput {
+  draft
+  published
+}
+
+input Song__status_operator {
+  all: [Song__status_Input]
+  equals: Song__status_Input
+  exists: Boolean
+  in: [Song__status_Input]
+  not_equals: Song__status_Input
+  not_in: [Song__status_Input]
+}
+
+input Song_artists_Relation {
+  relationTo: Song_artists_Relation_RelationTo
+  value: JSON
+}
+
+enum Song_artists_Relation_RelationTo {
+  artists
+}
+
+input Song_createdAt_operator {
+  equals: DateTime
+  exists: Boolean
+  greater_than: DateTime
+  greater_than_equal: DateTime
+  less_than: DateTime
+  less_than_equal: DateTime
+  like: DateTime
+  not_equals: DateTime
+}
+
+input Song_description_operator {
+  contains: JSON
+  equals: JSON
+  exists: Boolean
+  like: JSON
+  not_equals: JSON
+}
+
+input Song_id_operator {
+  all: [String]
+  contains: String
+  equals: String
+  exists: Boolean
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input Song_lyricsAuthors_Relation {
+  relationTo: Song_lyricsAuthors_Relation_RelationTo
+  value: JSON
+}
+
+enum Song_lyricsAuthors_Relation_RelationTo {
+  artists
+}
+
+input Song_lyrics_operator {
+  contains: JSON
+  equals: JSON
+  exists: Boolean
+  like: JSON
+  not_equals: JSON
+}
+
+input Song_musicAuthors_Relation {
+  relationTo: Song_musicAuthors_Relation_RelationTo
+  value: JSON
+}
+
+enum Song_musicAuthors_Relation_RelationTo {
+  artists
+}
+
+input Song_title_operator {
+  all: [String]
+  contains: String
+  equals: String
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input Song_updatedAt_operator {
+  equals: DateTime
+  exists: Boolean
+  greater_than: DateTime
+  greater_than_equal: DateTime
+  less_than: DateTime
+  less_than_equal: DateTime
+  like: DateTime
+  not_equals: DateTime
+}
+
+input Song_where {
+  AND: [Song_where_and]
+  OR: [Song_where_or]
+  _status: Song__status_operator
+  artists: Song_artists_Relation
+  createdAt: Song_createdAt_operator
+  description: Song_description_operator
+  id: Song_id_operator
+  lyrics: Song_lyrics_operator
+  lyricsAuthors: Song_lyricsAuthors_Relation
+  musicAuthors: Song_musicAuthors_Relation
+  title: Song_title_operator
+  updatedAt: Song_updatedAt_operator
+}
+
+input Song_where_and {
+  AND: [Song_where_and]
+  OR: [Song_where_or]
+  _status: Song__status_operator
+  artists: Song_artists_Relation
+  createdAt: Song_createdAt_operator
+  description: Song_description_operator
+  id: Song_id_operator
+  lyrics: Song_lyrics_operator
+  lyricsAuthors: Song_lyricsAuthors_Relation
+  musicAuthors: Song_musicAuthors_Relation
+  title: Song_title_operator
+  updatedAt: Song_updatedAt_operator
+}
+
+input Song_where_or {
+  AND: [Song_where_and]
+  OR: [Song_where_or]
+  _status: Song__status_operator
+  artists: Song_artists_Relation
+  createdAt: Song_createdAt_operator
+  description: Song_description_operator
+  id: Song_id_operator
+  lyrics: Song_lyrics_operator
+  lyricsAuthors: Song_lyricsAuthors_Relation
+  musicAuthors: Song_musicAuthors_Relation
+  title: Song_title_operator
+  updatedAt: Song_updatedAt_operator
+}
+
+type Songs {
+  docs: [Song]
+  hasNextPage: Boolean
+  hasPrevPage: Boolean
+  limit: Int
+  nextPage: Int
+  offset: Int
+  page: Int
+  pagingCounter: Int
+  prevPage: Int
+  totalDocs: Int
+  totalPages: Int
+}
+
+type SongsCreateAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type SongsCreateDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type SongsDeleteAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type SongsDeleteDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type SongsDocAccessFields {
+  _status: SongsDocAccessFields__status
+  artists: SongsDocAccessFields_artists
+  createdAt: SongsDocAccessFields_createdAt
+  description: SongsDocAccessFields_description
+  lyrics: SongsDocAccessFields_lyrics
+  lyricsAuthors: SongsDocAccessFields_lyricsAuthors
+  musicAuthors: SongsDocAccessFields_musicAuthors
+  title: SongsDocAccessFields_title
+  updatedAt: SongsDocAccessFields_updatedAt
+}
+
+type SongsDocAccessFields__status {
+  create: SongsDocAccessFields__status_Create
+  delete: SongsDocAccessFields__status_Delete
+  read: SongsDocAccessFields__status_Read
+  update: SongsDocAccessFields__status_Update
+}
+
+type SongsDocAccessFields__status_Create {
+  permission: Boolean!
+}
+
+type SongsDocAccessFields__status_Delete {
+  permission: Boolean!
+}
+
+type SongsDocAccessFields__status_Read {
+  permission: Boolean!
+}
+
+type SongsDocAccessFields__status_Update {
+  permission: Boolean!
+}
+
+type SongsDocAccessFields_artists {
+  create: SongsDocAccessFields_artists_Create
+  delete: SongsDocAccessFields_artists_Delete
+  read: SongsDocAccessFields_artists_Read
+  update: SongsDocAccessFields_artists_Update
+}
+
+type SongsDocAccessFields_artists_Create {
+  permission: Boolean!
+}
+
+type SongsDocAccessFields_artists_Delete {
+  permission: Boolean!
+}
+
+type SongsDocAccessFields_artists_Read {
+  permission: Boolean!
+}
+
+type SongsDocAccessFields_artists_Update {
+  permission: Boolean!
+}
+
+type SongsDocAccessFields_createdAt {
+  create: SongsDocAccessFields_createdAt_Create
+  delete: SongsDocAccessFields_createdAt_Delete
+  read: SongsDocAccessFields_createdAt_Read
+  update: SongsDocAccessFields_createdAt_Update
+}
+
+type SongsDocAccessFields_createdAt_Create {
+  permission: Boolean!
+}
+
+type SongsDocAccessFields_createdAt_Delete {
+  permission: Boolean!
+}
+
+type SongsDocAccessFields_createdAt_Read {
+  permission: Boolean!
+}
+
+type SongsDocAccessFields_createdAt_Update {
+  permission: Boolean!
+}
+
+type SongsDocAccessFields_description {
+  create: SongsDocAccessFields_description_Create
+  delete: SongsDocAccessFields_description_Delete
+  read: SongsDocAccessFields_description_Read
+  update: SongsDocAccessFields_description_Update
+}
+
+type SongsDocAccessFields_description_Create {
+  permission: Boolean!
+}
+
+type SongsDocAccessFields_description_Delete {
+  permission: Boolean!
+}
+
+type SongsDocAccessFields_description_Read {
+  permission: Boolean!
+}
+
+type SongsDocAccessFields_description_Update {
+  permission: Boolean!
+}
+
+type SongsDocAccessFields_lyrics {
+  create: SongsDocAccessFields_lyrics_Create
+  delete: SongsDocAccessFields_lyrics_Delete
+  read: SongsDocAccessFields_lyrics_Read
+  update: SongsDocAccessFields_lyrics_Update
+}
+
+type SongsDocAccessFields_lyricsAuthors {
+  create: SongsDocAccessFields_lyricsAuthors_Create
+  delete: SongsDocAccessFields_lyricsAuthors_Delete
+  read: SongsDocAccessFields_lyricsAuthors_Read
+  update: SongsDocAccessFields_lyricsAuthors_Update
+}
+
+type SongsDocAccessFields_lyricsAuthors_Create {
+  permission: Boolean!
+}
+
+type SongsDocAccessFields_lyricsAuthors_Delete {
+  permission: Boolean!
+}
+
+type SongsDocAccessFields_lyricsAuthors_Read {
+  permission: Boolean!
+}
+
+type SongsDocAccessFields_lyricsAuthors_Update {
+  permission: Boolean!
+}
+
+type SongsDocAccessFields_lyrics_Create {
+  permission: Boolean!
+}
+
+type SongsDocAccessFields_lyrics_Delete {
+  permission: Boolean!
+}
+
+type SongsDocAccessFields_lyrics_Read {
+  permission: Boolean!
+}
+
+type SongsDocAccessFields_lyrics_Update {
+  permission: Boolean!
+}
+
+type SongsDocAccessFields_musicAuthors {
+  create: SongsDocAccessFields_musicAuthors_Create
+  delete: SongsDocAccessFields_musicAuthors_Delete
+  read: SongsDocAccessFields_musicAuthors_Read
+  update: SongsDocAccessFields_musicAuthors_Update
+}
+
+type SongsDocAccessFields_musicAuthors_Create {
+  permission: Boolean!
+}
+
+type SongsDocAccessFields_musicAuthors_Delete {
+  permission: Boolean!
+}
+
+type SongsDocAccessFields_musicAuthors_Read {
+  permission: Boolean!
+}
+
+type SongsDocAccessFields_musicAuthors_Update {
+  permission: Boolean!
+}
+
+type SongsDocAccessFields_title {
+  create: SongsDocAccessFields_title_Create
+  delete: SongsDocAccessFields_title_Delete
+  read: SongsDocAccessFields_title_Read
+  update: SongsDocAccessFields_title_Update
+}
+
+type SongsDocAccessFields_title_Create {
+  permission: Boolean!
+}
+
+type SongsDocAccessFields_title_Delete {
+  permission: Boolean!
+}
+
+type SongsDocAccessFields_title_Read {
+  permission: Boolean!
+}
+
+type SongsDocAccessFields_title_Update {
+  permission: Boolean!
+}
+
+type SongsDocAccessFields_updatedAt {
+  create: SongsDocAccessFields_updatedAt_Create
+  delete: SongsDocAccessFields_updatedAt_Delete
+  read: SongsDocAccessFields_updatedAt_Read
+  update: SongsDocAccessFields_updatedAt_Update
+}
+
+type SongsDocAccessFields_updatedAt_Create {
+  permission: Boolean!
+}
+
+type SongsDocAccessFields_updatedAt_Delete {
+  permission: Boolean!
+}
+
+type SongsDocAccessFields_updatedAt_Read {
+  permission: Boolean!
+}
+
+type SongsDocAccessFields_updatedAt_Update {
+  permission: Boolean!
+}
+
+type SongsFields {
+  _status: SongsFields__status
+  artists: SongsFields_artists
+  createdAt: SongsFields_createdAt
+  description: SongsFields_description
+  lyrics: SongsFields_lyrics
+  lyricsAuthors: SongsFields_lyricsAuthors
+  musicAuthors: SongsFields_musicAuthors
+  title: SongsFields_title
+  updatedAt: SongsFields_updatedAt
+}
+
+type SongsFields__status {
+  create: SongsFields__status_Create
+  delete: SongsFields__status_Delete
+  read: SongsFields__status_Read
+  update: SongsFields__status_Update
+}
+
+type SongsFields__status_Create {
+  permission: Boolean!
+}
+
+type SongsFields__status_Delete {
+  permission: Boolean!
+}
+
+type SongsFields__status_Read {
+  permission: Boolean!
+}
+
+type SongsFields__status_Update {
+  permission: Boolean!
+}
+
+type SongsFields_artists {
+  create: SongsFields_artists_Create
+  delete: SongsFields_artists_Delete
+  read: SongsFields_artists_Read
+  update: SongsFields_artists_Update
+}
+
+type SongsFields_artists_Create {
+  permission: Boolean!
+}
+
+type SongsFields_artists_Delete {
+  permission: Boolean!
+}
+
+type SongsFields_artists_Read {
+  permission: Boolean!
+}
+
+type SongsFields_artists_Update {
+  permission: Boolean!
+}
+
+type SongsFields_createdAt {
+  create: SongsFields_createdAt_Create
+  delete: SongsFields_createdAt_Delete
+  read: SongsFields_createdAt_Read
+  update: SongsFields_createdAt_Update
+}
+
+type SongsFields_createdAt_Create {
+  permission: Boolean!
+}
+
+type SongsFields_createdAt_Delete {
+  permission: Boolean!
+}
+
+type SongsFields_createdAt_Read {
+  permission: Boolean!
+}
+
+type SongsFields_createdAt_Update {
+  permission: Boolean!
+}
+
+type SongsFields_description {
+  create: SongsFields_description_Create
+  delete: SongsFields_description_Delete
+  read: SongsFields_description_Read
+  update: SongsFields_description_Update
+}
+
+type SongsFields_description_Create {
+  permission: Boolean!
+}
+
+type SongsFields_description_Delete {
+  permission: Boolean!
+}
+
+type SongsFields_description_Read {
+  permission: Boolean!
+}
+
+type SongsFields_description_Update {
+  permission: Boolean!
+}
+
+type SongsFields_lyrics {
+  create: SongsFields_lyrics_Create
+  delete: SongsFields_lyrics_Delete
+  read: SongsFields_lyrics_Read
+  update: SongsFields_lyrics_Update
+}
+
+type SongsFields_lyricsAuthors {
+  create: SongsFields_lyricsAuthors_Create
+  delete: SongsFields_lyricsAuthors_Delete
+  read: SongsFields_lyricsAuthors_Read
+  update: SongsFields_lyricsAuthors_Update
+}
+
+type SongsFields_lyricsAuthors_Create {
+  permission: Boolean!
+}
+
+type SongsFields_lyricsAuthors_Delete {
+  permission: Boolean!
+}
+
+type SongsFields_lyricsAuthors_Read {
+  permission: Boolean!
+}
+
+type SongsFields_lyricsAuthors_Update {
+  permission: Boolean!
+}
+
+type SongsFields_lyrics_Create {
+  permission: Boolean!
+}
+
+type SongsFields_lyrics_Delete {
+  permission: Boolean!
+}
+
+type SongsFields_lyrics_Read {
+  permission: Boolean!
+}
+
+type SongsFields_lyrics_Update {
+  permission: Boolean!
+}
+
+type SongsFields_musicAuthors {
+  create: SongsFields_musicAuthors_Create
+  delete: SongsFields_musicAuthors_Delete
+  read: SongsFields_musicAuthors_Read
+  update: SongsFields_musicAuthors_Update
+}
+
+type SongsFields_musicAuthors_Create {
+  permission: Boolean!
+}
+
+type SongsFields_musicAuthors_Delete {
+  permission: Boolean!
+}
+
+type SongsFields_musicAuthors_Read {
+  permission: Boolean!
+}
+
+type SongsFields_musicAuthors_Update {
+  permission: Boolean!
+}
+
+type SongsFields_title {
+  create: SongsFields_title_Create
+  delete: SongsFields_title_Delete
+  read: SongsFields_title_Read
+  update: SongsFields_title_Update
+}
+
+type SongsFields_title_Create {
+  permission: Boolean!
+}
+
+type SongsFields_title_Delete {
+  permission: Boolean!
+}
+
+type SongsFields_title_Read {
+  permission: Boolean!
+}
+
+type SongsFields_title_Update {
+  permission: Boolean!
+}
+
+type SongsFields_updatedAt {
+  create: SongsFields_updatedAt_Create
+  delete: SongsFields_updatedAt_Delete
+  read: SongsFields_updatedAt_Read
+  update: SongsFields_updatedAt_Update
+}
+
+type SongsFields_updatedAt_Create {
+  permission: Boolean!
+}
+
+type SongsFields_updatedAt_Delete {
+  permission: Boolean!
+}
+
+type SongsFields_updatedAt_Read {
+  permission: Boolean!
+}
+
+type SongsFields_updatedAt_Update {
+  permission: Boolean!
+}
+
+type SongsReadAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type SongsReadDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type SongsReadVersionsAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type SongsReadVersionsDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type SongsUpdateAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type SongsUpdateDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type User {
+  createdAt: DateTime
+  email: EmailAddress!
+  hash: String
+  id: String
+  lockUntil: DateTime
+  loginAttempts: Float
+  password: String!
+  resetPasswordExpiration: DateTime
+  resetPasswordToken: String
+  salt: String
+  updatedAt: DateTime
+}
+
+input User_createdAt_operator {
+  equals: DateTime
+  exists: Boolean
+  greater_than: DateTime
+  greater_than_equal: DateTime
+  less_than: DateTime
+  less_than_equal: DateTime
+  like: DateTime
+  not_equals: DateTime
+}
+
+input User_email_operator {
+  all: [EmailAddress]
+  contains: EmailAddress
+  equals: EmailAddress
+  in: [EmailAddress]
+  like: EmailAddress
+  not_equals: EmailAddress
+  not_in: [EmailAddress]
+}
+
+input User_id_operator {
+  all: [String]
+  contains: String
+  equals: String
+  exists: Boolean
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input User_updatedAt_operator {
+  equals: DateTime
+  exists: Boolean
+  greater_than: DateTime
+  greater_than_equal: DateTime
+  less_than: DateTime
+  less_than_equal: DateTime
+  like: DateTime
+  not_equals: DateTime
+}
+
+input User_where {
+  AND: [User_where_and]
+  OR: [User_where_or]
+  createdAt: User_createdAt_operator
+  email: User_email_operator
+  id: User_id_operator
+  updatedAt: User_updatedAt_operator
+}
+
+input User_where_and {
+  AND: [User_where_and]
+  OR: [User_where_or]
+  createdAt: User_createdAt_operator
+  email: User_email_operator
+  id: User_id_operator
+  updatedAt: User_updatedAt_operator
+}
+
+input User_where_or {
+  AND: [User_where_and]
+  OR: [User_where_or]
+  createdAt: User_createdAt_operator
+  email: User_email_operator
+  id: User_id_operator
+  updatedAt: User_updatedAt_operator
+}
+
+type Users {
+  docs: [User]
+  hasNextPage: Boolean
+  hasPrevPage: Boolean
+  limit: Int
+  nextPage: Int
+  offset: Int
+  page: Int
+  pagingCounter: Int
+  prevPage: Int
+  totalDocs: Int
+  totalPages: Int
+}
+
+type UsersCreateAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type UsersCreateDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type UsersDeleteAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type UsersDeleteDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type UsersDocAccessFields {
+  createdAt: UsersDocAccessFields_createdAt
+  email: UsersDocAccessFields_email
+  password: UsersDocAccessFields_password
+  updatedAt: UsersDocAccessFields_updatedAt
+}
+
+type UsersDocAccessFields_createdAt {
+  create: UsersDocAccessFields_createdAt_Create
+  delete: UsersDocAccessFields_createdAt_Delete
+  read: UsersDocAccessFields_createdAt_Read
+  update: UsersDocAccessFields_createdAt_Update
+}
+
+type UsersDocAccessFields_createdAt_Create {
+  permission: Boolean!
+}
+
+type UsersDocAccessFields_createdAt_Delete {
+  permission: Boolean!
+}
+
+type UsersDocAccessFields_createdAt_Read {
+  permission: Boolean!
+}
+
+type UsersDocAccessFields_createdAt_Update {
+  permission: Boolean!
+}
+
+type UsersDocAccessFields_email {
+  create: UsersDocAccessFields_email_Create
+  delete: UsersDocAccessFields_email_Delete
+  read: UsersDocAccessFields_email_Read
+  update: UsersDocAccessFields_email_Update
+}
+
+type UsersDocAccessFields_email_Create {
+  permission: Boolean!
+}
+
+type UsersDocAccessFields_email_Delete {
+  permission: Boolean!
+}
+
+type UsersDocAccessFields_email_Read {
+  permission: Boolean!
+}
+
+type UsersDocAccessFields_email_Update {
+  permission: Boolean!
+}
+
+type UsersDocAccessFields_password {
+  create: UsersDocAccessFields_password_Create
+  delete: UsersDocAccessFields_password_Delete
+  read: UsersDocAccessFields_password_Read
+  update: UsersDocAccessFields_password_Update
+}
+
+type UsersDocAccessFields_password_Create {
+  permission: Boolean!
+}
+
+type UsersDocAccessFields_password_Delete {
+  permission: Boolean!
+}
+
+type UsersDocAccessFields_password_Read {
+  permission: Boolean!
+}
+
+type UsersDocAccessFields_password_Update {
+  permission: Boolean!
+}
+
+type UsersDocAccessFields_updatedAt {
+  create: UsersDocAccessFields_updatedAt_Create
+  delete: UsersDocAccessFields_updatedAt_Delete
+  read: UsersDocAccessFields_updatedAt_Read
+  update: UsersDocAccessFields_updatedAt_Update
+}
+
+type UsersDocAccessFields_updatedAt_Create {
+  permission: Boolean!
+}
+
+type UsersDocAccessFields_updatedAt_Delete {
+  permission: Boolean!
+}
+
+type UsersDocAccessFields_updatedAt_Read {
+  permission: Boolean!
+}
+
+type UsersDocAccessFields_updatedAt_Update {
+  permission: Boolean!
+}
+
+type UsersFields {
+  createdAt: UsersFields_createdAt
+  email: UsersFields_email
+  password: UsersFields_password
+  updatedAt: UsersFields_updatedAt
+}
+
+type UsersFields_createdAt {
+  create: UsersFields_createdAt_Create
+  delete: UsersFields_createdAt_Delete
+  read: UsersFields_createdAt_Read
+  update: UsersFields_createdAt_Update
+}
+
+type UsersFields_createdAt_Create {
+  permission: Boolean!
+}
+
+type UsersFields_createdAt_Delete {
+  permission: Boolean!
+}
+
+type UsersFields_createdAt_Read {
+  permission: Boolean!
+}
+
+type UsersFields_createdAt_Update {
+  permission: Boolean!
+}
+
+type UsersFields_email {
+  create: UsersFields_email_Create
+  delete: UsersFields_email_Delete
+  read: UsersFields_email_Read
+  update: UsersFields_email_Update
+}
+
+type UsersFields_email_Create {
+  permission: Boolean!
+}
+
+type UsersFields_email_Delete {
+  permission: Boolean!
+}
+
+type UsersFields_email_Read {
+  permission: Boolean!
+}
+
+type UsersFields_email_Update {
+  permission: Boolean!
+}
+
+type UsersFields_password {
+  create: UsersFields_password_Create
+  delete: UsersFields_password_Delete
+  read: UsersFields_password_Read
+  update: UsersFields_password_Update
+}
+
+type UsersFields_password_Create {
+  permission: Boolean!
+}
+
+type UsersFields_password_Delete {
+  permission: Boolean!
+}
+
+type UsersFields_password_Read {
+  permission: Boolean!
+}
+
+type UsersFields_password_Update {
+  permission: Boolean!
+}
+
+type UsersFields_updatedAt {
+  create: UsersFields_updatedAt_Create
+  delete: UsersFields_updatedAt_Delete
+  read: UsersFields_updatedAt_Read
+  update: UsersFields_updatedAt_Update
+}
+
+type UsersFields_updatedAt_Create {
+  permission: Boolean!
+}
+
+type UsersFields_updatedAt_Delete {
+  permission: Boolean!
+}
+
+type UsersFields_updatedAt_Read {
+  permission: Boolean!
+}
+
+type UsersFields_updatedAt_Update {
+  permission: Boolean!
+}
+
+type UsersReadAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type UsersReadDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type UsersUnlockAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type UsersUnlockDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type UsersUpdateAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type UsersUpdateDocAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type allMedia {
+  docs: [Media]
+  hasNextPage: Boolean
+  hasPrevPage: Boolean
+  limit: Int
+  nextPage: Int
+  offset: Int
+  page: Int
+  pagingCounter: Int
+  prevPage: Int
+  totalDocs: Int
+  totalPages: Int
+}
+
+type artistsAccess {
+  create: ArtistsCreateAccess
+  delete: ArtistsDeleteAccess
+  fields: ArtistsFields
+  read: ArtistsReadAccess
+  readVersions: ArtistsReadVersionsAccess
+  update: ArtistsUpdateAccess
+}
+
+type artistsDocAccess {
+  create: ArtistsCreateDocAccess
+  delete: ArtistsDeleteDocAccess
+  fields: ArtistsDocAccessFields
+  read: ArtistsReadDocAccess
+  readVersions: ArtistsReadVersionsDocAccess
+  update: ArtistsUpdateDocAccess
+}
+
+type mediaAccess {
+  create: MediaCreateAccess
+  delete: MediaDeleteAccess
+  fields: MediaFields
+  read: MediaReadAccess
+  update: MediaUpdateAccess
+}
+
+type mediaDocAccess {
+  create: MediaCreateDocAccess
+  delete: MediaDeleteDocAccess
+  fields: MediaDocAccessFields
+  read: MediaReadDocAccess
+  update: MediaUpdateDocAccess
+}
+
+input mutationArtistInput {
+  _status: Artist__status_MutationInput
+  createdAt: String
+  description: JSON
+  title: String
+  updatedAt: String
+  url: String
+}
+
+input mutationArtistUpdateInput {
+  _status: ArtistUpdate__status_MutationInput
+  createdAt: String
+  description: JSON
+  title: String
+  updatedAt: String
+  url: String
+}
+
+input mutationMediaInput {
+  alt: String
+  createdAt: String
+  filename: String
+  filesize: Float
+  height: Float
+  mimeType: String
+  title: String
+  updatedAt: String
+  url: String
+  width: Float
+}
+
+input mutationMediaUpdateInput {
+  alt: String
+  createdAt: String
+  filename: String
+  filesize: Float
+  height: Float
+  mimeType: String
+  title: String
+  updatedAt: String
+  url: String
+  width: Float
+}
+
+input mutationPayloadPreferenceInput {
+  createdAt: String
+  key: String
+  updatedAt: String
+  user: PayloadPreference_UserRelationshipInput
+  value: JSON
+}
+
+input mutationPayloadPreferenceUpdateInput {
+  createdAt: String
+  key: String
+  updatedAt: String
+  user: PayloadPreferenceUpdate_UserRelationshipInput
+  value: JSON
+}
+
+input mutationPerformanceInput {
+  _status: Performance__status_MutationInput
+  createdAt: String
+  description: JSON
+  title: String
+  updatedAt: String
+}
+
+input mutationPerformanceUpdateInput {
+  _status: PerformanceUpdate__status_MutationInput
+  createdAt: String
+  description: JSON
+  title: String
+  updatedAt: String
+}
+
+input mutationPerformerInput {
+  _status: Performer__status_MutationInput
+  createdAt: String
+  description: JSON
+  image: String!
+  title: String
+  updatedAt: String
+}
+
+input mutationPerformerUpdateInput {
+  _status: PerformerUpdate__status_MutationInput
+  createdAt: String
+  description: JSON
+  image: String
+  title: String
+  updatedAt: String
+}
+
+input mutationSettingInput {
+  _status: Setting__status_MutationInput
+  createdAt: String
+  now: Setting_NowRelationshipInput
+  show: Setting_ShowRelationshipInput
+  updatedAt: String
+}
+
+input mutationShowInput {
+  _status: Show__status_MutationInput
+  createdAt: String
+  description: JSON
+  performers: [Show_PerformersRelationshipInput]
+  program: [Show_ProgramRelationshipInput]
+  title: String
+  updatedAt: String
+}
+
+input mutationShowUpdateInput {
+  _status: ShowUpdate__status_MutationInput
+  createdAt: String
+  description: JSON
+  performers: [ShowUpdate_PerformersRelationshipInput]
+  program: [ShowUpdate_ProgramRelationshipInput]
+  title: String
+  updatedAt: String
+}
+
+input mutationSongInput {
+  _status: Song__status_MutationInput
+  artists: [Song_ArtistsRelationshipInput]
+  createdAt: String
+  description: JSON
+  lyrics: JSON
+  lyricsAuthors: [Song_LyricsAuthorsRelationshipInput]
+  musicAuthors: [Song_MusicAuthorsRelationshipInput]
+  title: String
+  updatedAt: String
+}
+
+input mutationSongUpdateInput {
+  _status: SongUpdate__status_MutationInput
+  artists: [SongUpdate_ArtistsRelationshipInput]
+  createdAt: String
+  description: JSON
+  lyrics: JSON
+  lyricsAuthors: [SongUpdate_LyricsAuthorsRelationshipInput]
+  musicAuthors: [SongUpdate_MusicAuthorsRelationshipInput]
+  title: String
+  updatedAt: String
+}
+
+input mutationUserInput {
+  createdAt: String
+  email: String!
+  hash: String
+  lockUntil: String
+  loginAttempts: Float
+  password: String!
+  resetPasswordExpiration: String
+  resetPasswordToken: String
+  salt: String
+  updatedAt: String
+}
+
+input mutationUserUpdateInput {
+  createdAt: String
+  email: String
+  hash: String
+  lockUntil: String
+  loginAttempts: Float
+  password: String
+  resetPasswordExpiration: String
+  resetPasswordToken: String
+  salt: String
+  updatedAt: String
+}
+
+type payload_preferencesAccess {
+  create: PayloadPreferencesCreateAccess
+  delete: PayloadPreferencesDeleteAccess
+  fields: PayloadPreferencesFields
+  read: PayloadPreferencesReadAccess
+  update: PayloadPreferencesUpdateAccess
+}
+
+type payload_preferencesDocAccess {
+  create: PayloadPreferencesCreateDocAccess
+  delete: PayloadPreferencesDeleteDocAccess
+  fields: PayloadPreferencesDocAccessFields
+  read: PayloadPreferencesReadDocAccess
+  update: PayloadPreferencesUpdateDocAccess
+}
+
+type performancesAccess {
+  create: PerformancesCreateAccess
+  delete: PerformancesDeleteAccess
+  fields: PerformancesFields
+  read: PerformancesReadAccess
+  readVersions: PerformancesReadVersionsAccess
+  update: PerformancesUpdateAccess
+}
+
+type performancesDocAccess {
+  create: PerformancesCreateDocAccess
+  delete: PerformancesDeleteDocAccess
+  fields: PerformancesDocAccessFields
+  read: PerformancesReadDocAccess
+  readVersions: PerformancesReadVersionsDocAccess
+  update: PerformancesUpdateDocAccess
+}
+
+type performersAccess {
+  create: PerformersCreateAccess
+  delete: PerformersDeleteAccess
+  fields: PerformersFields
+  read: PerformersReadAccess
+  readVersions: PerformersReadVersionsAccess
+  update: PerformersUpdateAccess
+}
+
+type performersDocAccess {
+  create: PerformersCreateDocAccess
+  delete: PerformersDeleteDocAccess
+  fields: PerformersDocAccessFields
+  read: PerformersReadDocAccess
+  readVersions: PerformersReadVersionsDocAccess
+  update: PerformersUpdateDocAccess
+}
+
+type settingsAccess {
+  fields: SettingsFields
+  read: SettingsReadAccess
+  readVersions: SettingsReadVersionsAccess
+  update: SettingsUpdateAccess
+}
+
+type settingsDocAccess {
+  fields: SettingsDocAccessFields
+  read: SettingsReadDocAccess
+  readVersions: SettingsReadVersionsDocAccess
+  update: SettingsUpdateDocAccess
+}
+
+type showsAccess {
+  create: ShowsCreateAccess
+  delete: ShowsDeleteAccess
+  fields: ShowsFields
+  read: ShowsReadAccess
+  readVersions: ShowsReadVersionsAccess
+  update: ShowsUpdateAccess
+}
+
+type showsDocAccess {
+  create: ShowsCreateDocAccess
+  delete: ShowsDeleteDocAccess
+  fields: ShowsDocAccessFields
+  read: ShowsReadDocAccess
+  readVersions: ShowsReadVersionsDocAccess
+  update: ShowsUpdateDocAccess
+}
+
+type songsAccess {
+  create: SongsCreateAccess
+  delete: SongsDeleteAccess
+  fields: SongsFields
+  read: SongsReadAccess
+  readVersions: SongsReadVersionsAccess
+  update: SongsUpdateAccess
+}
+
+type songsDocAccess {
+  create: SongsCreateDocAccess
+  delete: SongsDeleteDocAccess
+  fields: SongsDocAccessFields
+  read: SongsReadDocAccess
+  readVersions: SongsReadVersionsDocAccess
+  update: SongsUpdateDocAccess
+}
+
+type usersAccess {
+  create: UsersCreateAccess
+  delete: UsersDeleteAccess
+  fields: UsersFields
+  read: UsersReadAccess
+  unlock: UsersUnlockAccess
+  update: UsersUpdateAccess
+}
+
+type usersDocAccess {
+  create: UsersCreateDocAccess
+  delete: UsersDeleteDocAccess
+  fields: UsersDocAccessFields
+  read: UsersReadDocAccess
+  unlock: UsersUnlockDocAccess
+  update: UsersUpdateDocAccess
+}
+
+type usersJWT {
+  collection: String!
+  email: EmailAddress!
+}
+
+type usersLoginResult {
+  exp: Int
+  token: String
+  user: User
+}
+
+type usersMe {
+  collection: String
+  exp: Int
+  token: String
+  user: User
+}
+
+type usersRefreshedUser {
+  exp: Int
+  refreshedToken: String
+  user: usersJWT
+}
+
+type usersResetPassword {
+  token: String
+  user: User
+}
+
+input versionsArtist_createdAt_operator {
+  equals: DateTime
+  exists: Boolean
+  greater_than: DateTime
+  greater_than_equal: DateTime
+  less_than: DateTime
+  less_than_equal: DateTime
+  like: DateTime
+  not_equals: DateTime
+}
+
+input versionsArtist_id_operator {
+  all: [String]
+  contains: String
+  equals: String
+  exists: Boolean
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input versionsArtist_latest_operator {
+  equals: Boolean
+  exists: Boolean
+  not_equals: Boolean
+}
+
+input versionsArtist_parent_operator {
+  all: [JSON]
+  equals: JSON
+  exists: Boolean
+  in: [JSON]
+  not_equals: JSON
+  not_in: [JSON]
+}
+
+input versionsArtist_updatedAt_operator {
+  equals: DateTime
+  exists: Boolean
+  greater_than: DateTime
+  greater_than_equal: DateTime
+  less_than: DateTime
+  less_than_equal: DateTime
+  like: DateTime
+  not_equals: DateTime
+}
+
+enum versionsArtist_version___status_Input {
+  draft
+  published
+}
+
+input versionsArtist_version___status_operator {
+  all: [versionsArtist_version___status_Input]
+  equals: versionsArtist_version___status_Input
+  exists: Boolean
+  in: [versionsArtist_version___status_Input]
+  not_equals: versionsArtist_version___status_Input
+  not_in: [versionsArtist_version___status_Input]
+}
+
+input versionsArtist_version__createdAt_operator {
+  equals: DateTime
+  exists: Boolean
+  greater_than: DateTime
+  greater_than_equal: DateTime
+  less_than: DateTime
+  less_than_equal: DateTime
+  like: DateTime
+  not_equals: DateTime
+}
+
+input versionsArtist_version__description_operator {
+  contains: JSON
+  equals: JSON
+  exists: Boolean
+  like: JSON
+  not_equals: JSON
+}
+
+input versionsArtist_version__title_operator {
+  all: [String]
+  contains: String
+  equals: String
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input versionsArtist_version__updatedAt_operator {
+  equals: DateTime
+  exists: Boolean
+  greater_than: DateTime
+  greater_than_equal: DateTime
+  less_than: DateTime
+  less_than_equal: DateTime
+  like: DateTime
+  not_equals: DateTime
+}
+
+input versionsArtist_version__url_operator {
+  all: [String]
+  contains: String
+  equals: String
+  exists: Boolean
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input versionsArtist_where {
+  AND: [versionsArtist_where_and]
+  OR: [versionsArtist_where_or]
+  createdAt: versionsArtist_createdAt_operator
+  id: versionsArtist_id_operator
+  latest: versionsArtist_latest_operator
+  parent: versionsArtist_parent_operator
+  updatedAt: versionsArtist_updatedAt_operator
+  version___status: versionsArtist_version___status_operator
+  version__createdAt: versionsArtist_version__createdAt_operator
+  version__description: versionsArtist_version__description_operator
+  version__title: versionsArtist_version__title_operator
+  version__updatedAt: versionsArtist_version__updatedAt_operator
+  version__url: versionsArtist_version__url_operator
+}
+
+input versionsArtist_where_and {
+  AND: [versionsArtist_where_and]
+  OR: [versionsArtist_where_or]
+  createdAt: versionsArtist_createdAt_operator
+  id: versionsArtist_id_operator
+  latest: versionsArtist_latest_operator
+  parent: versionsArtist_parent_operator
+  updatedAt: versionsArtist_updatedAt_operator
+  version___status: versionsArtist_version___status_operator
+  version__createdAt: versionsArtist_version__createdAt_operator
+  version__description: versionsArtist_version__description_operator
+  version__title: versionsArtist_version__title_operator
+  version__updatedAt: versionsArtist_version__updatedAt_operator
+  version__url: versionsArtist_version__url_operator
+}
+
+input versionsArtist_where_or {
+  AND: [versionsArtist_where_and]
+  OR: [versionsArtist_where_or]
+  createdAt: versionsArtist_createdAt_operator
+  id: versionsArtist_id_operator
+  latest: versionsArtist_latest_operator
+  parent: versionsArtist_parent_operator
+  updatedAt: versionsArtist_updatedAt_operator
+  version___status: versionsArtist_version___status_operator
+  version__createdAt: versionsArtist_version__createdAt_operator
+  version__description: versionsArtist_version__description_operator
+  version__title: versionsArtist_version__title_operator
+  version__updatedAt: versionsArtist_version__updatedAt_operator
+  version__url: versionsArtist_version__url_operator
+}
+
+type versionsArtists {
+  docs: [ArtistVersion]
+  hasNextPage: Boolean
+  hasPrevPage: Boolean
+  limit: Int
+  nextPage: Int
+  offset: Int
+  page: Int
+  pagingCounter: Int
+  prevPage: Int
+  totalDocs: Int
+  totalPages: Int
+}
+
+input versionsPerformance_createdAt_operator {
+  equals: DateTime
+  exists: Boolean
+  greater_than: DateTime
+  greater_than_equal: DateTime
+  less_than: DateTime
+  less_than_equal: DateTime
+  like: DateTime
+  not_equals: DateTime
+}
+
+input versionsPerformance_id_operator {
+  all: [String]
+  contains: String
+  equals: String
+  exists: Boolean
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input versionsPerformance_latest_operator {
+  equals: Boolean
+  exists: Boolean
+  not_equals: Boolean
+}
+
+input versionsPerformance_parent_operator {
+  all: [JSON]
+  equals: JSON
+  exists: Boolean
+  in: [JSON]
+  not_equals: JSON
+  not_in: [JSON]
+}
+
+input versionsPerformance_updatedAt_operator {
+  equals: DateTime
+  exists: Boolean
+  greater_than: DateTime
+  greater_than_equal: DateTime
+  less_than: DateTime
+  less_than_equal: DateTime
+  like: DateTime
+  not_equals: DateTime
+}
+
+enum versionsPerformance_version___status_Input {
+  draft
+  published
+}
+
+input versionsPerformance_version___status_operator {
+  all: [versionsPerformance_version___status_Input]
+  equals: versionsPerformance_version___status_Input
+  exists: Boolean
+  in: [versionsPerformance_version___status_Input]
+  not_equals: versionsPerformance_version___status_Input
+  not_in: [versionsPerformance_version___status_Input]
+}
+
+input versionsPerformance_version__createdAt_operator {
+  equals: DateTime
+  exists: Boolean
+  greater_than: DateTime
+  greater_than_equal: DateTime
+  less_than: DateTime
+  less_than_equal: DateTime
+  like: DateTime
+  not_equals: DateTime
+}
+
+input versionsPerformance_version__description_operator {
+  contains: JSON
+  equals: JSON
+  exists: Boolean
+  like: JSON
+  not_equals: JSON
+}
+
+input versionsPerformance_version__title_operator {
+  all: [String]
+  contains: String
+  equals: String
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input versionsPerformance_version__updatedAt_operator {
+  equals: DateTime
+  exists: Boolean
+  greater_than: DateTime
+  greater_than_equal: DateTime
+  less_than: DateTime
+  less_than_equal: DateTime
+  like: DateTime
+  not_equals: DateTime
+}
+
+input versionsPerformance_where {
+  AND: [versionsPerformance_where_and]
+  OR: [versionsPerformance_where_or]
+  createdAt: versionsPerformance_createdAt_operator
+  id: versionsPerformance_id_operator
+  latest: versionsPerformance_latest_operator
+  parent: versionsPerformance_parent_operator
+  updatedAt: versionsPerformance_updatedAt_operator
+  version___status: versionsPerformance_version___status_operator
+  version__createdAt: versionsPerformance_version__createdAt_operator
+  version__description: versionsPerformance_version__description_operator
+  version__title: versionsPerformance_version__title_operator
+  version__updatedAt: versionsPerformance_version__updatedAt_operator
+}
+
+input versionsPerformance_where_and {
+  AND: [versionsPerformance_where_and]
+  OR: [versionsPerformance_where_or]
+  createdAt: versionsPerformance_createdAt_operator
+  id: versionsPerformance_id_operator
+  latest: versionsPerformance_latest_operator
+  parent: versionsPerformance_parent_operator
+  updatedAt: versionsPerformance_updatedAt_operator
+  version___status: versionsPerformance_version___status_operator
+  version__createdAt: versionsPerformance_version__createdAt_operator
+  version__description: versionsPerformance_version__description_operator
+  version__title: versionsPerformance_version__title_operator
+  version__updatedAt: versionsPerformance_version__updatedAt_operator
+}
+
+input versionsPerformance_where_or {
+  AND: [versionsPerformance_where_and]
+  OR: [versionsPerformance_where_or]
+  createdAt: versionsPerformance_createdAt_operator
+  id: versionsPerformance_id_operator
+  latest: versionsPerformance_latest_operator
+  parent: versionsPerformance_parent_operator
+  updatedAt: versionsPerformance_updatedAt_operator
+  version___status: versionsPerformance_version___status_operator
+  version__createdAt: versionsPerformance_version__createdAt_operator
+  version__description: versionsPerformance_version__description_operator
+  version__title: versionsPerformance_version__title_operator
+  version__updatedAt: versionsPerformance_version__updatedAt_operator
+}
+
+type versionsPerformances {
+  docs: [PerformanceVersion]
+  hasNextPage: Boolean
+  hasPrevPage: Boolean
+  limit: Int
+  nextPage: Int
+  offset: Int
+  page: Int
+  pagingCounter: Int
+  prevPage: Int
+  totalDocs: Int
+  totalPages: Int
+}
+
+input versionsPerformer_createdAt_operator {
+  equals: DateTime
+  exists: Boolean
+  greater_than: DateTime
+  greater_than_equal: DateTime
+  less_than: DateTime
+  less_than_equal: DateTime
+  like: DateTime
+  not_equals: DateTime
+}
+
+input versionsPerformer_id_operator {
+  all: [String]
+  contains: String
+  equals: String
+  exists: Boolean
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input versionsPerformer_latest_operator {
+  equals: Boolean
+  exists: Boolean
+  not_equals: Boolean
+}
+
+input versionsPerformer_parent_operator {
+  all: [JSON]
+  equals: JSON
+  exists: Boolean
+  in: [JSON]
+  not_equals: JSON
+  not_in: [JSON]
+}
+
+input versionsPerformer_updatedAt_operator {
+  equals: DateTime
+  exists: Boolean
+  greater_than: DateTime
+  greater_than_equal: DateTime
+  less_than: DateTime
+  less_than_equal: DateTime
+  like: DateTime
+  not_equals: DateTime
+}
+
+enum versionsPerformer_version___status_Input {
+  draft
+  published
+}
+
+input versionsPerformer_version___status_operator {
+  all: [versionsPerformer_version___status_Input]
+  equals: versionsPerformer_version___status_Input
+  exists: Boolean
+  in: [versionsPerformer_version___status_Input]
+  not_equals: versionsPerformer_version___status_Input
+  not_in: [versionsPerformer_version___status_Input]
+}
+
+input versionsPerformer_version__createdAt_operator {
+  equals: DateTime
+  exists: Boolean
+  greater_than: DateTime
+  greater_than_equal: DateTime
+  less_than: DateTime
+  less_than_equal: DateTime
+  like: DateTime
+  not_equals: DateTime
+}
+
+input versionsPerformer_version__description_operator {
+  contains: JSON
+  equals: JSON
+  exists: Boolean
+  like: JSON
+  not_equals: JSON
+}
+
+input versionsPerformer_version__image_operator {
+  equals: String
+  not_equals: String
+}
+
+input versionsPerformer_version__title_operator {
+  all: [String]
+  contains: String
+  equals: String
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input versionsPerformer_version__updatedAt_operator {
+  equals: DateTime
+  exists: Boolean
+  greater_than: DateTime
+  greater_than_equal: DateTime
+  less_than: DateTime
+  less_than_equal: DateTime
+  like: DateTime
+  not_equals: DateTime
+}
+
+input versionsPerformer_where {
+  AND: [versionsPerformer_where_and]
+  OR: [versionsPerformer_where_or]
+  createdAt: versionsPerformer_createdAt_operator
+  id: versionsPerformer_id_operator
+  latest: versionsPerformer_latest_operator
+  parent: versionsPerformer_parent_operator
+  updatedAt: versionsPerformer_updatedAt_operator
+  version___status: versionsPerformer_version___status_operator
+  version__createdAt: versionsPerformer_version__createdAt_operator
+  version__description: versionsPerformer_version__description_operator
+  version__image: versionsPerformer_version__image_operator
+  version__title: versionsPerformer_version__title_operator
+  version__updatedAt: versionsPerformer_version__updatedAt_operator
+}
+
+input versionsPerformer_where_and {
+  AND: [versionsPerformer_where_and]
+  OR: [versionsPerformer_where_or]
+  createdAt: versionsPerformer_createdAt_operator
+  id: versionsPerformer_id_operator
+  latest: versionsPerformer_latest_operator
+  parent: versionsPerformer_parent_operator
+  updatedAt: versionsPerformer_updatedAt_operator
+  version___status: versionsPerformer_version___status_operator
+  version__createdAt: versionsPerformer_version__createdAt_operator
+  version__description: versionsPerformer_version__description_operator
+  version__image: versionsPerformer_version__image_operator
+  version__title: versionsPerformer_version__title_operator
+  version__updatedAt: versionsPerformer_version__updatedAt_operator
+}
+
+input versionsPerformer_where_or {
+  AND: [versionsPerformer_where_and]
+  OR: [versionsPerformer_where_or]
+  createdAt: versionsPerformer_createdAt_operator
+  id: versionsPerformer_id_operator
+  latest: versionsPerformer_latest_operator
+  parent: versionsPerformer_parent_operator
+  updatedAt: versionsPerformer_updatedAt_operator
+  version___status: versionsPerformer_version___status_operator
+  version__createdAt: versionsPerformer_version__createdAt_operator
+  version__description: versionsPerformer_version__description_operator
+  version__image: versionsPerformer_version__image_operator
+  version__title: versionsPerformer_version__title_operator
+  version__updatedAt: versionsPerformer_version__updatedAt_operator
+}
+
+type versionsPerformers {
+  docs: [PerformerVersion]
+  hasNextPage: Boolean
+  hasPrevPage: Boolean
+  limit: Int
+  nextPage: Int
+  offset: Int
+  page: Int
+  pagingCounter: Int
+  prevPage: Int
+  totalDocs: Int
+  totalPages: Int
+}
+
+type versionsSetting {
+  docs: [SettingVersion]
+  hasNextPage: Boolean
+  hasPrevPage: Boolean
+  limit: Int
+  nextPage: Int
+  offset: Int
+  page: Int
+  pagingCounter: Int
+  prevPage: Int
+  totalDocs: Int
+  totalPages: Int
+}
+
+input versionsSetting_createdAt_operator {
+  equals: DateTime
+  exists: Boolean
+  greater_than: DateTime
+  greater_than_equal: DateTime
+  less_than: DateTime
+  less_than_equal: DateTime
+  like: DateTime
+  not_equals: DateTime
+}
+
+input versionsSetting_id_operator {
+  all: [String]
+  contains: String
+  equals: String
+  exists: Boolean
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input versionsSetting_latest_operator {
+  equals: Boolean
+  exists: Boolean
+  not_equals: Boolean
+}
+
+input versionsSetting_updatedAt_operator {
+  equals: DateTime
+  exists: Boolean
+  greater_than: DateTime
+  greater_than_equal: DateTime
+  less_than: DateTime
+  less_than_equal: DateTime
+  like: DateTime
+  not_equals: DateTime
+}
+
+enum versionsSetting_version___status_Input {
+  draft
+  published
+}
+
+input versionsSetting_version___status_operator {
+  all: [versionsSetting_version___status_Input]
+  equals: versionsSetting_version___status_Input
+  exists: Boolean
+  in: [versionsSetting_version___status_Input]
+  not_equals: versionsSetting_version___status_Input
+  not_in: [versionsSetting_version___status_Input]
+}
+
+input versionsSetting_version__createdAt_operator {
+  equals: DateTime
+  exists: Boolean
+  greater_than: DateTime
+  greater_than_equal: DateTime
+  less_than: DateTime
+  less_than_equal: DateTime
+  like: DateTime
+  not_equals: DateTime
+}
+
+input versionsSetting_version__now_Relation {
+  relationTo: versionsSetting_version__now_Relation_RelationTo
+  value: JSON
+}
+
+enum versionsSetting_version__now_Relation_RelationTo {
+  performances
+  songs
+}
+
+input versionsSetting_version__show_Relation {
+  relationTo: versionsSetting_version__show_Relation_RelationTo
+  value: JSON
+}
+
+enum versionsSetting_version__show_Relation_RelationTo {
+  shows
+}
+
+input versionsSetting_version__updatedAt_operator {
+  equals: DateTime
+  exists: Boolean
+  greater_than: DateTime
+  greater_than_equal: DateTime
+  less_than: DateTime
+  less_than_equal: DateTime
+  like: DateTime
+  not_equals: DateTime
+}
+
+input versionsSetting_where {
+  AND: [versionsSetting_where_and]
+  OR: [versionsSetting_where_or]
+  createdAt: versionsSetting_createdAt_operator
+  id: versionsSetting_id_operator
+  latest: versionsSetting_latest_operator
+  updatedAt: versionsSetting_updatedAt_operator
+  version___status: versionsSetting_version___status_operator
+  version__createdAt: versionsSetting_version__createdAt_operator
+  version__now: versionsSetting_version__now_Relation
+  version__show: versionsSetting_version__show_Relation
+  version__updatedAt: versionsSetting_version__updatedAt_operator
+}
+
+input versionsSetting_where_and {
+  AND: [versionsSetting_where_and]
+  OR: [versionsSetting_where_or]
+  createdAt: versionsSetting_createdAt_operator
+  id: versionsSetting_id_operator
+  latest: versionsSetting_latest_operator
+  updatedAt: versionsSetting_updatedAt_operator
+  version___status: versionsSetting_version___status_operator
+  version__createdAt: versionsSetting_version__createdAt_operator
+  version__now: versionsSetting_version__now_Relation
+  version__show: versionsSetting_version__show_Relation
+  version__updatedAt: versionsSetting_version__updatedAt_operator
+}
+
+input versionsSetting_where_or {
+  AND: [versionsSetting_where_and]
+  OR: [versionsSetting_where_or]
+  createdAt: versionsSetting_createdAt_operator
+  id: versionsSetting_id_operator
+  latest: versionsSetting_latest_operator
+  updatedAt: versionsSetting_updatedAt_operator
+  version___status: versionsSetting_version___status_operator
+  version__createdAt: versionsSetting_version__createdAt_operator
+  version__now: versionsSetting_version__now_Relation
+  version__show: versionsSetting_version__show_Relation
+  version__updatedAt: versionsSetting_version__updatedAt_operator
+}
+
+input versionsShow_createdAt_operator {
+  equals: DateTime
+  exists: Boolean
+  greater_than: DateTime
+  greater_than_equal: DateTime
+  less_than: DateTime
+  less_than_equal: DateTime
+  like: DateTime
+  not_equals: DateTime
+}
+
+input versionsShow_id_operator {
+  all: [String]
+  contains: String
+  equals: String
+  exists: Boolean
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input versionsShow_latest_operator {
+  equals: Boolean
+  exists: Boolean
+  not_equals: Boolean
+}
+
+input versionsShow_parent_operator {
+  all: [JSON]
+  equals: JSON
+  exists: Boolean
+  in: [JSON]
+  not_equals: JSON
+  not_in: [JSON]
+}
+
+input versionsShow_updatedAt_operator {
+  equals: DateTime
+  exists: Boolean
+  greater_than: DateTime
+  greater_than_equal: DateTime
+  less_than: DateTime
+  less_than_equal: DateTime
+  like: DateTime
+  not_equals: DateTime
+}
+
+enum versionsShow_version___status_Input {
+  draft
+  published
+}
+
+input versionsShow_version___status_operator {
+  all: [versionsShow_version___status_Input]
+  equals: versionsShow_version___status_Input
+  exists: Boolean
+  in: [versionsShow_version___status_Input]
+  not_equals: versionsShow_version___status_Input
+  not_in: [versionsShow_version___status_Input]
+}
+
+input versionsShow_version__createdAt_operator {
+  equals: DateTime
+  exists: Boolean
+  greater_than: DateTime
+  greater_than_equal: DateTime
+  less_than: DateTime
+  less_than_equal: DateTime
+  like: DateTime
+  not_equals: DateTime
+}
+
+input versionsShow_version__description_operator {
+  contains: JSON
+  equals: JSON
+  exists: Boolean
+  like: JSON
+  not_equals: JSON
+}
+
+input versionsShow_version__performers_Relation {
+  relationTo: versionsShow_version__performers_Relation_RelationTo
+  value: JSON
+}
+
+enum versionsShow_version__performers_Relation_RelationTo {
+  performers
+}
+
+input versionsShow_version__program_Relation {
+  relationTo: versionsShow_version__program_Relation_RelationTo
+  value: JSON
+}
+
+enum versionsShow_version__program_Relation_RelationTo {
+  performances
+  songs
+}
+
+input versionsShow_version__title_operator {
+  all: [String]
+  contains: String
+  equals: String
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input versionsShow_version__updatedAt_operator {
+  equals: DateTime
+  exists: Boolean
+  greater_than: DateTime
+  greater_than_equal: DateTime
+  less_than: DateTime
+  less_than_equal: DateTime
+  like: DateTime
+  not_equals: DateTime
+}
+
+input versionsShow_where {
+  AND: [versionsShow_where_and]
+  OR: [versionsShow_where_or]
+  createdAt: versionsShow_createdAt_operator
+  id: versionsShow_id_operator
+  latest: versionsShow_latest_operator
+  parent: versionsShow_parent_operator
+  updatedAt: versionsShow_updatedAt_operator
+  version___status: versionsShow_version___status_operator
+  version__createdAt: versionsShow_version__createdAt_operator
+  version__description: versionsShow_version__description_operator
+  version__performers: versionsShow_version__performers_Relation
+  version__program: versionsShow_version__program_Relation
+  version__title: versionsShow_version__title_operator
+  version__updatedAt: versionsShow_version__updatedAt_operator
+}
+
+input versionsShow_where_and {
+  AND: [versionsShow_where_and]
+  OR: [versionsShow_where_or]
+  createdAt: versionsShow_createdAt_operator
+  id: versionsShow_id_operator
+  latest: versionsShow_latest_operator
+  parent: versionsShow_parent_operator
+  updatedAt: versionsShow_updatedAt_operator
+  version___status: versionsShow_version___status_operator
+  version__createdAt: versionsShow_version__createdAt_operator
+  version__description: versionsShow_version__description_operator
+  version__performers: versionsShow_version__performers_Relation
+  version__program: versionsShow_version__program_Relation
+  version__title: versionsShow_version__title_operator
+  version__updatedAt: versionsShow_version__updatedAt_operator
+}
+
+input versionsShow_where_or {
+  AND: [versionsShow_where_and]
+  OR: [versionsShow_where_or]
+  createdAt: versionsShow_createdAt_operator
+  id: versionsShow_id_operator
+  latest: versionsShow_latest_operator
+  parent: versionsShow_parent_operator
+  updatedAt: versionsShow_updatedAt_operator
+  version___status: versionsShow_version___status_operator
+  version__createdAt: versionsShow_version__createdAt_operator
+  version__description: versionsShow_version__description_operator
+  version__performers: versionsShow_version__performers_Relation
+  version__program: versionsShow_version__program_Relation
+  version__title: versionsShow_version__title_operator
+  version__updatedAt: versionsShow_version__updatedAt_operator
+}
+
+type versionsShows {
+  docs: [ShowVersion]
+  hasNextPage: Boolean
+  hasPrevPage: Boolean
+  limit: Int
+  nextPage: Int
+  offset: Int
+  page: Int
+  pagingCounter: Int
+  prevPage: Int
+  totalDocs: Int
+  totalPages: Int
+}
+
+input versionsSong_createdAt_operator {
+  equals: DateTime
+  exists: Boolean
+  greater_than: DateTime
+  greater_than_equal: DateTime
+  less_than: DateTime
+  less_than_equal: DateTime
+  like: DateTime
+  not_equals: DateTime
+}
+
+input versionsSong_id_operator {
+  all: [String]
+  contains: String
+  equals: String
+  exists: Boolean
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input versionsSong_latest_operator {
+  equals: Boolean
+  exists: Boolean
+  not_equals: Boolean
+}
+
+input versionsSong_parent_operator {
+  all: [JSON]
+  equals: JSON
+  exists: Boolean
+  in: [JSON]
+  not_equals: JSON
+  not_in: [JSON]
+}
+
+input versionsSong_updatedAt_operator {
+  equals: DateTime
+  exists: Boolean
+  greater_than: DateTime
+  greater_than_equal: DateTime
+  less_than: DateTime
+  less_than_equal: DateTime
+  like: DateTime
+  not_equals: DateTime
+}
+
+enum versionsSong_version___status_Input {
+  draft
+  published
+}
+
+input versionsSong_version___status_operator {
+  all: [versionsSong_version___status_Input]
+  equals: versionsSong_version___status_Input
+  exists: Boolean
+  in: [versionsSong_version___status_Input]
+  not_equals: versionsSong_version___status_Input
+  not_in: [versionsSong_version___status_Input]
+}
+
+input versionsSong_version__artists_Relation {
+  relationTo: versionsSong_version__artists_Relation_RelationTo
+  value: JSON
+}
+
+enum versionsSong_version__artists_Relation_RelationTo {
+  artists
+}
+
+input versionsSong_version__createdAt_operator {
+  equals: DateTime
+  exists: Boolean
+  greater_than: DateTime
+  greater_than_equal: DateTime
+  less_than: DateTime
+  less_than_equal: DateTime
+  like: DateTime
+  not_equals: DateTime
+}
+
+input versionsSong_version__description_operator {
+  contains: JSON
+  equals: JSON
+  exists: Boolean
+  like: JSON
+  not_equals: JSON
+}
+
+input versionsSong_version__lyricsAuthors_Relation {
+  relationTo: versionsSong_version__lyricsAuthors_Relation_RelationTo
+  value: JSON
+}
+
+enum versionsSong_version__lyricsAuthors_Relation_RelationTo {
+  artists
+}
+
+input versionsSong_version__lyrics_operator {
+  contains: JSON
+  equals: JSON
+  exists: Boolean
+  like: JSON
+  not_equals: JSON
+}
+
+input versionsSong_version__musicAuthors_Relation {
+  relationTo: versionsSong_version__musicAuthors_Relation_RelationTo
+  value: JSON
+}
+
+enum versionsSong_version__musicAuthors_Relation_RelationTo {
+  artists
+}
+
+input versionsSong_version__title_operator {
+  all: [String]
+  contains: String
+  equals: String
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input versionsSong_version__updatedAt_operator {
+  equals: DateTime
+  exists: Boolean
+  greater_than: DateTime
+  greater_than_equal: DateTime
+  less_than: DateTime
+  less_than_equal: DateTime
+  like: DateTime
+  not_equals: DateTime
+}
+
+input versionsSong_where {
+  AND: [versionsSong_where_and]
+  OR: [versionsSong_where_or]
+  createdAt: versionsSong_createdAt_operator
+  id: versionsSong_id_operator
+  latest: versionsSong_latest_operator
+  parent: versionsSong_parent_operator
+  updatedAt: versionsSong_updatedAt_operator
+  version___status: versionsSong_version___status_operator
+  version__artists: versionsSong_version__artists_Relation
+  version__createdAt: versionsSong_version__createdAt_operator
+  version__description: versionsSong_version__description_operator
+  version__lyrics: versionsSong_version__lyrics_operator
+  version__lyricsAuthors: versionsSong_version__lyricsAuthors_Relation
+  version__musicAuthors: versionsSong_version__musicAuthors_Relation
+  version__title: versionsSong_version__title_operator
+  version__updatedAt: versionsSong_version__updatedAt_operator
+}
+
+input versionsSong_where_and {
+  AND: [versionsSong_where_and]
+  OR: [versionsSong_where_or]
+  createdAt: versionsSong_createdAt_operator
+  id: versionsSong_id_operator
+  latest: versionsSong_latest_operator
+  parent: versionsSong_parent_operator
+  updatedAt: versionsSong_updatedAt_operator
+  version___status: versionsSong_version___status_operator
+  version__artists: versionsSong_version__artists_Relation
+  version__createdAt: versionsSong_version__createdAt_operator
+  version__description: versionsSong_version__description_operator
+  version__lyrics: versionsSong_version__lyrics_operator
+  version__lyricsAuthors: versionsSong_version__lyricsAuthors_Relation
+  version__musicAuthors: versionsSong_version__musicAuthors_Relation
+  version__title: versionsSong_version__title_operator
+  version__updatedAt: versionsSong_version__updatedAt_operator
+}
+
+input versionsSong_where_or {
+  AND: [versionsSong_where_and]
+  OR: [versionsSong_where_or]
+  createdAt: versionsSong_createdAt_operator
+  id: versionsSong_id_operator
+  latest: versionsSong_latest_operator
+  parent: versionsSong_parent_operator
+  updatedAt: versionsSong_updatedAt_operator
+  version___status: versionsSong_version___status_operator
+  version__artists: versionsSong_version__artists_Relation
+  version__createdAt: versionsSong_version__createdAt_operator
+  version__description: versionsSong_version__description_operator
+  version__lyrics: versionsSong_version__lyrics_operator
+  version__lyricsAuthors: versionsSong_version__lyricsAuthors_Relation
+  version__musicAuthors: versionsSong_version__musicAuthors_Relation
+  version__title: versionsSong_version__title_operator
+  version__updatedAt: versionsSong_version__updatedAt_operator
+}
+
+type versionsSongs {
+  docs: [SongVersion]
+  hasNextPage: Boolean
+  hasPrevPage: Boolean
+  limit: Int
+  nextPage: Int
+  offset: Int
+  page: Int
+  pagingCounter: Int
+  prevPage: Int
+  totalDocs: Int
+  totalPages: Int
+}

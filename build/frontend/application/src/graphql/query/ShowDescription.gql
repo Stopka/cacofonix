@@ -1,0 +1,6 @@
+query ShowDescription($showId: String!){
+  Show(id:$showId, draft: false) {
+    title,
+    description
+  }
+}

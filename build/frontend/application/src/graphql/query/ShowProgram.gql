@@ -1,0 +1,11 @@
+query ShowProgram($showId: String!){
+  Show(id:$showId, draft: false) {
+    program {
+      value {
+        __typename
+        ... PerformanceSummary
+        ... SongSummary
+      }
+    }
+  }
+}
