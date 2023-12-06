@@ -12,3 +12,21 @@ $color-mode-type: media-query;
     max-width: 2rem;
   }
 }
+@include media-breakpoint-down(sm) {
+  .navbar-collapse{
+    &.collapse{
+      display: block;
+
+      clip: rect(auto, auto, 0, auto);
+      transition-property: max-height;
+      transition-duration: 0.4s;
+      transition-timing-function: ease-in-out;
+      max-height: 0;
+      overflow: clip;
+
+      &.show{
+        max-height: 200vh;
+      }
+    }
+  }
+}
