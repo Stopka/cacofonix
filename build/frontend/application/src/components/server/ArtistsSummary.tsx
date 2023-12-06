@@ -22,7 +22,7 @@ export default function ArtistsSummary ({ header, artists, icon }: {
         <span className={'d-none d-md-inline'}>{header}</span>
       </div>
       <ul className="card-text list-inline d-inline">
-        {artists.map((artist) => <ArtistSummary artist={artist.value} key={artist.id}/>)}
+        {artists.map((artist, index) => <ArtistSummary artist={artist.value} key={index}/>)}
       </ul>
     </div>
   </li>

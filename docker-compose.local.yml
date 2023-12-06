@@ -12,15 +12,14 @@ services:
     volumes:
       - ./build/frontend/application:/srv
   payload:
+    image: skorpil/cacofonix-payload:dev
+    build:
+      target : dev
     volumes:
       - ./build/payload/application:/home/node/app
       - ./build/payload/application/node_modules:/home/node/app/node_modules
     labels:
       - "traefik.http.routers.payload.tls.certresolver=local"
-    environment:
-      NODE_ENV: development
-#    ports:
-#      -
   mongo:
     ports:
       - "27017:27017"

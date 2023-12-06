@@ -6,9 +6,10 @@ import { ParamsType } from '../ParamsType'
 import handleError from '../../../graphql/handleError'
 import ShowProgramList from '../../../components/server/ShowProgramList'
 import { Metadata } from 'next'
+import prepareMetadataTitle from '../../../utils/prepareMetadataTitle'
 
 export const metadata: Metadata = {
-  title: 'Program | Cacofonix'
+  title: prepareMetadataTitle('Program')
 }
 
 export default async function ProgramPage ({ params }: ParamsType<ShowParamsInterface>): Promise<ReactElement> {

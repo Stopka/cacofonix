@@ -5,9 +5,10 @@ import handleError from '../../../graphql/handleError'
 import NowProgramItem from '../../../components/server/NowProgramItem'
 import NowRefresher from '../../../components/client/NowRefresher'
 import { Metadata } from 'next'
+import prepareMetadataTitle from '../../../utils/prepareMetadataTitle'
 
 export const metadata: Metadata = {
-  title: 'Právě hrajem | Cacofonix'
+  title: prepareMetadataTitle('Právě hrajem')
 }
 
 export default async function NowPage (): Promise<ReactElement> {
@@ -22,7 +23,6 @@ export default async function NowPage (): Promise<ReactElement> {
         }
       }
     })
-    console.log('NowPage', data)
     return <>
       <h1>Právě hrajem</h1>
       <NowRefresher item={data?.Setting?.now?.value ?? undefined}/>

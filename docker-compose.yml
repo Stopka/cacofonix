@@ -10,8 +10,8 @@ x-defaults: &defaults
 
 services:
   frontend:
+    <<: *defaults
     image: skorpil/cacofonix-frontend:latest
-    restart: always
     build:
       context: ./build/frontend
       target: prod
@@ -35,11 +35,12 @@ services:
 
   payload:
     <<: *defaults
-    image: node:18-alpine
+    image: skorpil/cacofonix-payload:latest
+    build:
+      context: ./build/payload
+      target: prod
     volumes:
       - payload-uploads:/home/node/app/uploads
-    working_dir: /home/node/app/
-    command: sh -c "yarn install && yarn dev"
     depends_on:
       - mongo
     networks:

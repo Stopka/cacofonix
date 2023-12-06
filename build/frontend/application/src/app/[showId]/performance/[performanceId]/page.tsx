@@ -7,9 +7,10 @@ import handleError from '../../../../graphql/handleError'
 import PerformanceParamsInterface from './PerformanceParamsInterface'
 import Performance from '../../../../components/server/Performance'
 import { Metadata } from 'next'
+import prepareMetadataTitle from '../../../../utils/prepareMetadataTitle'
 
 export const metadata: Metadata = {
-  title: 'Vystopení | Cacofonix'
+  title: prepareMetadataTitle('Vystopení')
 }
 
 export default async function PerformancePage ({ params }: ParamsType<PerformanceParamsInterface & ShowParamsInterface>): Promise<ReactElement> {

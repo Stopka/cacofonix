@@ -1,7 +1,6 @@
 
 const config = {
   experimental: {
-    appDir: true,
     esmExternals: true
   },
   webpack (config) {

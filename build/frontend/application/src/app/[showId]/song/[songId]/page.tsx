@@ -7,9 +7,10 @@ import ShowParamsInterface from '../../ShowParamsInterface'
 import handleError from '../../../../graphql/handleError'
 import Song from '../../../../components/server/Song'
 import { Metadata } from 'next'
+import prepareMetadataTitle from '../../../../utils/prepareMetadataTitle'
 
 export const metadata: Metadata = {
-  title: 'Píseň | Cacofonix'
+  title: prepareMetadataTitle('Píseň')
 }
 
 export default async function SongPage ({ params }: ParamsType<SongParamsInterface & ShowParamsInterface>): Promise<ReactElement> {
