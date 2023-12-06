@@ -8,6 +8,7 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
+    "dev:start": "yarn install && yarn dev",
     "dev": "next dev ./src --hostname 0.0.0.0",
     "build": "yarn install",
     "start": "next start ./src",
