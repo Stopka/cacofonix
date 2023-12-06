@@ -8,6 +8,11 @@ export default async function RootPage (): Promise<ReactNode> {
   const { data } = await graphql.query({
     query: ShowSettingDocument,
     variables: {
+    },
+    context: {
+      fetchOptions: {
+        next: { revalidate: 5 }
+      }
     }
   })
   const showId = data?.Setting?.show?.value?.id
