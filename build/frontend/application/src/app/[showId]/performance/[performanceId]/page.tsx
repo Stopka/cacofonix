@@ -22,6 +22,11 @@ export default async function PerformancePage ({ params }: ParamsType<Performanc
       query: PerformanceDocument,
       variables: {
         performanceId
+      },
+      context: {
+        fetchOptions: {
+          next: { revalidate: 5 }
+        }
       }
     })
     return <Performance performance={data.Performance}/>

@@ -20,6 +20,11 @@ export default async function ProgramPage ({ params }: ParamsType<ShowParamsInte
       query: ShowProgramDocument,
       variables: {
         showId
+      },
+      context: {
+        fetchOptions: {
+          next: { revalidate: 5 }
+        }
       }
     })
     return <>

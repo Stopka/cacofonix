@@ -22,6 +22,11 @@ export default async function SongPage ({ params }: ParamsType<SongParamsInterfa
       query: SongDocument,
       variables: {
         songId
+      },
+      context: {
+        fetchOptions: {
+          next: { revalidate: 5 }
+        }
       }
     })
     return <Song song={data.Song}/>

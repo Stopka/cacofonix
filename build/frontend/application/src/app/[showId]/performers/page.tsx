@@ -20,6 +20,11 @@ export default async function PerformersPage ({ params }: ParamsType<ShowParamsI
       query: ShowPerformersDocument,
       variables: {
         showId
+      },
+      context: {
+        fetchOptions: {
+          next: { revalidate: 5 }
+        }
       }
     })
     return <>

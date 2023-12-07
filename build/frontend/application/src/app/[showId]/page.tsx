@@ -20,6 +20,11 @@ export default async function ShowPage ({ params }: ParamsType<ShowParamsInterfa
       query: ShowDescriptionDocument,
       variables: {
         showId
+      },
+      context: {
+        fetchOptions: {
+          next: { revalidate: 5 }
+        }
       }
     })
     return <>
