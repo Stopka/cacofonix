@@ -7,6 +7,8 @@ import ShowParamsInterface from './ShowParamsInterface'
 import handleError from '../../graphql/handleError'
 import { Metadata } from 'next'
 import prepareMetadataTitle from '../../utils/prepareMetadataTitle'
+import Icon from '../../components/server/Icon'
+import EmptyMessage from '../../components/server/EmptyMessage'
 
 export const metadata: Metadata = {
   title: prepareMetadataTitle('O koncertu')
@@ -29,7 +31,9 @@ export default async function ShowPage ({ params }: ParamsType<ShowParamsInterfa
     })
     return <>
       <h1>{data?.Show?.title}</h1>
-      <Content content={data?.Show?.description}/>
+      <EmptyMessage icon={'info'} data={data?.Show?.description} message={<p>Nejsou žádné informace o koncertu.</p>}>
+        <Content content={data?.Show?.description}/>
+      </EmptyMessage>
     </>
   } catch (e) {
     return handleError(e)

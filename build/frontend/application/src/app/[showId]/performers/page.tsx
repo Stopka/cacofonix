@@ -7,6 +7,7 @@ import { ParamsType } from '../ParamsType'
 import handleError from '../../../graphql/handleError'
 import { Metadata } from 'next'
 import prepareMetadataTitle from '../../../utils/prepareMetadataTitle'
+import Icon from '../../../components/server/Icon'
 
 export const metadata: Metadata = {
   title: prepareMetadataTitle('Účinkující')
@@ -29,26 +30,31 @@ export default async function PerformersPage ({ params }: ParamsType<ShowParamsI
     })
     return <>
       <h1>Účinkující</h1>
-      {data?.Show?.performers?.map(
-        (performer) => {
-          return (<article key={performer?.value?.id} className={'clearfix mb-3'}>
-            <h2>{performer.value?.title}</h2>
-            <div className="row g-0">
-              <div className="col-md-4">
-                <img src={performer?.value?.image?.url ?? ''}
-                     className="img-fluid rounded"
-                     alt={performer?.value?.image?.alt ?? ''}/>
-              </div>
-              <div className="col-md-8">
-                <div className="card-body mt-3 mt-md-0 ms-md-3">
-                  <Content content={performer?.value?.description ?? ''}/>
+      {(data?.Show?.performers?.length ?? 0) === 0
+        ? <>
+          <p>Nejsou žádní účinkující</p>
+          <Icon iconName={'group'} className={'empty-icon'}/>
+        </>
+        : data?.Show?.performers?.map(
+          (performer) => {
+            return (<article key={performer?.value?.id} className={'clearfix mb-3'}>
+              <h2>{performer.value?.title}</h2>
+              <div className="row g-0">
+                <div className="col-md-4">
+                  <img src={performer?.value?.image?.url ?? ''}
+                       className="img-fluid rounded"
+                       alt={performer?.value?.image?.alt ?? ''}/>
+                </div>
+                <div className="col-md-8">
+                  <div className="card-body mt-3 mt-md-0 ms-md-3">
+                    <Content content={performer?.value?.description ?? ''}/>
+                  </div>
                 </div>
               </div>
-            </div>
 
-          </article>)
-        }
-      )}
+            </article>)
+          }
+        )}
     </>
   } catch (e) {
     return handleError(e)

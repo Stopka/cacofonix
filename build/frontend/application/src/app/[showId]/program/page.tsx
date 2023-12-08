@@ -7,6 +7,7 @@ import handleError from '../../../graphql/handleError'
 import ShowProgramList from '../../../components/server/ShowProgramList'
 import { Metadata } from 'next'
 import prepareMetadataTitle from '../../../utils/prepareMetadataTitle'
+import EmptyMessage from '../../../components/server/EmptyMessage'
 
 export const metadata: Metadata = {
   title: prepareMetadataTitle('Program')
@@ -29,7 +30,9 @@ export default async function ProgramPage ({ params }: ParamsType<ShowParamsInte
     })
     return <>
       <h1>Program</h1>
-      <ShowProgramList program = {data?.Show?.program} showId={showId} />
+      <EmptyMessage icon={'event_note'} data={data?.Show?.program} message={<p>Program je prázdný</p>}>
+        <ShowProgramList program = {data?.Show?.program} showId={showId} />
+      </EmptyMessage>
     </>
   } catch (e) {
     return handleError(e)

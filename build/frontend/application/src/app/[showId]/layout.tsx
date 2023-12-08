@@ -16,7 +16,7 @@ export default async function ShowLayout ({ children }: {
         <Header>
           <NavigationToggler>
             <NavigationLink href={'/%showId%'} iconName={'info'} label={'O koncertu'}/>
-            <NavigationLink href={'/%showId%/performers'} iconName={'person'} label="Účinkující"/>
+            <NavigationLink href={'/%showId%/performers'} iconName={'group'} label="Účinkující"/>
             <NavigationLink href={'/%showId%/program'} iconName={'event_note'} label="Program"/>
             <NavigationLink href={'/%showId%/now'} iconName={'play_arrow'} label="Právě hrajem"/>
           </NavigationToggler>
