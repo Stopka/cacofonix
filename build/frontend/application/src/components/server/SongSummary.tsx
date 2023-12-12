@@ -3,6 +3,7 @@ import { SongSummaryFragment } from '../../graphql/generated/types'
 import Link from 'next/link'
 import Icon from './Icon'
 import Badge from './Badge'
+import getFlagEmoji from '../../utils/getFlagEmoji'
 
 export default function SongSummary ({ song, showId }: {
   song: SongSummaryFragment
@@ -12,7 +13,10 @@ export default function SongSummary ({ song, showId }: {
     <Link className={'stretched-link'} href={`/${showId}/song/${song.id ?? ''}`}>
       {song.title}
 
-      <Badge className={'bg-secondary ms-2'}><Icon iconName={'music_note'}/></Badge>
+      {typeof song.country === 'string'
+        ? <Badge className={'bg-secondary ms-2'} title={song.country}>{getFlagEmoji(song.country)}</Badge>
+        : ''}
+      <Badge className={'bg-secondary ms-2'} title={'Píseň'}><Icon iconName={'music_note'}/></Badge>
     </Link>
   </>
 }

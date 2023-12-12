@@ -1,5 +1,6 @@
 fragment Song on Song{
-  id
+  id,
+  country,
   title,
   description,
   artists{
