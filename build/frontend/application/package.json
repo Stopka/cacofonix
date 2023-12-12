@@ -19,6 +19,8 @@
     "@apollo/client": "^3.8.8",
     "@apollo/experimental-nextjs-app-support": "^0.4.2",
     "@datapunt/matomo-tracker-js": "^0.5.1",
+    "@fontsource/noto-color-emoji": "^5.0.17",
+    "@fontsource/noto-sans": "^5.0.18",
     "@hookform/resolvers": "^2.9.10",
     "@js-joda/core": "^5.6.1",
     "@popperjs/core": "^2.11.6",
