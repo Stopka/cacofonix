@@ -1,11 +1,15 @@
 @import "@fontsource/noto-sans";
-@import "@fontsource/noto-color-emoji";
+@import "noto-color-emoji";
 
 $color-mode-type: media-query;
-$font-family-base: "Noto Sans";
+$font-family-base: "Noto Sans", "NotoColorEmoji", sans-serif;
 
 @import '~bootstrap/scss/bootstrap';
 @import 'material-symbols';
+
+body{
+  font-variant-emoji: emoji;
+}
 
 .material-symbols-outlined.material-symbols-outlined {
   font-size: inherit;

@@ -1,7 +1,7 @@
 import { CollectionConfig } from 'payload/types'
 import TitleField from '../fields/TitleField'
 import ArtistsField from '../fields/ArtistsField'
-import { all, CountryProperty } from 'country-codes-list'
+import { all } from 'country-codes-list'
 
 // Example Collection - For reference only, this must be added to payload.config.ts to be used.
 const SongsCollection: CollectionConfig = {

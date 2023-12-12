@@ -14,7 +14,7 @@ export default function SongSummary ({ song, showId }: {
       {song.title}
 
       {(song?.countries?.length ?? 0) > 0
-        ? <Badge className={'bg-secondary ms-2'} title={song.countries?.join(', ')}>
+        ? <Badge className={'bg-secondary ms-2 emoji'} title={song.countries?.join(', ')}>
           {song.countries?.map(country => getFlagEmoji(country)).join(' ')}
       </Badge>
         : ''}

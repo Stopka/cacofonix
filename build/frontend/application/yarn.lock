@@ -1181,11 +1181,6 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.54.0.tgz#4fab9a2ff7860082c304f750e94acd644cf984cf"
   integrity sha512-ut5V+D+fOoWPgGGNj83GGjnntO39xDy6DWxO0wb7Jp3DcMX0TfIqdzHF85VTQkerdyGmuuMD9AKAo5KiNlf/AQ==
 
-"@fontsource/noto-color-emoji@^5.0.17":
-  version "5.0.17"
-  resolved "https://registry.yarnpkg.com/@fontsource/noto-color-emoji/-/noto-color-emoji-5.0.17.tgz#14643be6722e0444f2f413a3cb6497f4d6931dde"
-  integrity sha512-dpg2N5A24GD5OYXw49QmBTpybzWUlf7bWB1ctuvnDhOBP1gSLX8cIbfed389CUDgg8wa8C807EUcjo0l+lGCdg==
-
 "@fontsource/noto-sans@^5.0.18":
   version "5.0.18"
   resolved "https://registry.yarnpkg.com/@fontsource/noto-sans/-/noto-sans-5.0.18.tgz#810600bc614b7a89eb7ef097c3cf608246c96edb"
@@ -5794,6 +5789,11 @@ normalize.css@^8.0.1:
   version "8.0.1"
   resolved "https://registry.yarnpkg.com/normalize.css/-/normalize.css-8.0.1.tgz#9b98a208738b9cc2634caacbc42d131c97487bf3"
   integrity sha512-qizSNPO93t1YUuUhP22btGOo3chcvDFqFaj2TRybP0DMxkHOCTYwp3n34fel4a31ORXy4m1Xq0Gyqpb5m33qIg==
+
+noto-color-emoji@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/noto-color-emoji/-/noto-color-emoji-1.0.1.tgz#8843422fcad5e329cca06605e3016510db6fe3b5"
+  integrity sha512-Vu53On8Q4ZEiqU25flsxdGhcK0qHJhpCg6AgFYm91NyGCUOn+cQGCA+iyniQJV7yGMZHqYQ743K+HmZ+aOOVKw==
 
 npm-run-path@^4.0.1:
   version "4.0.1"
