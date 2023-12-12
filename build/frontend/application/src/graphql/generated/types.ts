@@ -5346,7 +5346,7 @@ export type Song = {
   __typename?: 'Song';
   _status?: Maybe<Song__Status>;
   artists?: Maybe<Array<Song_Artists_Relationship>>;
-  country?: Maybe<Song_Country>;
+  countries?: Maybe<Array<Song_Countries>>;
   createdAt?: Maybe<Scalars['DateTime']>;
   description?: Maybe<Scalars['JSON']>;
   id?: Maybe<Scalars['String']>;
@@ -5417,7 +5417,7 @@ export enum SongUpdate__Status_MutationInput {
   Published = 'published'
 }
 
-export enum SongUpdate_Country_MutationInput {
+export enum SongUpdate_Countries_MutationInput {
   Ad = 'AD',
   Ae = 'AE',
   Af = 'AF',
@@ -5691,7 +5691,7 @@ export type SongVersion_Version = {
   __typename?: 'SongVersion_Version';
   _status?: Maybe<SongVersion_Version__Status>;
   artists?: Maybe<Array<SongVersion_Version_Artists_Relationship>>;
-  country?: Maybe<SongVersion_Version_Country>;
+  countries?: Maybe<Array<SongVersion_Version_Countries>>;
   createdAt?: Maybe<Scalars['DateTime']>;
   description?: Maybe<Scalars['JSON']>;
   lyrics?: Maybe<Scalars['JSON']>;
@@ -5770,7 +5770,7 @@ export enum SongVersion_Version__Status {
   Published = 'published'
 }
 
-export enum SongVersion_Version_Country {
+export enum SongVersion_Version_Countries {
   Ad = 'AD',
   Ae = 'AE',
   Af = 'AF',
@@ -6120,7 +6120,7 @@ export enum Song_Artists_Relation_RelationTo {
   Artists = 'artists'
 }
 
-export enum Song_Country {
+export enum Song_Countries {
   Ad = 'AD',
   Ae = 'AE',
   Af = 'AF',
@@ -6374,7 +6374,7 @@ export enum Song_Country {
   Zw = 'ZW'
 }
 
-export enum Song_Country_Input {
+export enum Song_Countries_Input {
   Ad = 'AD',
   Ae = 'AE',
   Af = 'AF',
@@ -6628,7 +6628,7 @@ export enum Song_Country_Input {
   Zw = 'ZW'
 }
 
-export enum Song_Country_MutationInput {
+export enum Song_Countries_MutationInput {
   Ad = 'AD',
   Ae = 'AE',
   Af = 'AF',
@@ -6882,13 +6882,13 @@ export enum Song_Country_MutationInput {
   Zw = 'ZW'
 }
 
-export type Song_Country_Operator = {
-  all?: InputMaybe<Array<InputMaybe<Song_Country_Input>>>;
-  equals?: InputMaybe<Song_Country_Input>;
+export type Song_Countries_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Song_Countries_Input>>>;
+  equals?: InputMaybe<Song_Countries_Input>;
   exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<Song_Country_Input>>>;
-  not_equals?: InputMaybe<Song_Country_Input>;
-  not_in?: InputMaybe<Array<InputMaybe<Song_Country_Input>>>;
+  in?: InputMaybe<Array<InputMaybe<Song_Countries_Input>>>;
+  not_equals?: InputMaybe<Song_Countries_Input>;
+  not_in?: InputMaybe<Array<InputMaybe<Song_Countries_Input>>>;
 };
 
 export type Song_CreatedAt_Operator = {
@@ -6973,7 +6973,7 @@ export type Song_Where = {
   OR?: InputMaybe<Array<InputMaybe<Song_Where_Or>>>;
   _status?: InputMaybe<Song__Status_Operator>;
   artists?: InputMaybe<Song_Artists_Relation>;
-  country?: InputMaybe<Song_Country_Operator>;
+  countries?: InputMaybe<Song_Countries_Operator>;
   createdAt?: InputMaybe<Song_CreatedAt_Operator>;
   description?: InputMaybe<Song_Description_Operator>;
   id?: InputMaybe<Song_Id_Operator>;
@@ -6989,7 +6989,7 @@ export type Song_Where_And = {
   OR?: InputMaybe<Array<InputMaybe<Song_Where_Or>>>;
   _status?: InputMaybe<Song__Status_Operator>;
   artists?: InputMaybe<Song_Artists_Relation>;
-  country?: InputMaybe<Song_Country_Operator>;
+  countries?: InputMaybe<Song_Countries_Operator>;
   createdAt?: InputMaybe<Song_CreatedAt_Operator>;
   description?: InputMaybe<Song_Description_Operator>;
   id?: InputMaybe<Song_Id_Operator>;
@@ -7005,7 +7005,7 @@ export type Song_Where_Or = {
   OR?: InputMaybe<Array<InputMaybe<Song_Where_Or>>>;
   _status?: InputMaybe<Song__Status_Operator>;
   artists?: InputMaybe<Song_Artists_Relation>;
-  country?: InputMaybe<Song_Country_Operator>;
+  countries?: InputMaybe<Song_Countries_Operator>;
   createdAt?: InputMaybe<Song_CreatedAt_Operator>;
   description?: InputMaybe<Song_Description_Operator>;
   id?: InputMaybe<Song_Id_Operator>;
@@ -7059,7 +7059,7 @@ export type SongsDocAccessFields = {
   __typename?: 'SongsDocAccessFields';
   _status?: Maybe<SongsDocAccessFields__Status>;
   artists?: Maybe<SongsDocAccessFields_Artists>;
-  country?: Maybe<SongsDocAccessFields_Country>;
+  countries?: Maybe<SongsDocAccessFields_Countries>;
   createdAt?: Maybe<SongsDocAccessFields_CreatedAt>;
   description?: Maybe<SongsDocAccessFields_Description>;
   lyrics?: Maybe<SongsDocAccessFields_Lyrics>;
@@ -7125,31 +7125,31 @@ export type SongsDocAccessFields_Artists_Update = {
   permission: Scalars['Boolean'];
 };
 
-export type SongsDocAccessFields_Country = {
-  __typename?: 'SongsDocAccessFields_country';
-  create?: Maybe<SongsDocAccessFields_Country_Create>;
-  delete?: Maybe<SongsDocAccessFields_Country_Delete>;
-  read?: Maybe<SongsDocAccessFields_Country_Read>;
-  update?: Maybe<SongsDocAccessFields_Country_Update>;
+export type SongsDocAccessFields_Countries = {
+  __typename?: 'SongsDocAccessFields_countries';
+  create?: Maybe<SongsDocAccessFields_Countries_Create>;
+  delete?: Maybe<SongsDocAccessFields_Countries_Delete>;
+  read?: Maybe<SongsDocAccessFields_Countries_Read>;
+  update?: Maybe<SongsDocAccessFields_Countries_Update>;
 };
 
-export type SongsDocAccessFields_Country_Create = {
-  __typename?: 'SongsDocAccessFields_country_Create';
+export type SongsDocAccessFields_Countries_Create = {
+  __typename?: 'SongsDocAccessFields_countries_Create';
   permission: Scalars['Boolean'];
 };
 
-export type SongsDocAccessFields_Country_Delete = {
-  __typename?: 'SongsDocAccessFields_country_Delete';
+export type SongsDocAccessFields_Countries_Delete = {
+  __typename?: 'SongsDocAccessFields_countries_Delete';
   permission: Scalars['Boolean'];
 };
 
-export type SongsDocAccessFields_Country_Read = {
-  __typename?: 'SongsDocAccessFields_country_Read';
+export type SongsDocAccessFields_Countries_Read = {
+  __typename?: 'SongsDocAccessFields_countries_Read';
   permission: Scalars['Boolean'];
 };
 
-export type SongsDocAccessFields_Country_Update = {
-  __typename?: 'SongsDocAccessFields_country_Update';
+export type SongsDocAccessFields_Countries_Update = {
+  __typename?: 'SongsDocAccessFields_countries_Update';
   permission: Scalars['Boolean'];
 };
 
@@ -7353,7 +7353,7 @@ export type SongsFields = {
   __typename?: 'SongsFields';
   _status?: Maybe<SongsFields__Status>;
   artists?: Maybe<SongsFields_Artists>;
-  country?: Maybe<SongsFields_Country>;
+  countries?: Maybe<SongsFields_Countries>;
   createdAt?: Maybe<SongsFields_CreatedAt>;
   description?: Maybe<SongsFields_Description>;
   lyrics?: Maybe<SongsFields_Lyrics>;
@@ -7419,31 +7419,31 @@ export type SongsFields_Artists_Update = {
   permission: Scalars['Boolean'];
 };
 
-export type SongsFields_Country = {
-  __typename?: 'SongsFields_country';
-  create?: Maybe<SongsFields_Country_Create>;
-  delete?: Maybe<SongsFields_Country_Delete>;
-  read?: Maybe<SongsFields_Country_Read>;
-  update?: Maybe<SongsFields_Country_Update>;
+export type SongsFields_Countries = {
+  __typename?: 'SongsFields_countries';
+  create?: Maybe<SongsFields_Countries_Create>;
+  delete?: Maybe<SongsFields_Countries_Delete>;
+  read?: Maybe<SongsFields_Countries_Read>;
+  update?: Maybe<SongsFields_Countries_Update>;
 };
 
-export type SongsFields_Country_Create = {
-  __typename?: 'SongsFields_country_Create';
+export type SongsFields_Countries_Create = {
+  __typename?: 'SongsFields_countries_Create';
   permission: Scalars['Boolean'];
 };
 
-export type SongsFields_Country_Delete = {
-  __typename?: 'SongsFields_country_Delete';
+export type SongsFields_Countries_Delete = {
+  __typename?: 'SongsFields_countries_Delete';
   permission: Scalars['Boolean'];
 };
 
-export type SongsFields_Country_Read = {
-  __typename?: 'SongsFields_country_Read';
+export type SongsFields_Countries_Read = {
+  __typename?: 'SongsFields_countries_Read';
   permission: Scalars['Boolean'];
 };
 
-export type SongsFields_Country_Update = {
-  __typename?: 'SongsFields_country_Update';
+export type SongsFields_Countries_Update = {
+  __typename?: 'SongsFields_countries_Update';
   permission: Scalars['Boolean'];
 };
 
@@ -8257,7 +8257,7 @@ export type MutationShowUpdateInput = {
 export type MutationSongInput = {
   _status?: InputMaybe<Song__Status_MutationInput>;
   artists?: InputMaybe<Array<InputMaybe<Song_ArtistsRelationshipInput>>>;
-  country?: InputMaybe<Song_Country_MutationInput>;
+  countries?: InputMaybe<Array<InputMaybe<Song_Countries_MutationInput>>>;
   createdAt?: InputMaybe<Scalars['String']>;
   description?: InputMaybe<Scalars['JSON']>;
   lyrics?: InputMaybe<Scalars['JSON']>;
@@ -8270,7 +8270,7 @@ export type MutationSongInput = {
 export type MutationSongUpdateInput = {
   _status?: InputMaybe<SongUpdate__Status_MutationInput>;
   artists?: InputMaybe<Array<InputMaybe<SongUpdate_ArtistsRelationshipInput>>>;
-  country?: InputMaybe<SongUpdate_Country_MutationInput>;
+  countries?: InputMaybe<Array<InputMaybe<SongUpdate_Countries_MutationInput>>>;
   createdAt?: InputMaybe<Scalars['String']>;
   description?: InputMaybe<Scalars['JSON']>;
   lyrics?: InputMaybe<Scalars['JSON']>;
@@ -9391,7 +9391,7 @@ export enum VersionsSong_Version__Artists_Relation_RelationTo {
   Artists = 'artists'
 }
 
-export enum VersionsSong_Version__Country_Input {
+export enum VersionsSong_Version__Countries_Input {
   Ad = 'AD',
   Ae = 'AE',
   Af = 'AF',
@@ -9645,13 +9645,13 @@ export enum VersionsSong_Version__Country_Input {
   Zw = 'ZW'
 }
 
-export type VersionsSong_Version__Country_Operator = {
-  all?: InputMaybe<Array<InputMaybe<VersionsSong_Version__Country_Input>>>;
-  equals?: InputMaybe<VersionsSong_Version__Country_Input>;
+export type VersionsSong_Version__Countries_Operator = {
+  all?: InputMaybe<Array<InputMaybe<VersionsSong_Version__Countries_Input>>>;
+  equals?: InputMaybe<VersionsSong_Version__Countries_Input>;
   exists?: InputMaybe<Scalars['Boolean']>;
-  in?: InputMaybe<Array<InputMaybe<VersionsSong_Version__Country_Input>>>;
-  not_equals?: InputMaybe<VersionsSong_Version__Country_Input>;
-  not_in?: InputMaybe<Array<InputMaybe<VersionsSong_Version__Country_Input>>>;
+  in?: InputMaybe<Array<InputMaybe<VersionsSong_Version__Countries_Input>>>;
+  not_equals?: InputMaybe<VersionsSong_Version__Countries_Input>;
+  not_in?: InputMaybe<Array<InputMaybe<VersionsSong_Version__Countries_Input>>>;
 };
 
 export type VersionsSong_Version__CreatedAt_Operator = {
@@ -9730,7 +9730,7 @@ export type VersionsSong_Where = {
   updatedAt?: InputMaybe<VersionsSong_UpdatedAt_Operator>;
   version___status?: InputMaybe<VersionsSong_Version___Status_Operator>;
   version__artists?: InputMaybe<VersionsSong_Version__Artists_Relation>;
-  version__country?: InputMaybe<VersionsSong_Version__Country_Operator>;
+  version__countries?: InputMaybe<VersionsSong_Version__Countries_Operator>;
   version__createdAt?: InputMaybe<VersionsSong_Version__CreatedAt_Operator>;
   version__description?: InputMaybe<VersionsSong_Version__Description_Operator>;
   version__lyrics?: InputMaybe<VersionsSong_Version__Lyrics_Operator>;
@@ -9750,7 +9750,7 @@ export type VersionsSong_Where_And = {
   updatedAt?: InputMaybe<VersionsSong_UpdatedAt_Operator>;
   version___status?: InputMaybe<VersionsSong_Version___Status_Operator>;
   version__artists?: InputMaybe<VersionsSong_Version__Artists_Relation>;
-  version__country?: InputMaybe<VersionsSong_Version__Country_Operator>;
+  version__countries?: InputMaybe<VersionsSong_Version__Countries_Operator>;
   version__createdAt?: InputMaybe<VersionsSong_Version__CreatedAt_Operator>;
   version__description?: InputMaybe<VersionsSong_Version__Description_Operator>;
   version__lyrics?: InputMaybe<VersionsSong_Version__Lyrics_Operator>;
@@ -9770,7 +9770,7 @@ export type VersionsSong_Where_Or = {
   updatedAt?: InputMaybe<VersionsSong_UpdatedAt_Operator>;
   version___status?: InputMaybe<VersionsSong_Version___Status_Operator>;
   version__artists?: InputMaybe<VersionsSong_Version__Artists_Relation>;
-  version__country?: InputMaybe<VersionsSong_Version__Country_Operator>;
+  version__countries?: InputMaybe<VersionsSong_Version__Countries_Operator>;
   version__createdAt?: InputMaybe<VersionsSong_Version__CreatedAt_Operator>;
   version__description?: InputMaybe<VersionsSong_Version__Description_Operator>;
   version__lyrics?: InputMaybe<VersionsSong_Version__Lyrics_Operator>;
@@ -9803,14 +9803,14 @@ export type PerformanceFragment = { __typename?: 'Performance', id?: string | nu
 
 export type PerformanceSummaryFragment = { __typename?: 'Performance', id?: string | null, title?: string | null, description?: any | null };
 
-export type SongFragment = { __typename?: 'Song', id?: string | null, country?: Song_Country | null, title?: string | null, description?: any | null, lyrics?: any | null, artists?: Array<{ __typename?: 'Song_Artists_Relationship', value?: { __typename?: 'Artist', id?: string | null, title?: string | null, url?: string | null } | null }> | null, lyricsAuthors?: Array<{ __typename?: 'Song_LyricsAuthors_Relationship', value?: { __typename?: 'Artist', id?: string | null, title?: string | null, url?: string | null } | null }> | null, musicAuthors?: Array<{ __typename?: 'Song_MusicAuthors_Relationship', value?: { __typename?: 'Artist', id?: string | null, title?: string | null, url?: string | null } | null }> | null };
+export type SongFragment = { __typename?: 'Song', id?: string | null, countries?: Array<Song_Countries> | null, title?: string | null, description?: any | null, lyrics?: any | null, artists?: Array<{ __typename?: 'Song_Artists_Relationship', value?: { __typename?: 'Artist', id?: string | null, title?: string | null, url?: string | null } | null }> | null, lyricsAuthors?: Array<{ __typename?: 'Song_LyricsAuthors_Relationship', value?: { __typename?: 'Artist', id?: string | null, title?: string | null, url?: string | null } | null }> | null, musicAuthors?: Array<{ __typename?: 'Song_MusicAuthors_Relationship', value?: { __typename?: 'Artist', id?: string | null, title?: string | null, url?: string | null } | null }> | null };
 
-export type SongSummaryFragment = { __typename?: 'Song', id?: string | null, title?: string | null, country?: Song_Country | null, description?: any | null };
+export type SongSummaryFragment = { __typename?: 'Song', id?: string | null, title?: string | null, countries?: Array<Song_Countries> | null, description?: any | null };
 
 export type NowSettingQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type NowSettingQuery = { __typename?: 'Query', Setting?: { __typename?: 'Setting', now?: { __typename?: 'Setting_Now_Relationship', value?: { __typename: 'Performance', id?: string | null, title?: string | null, description?: any | null } | { __typename: 'Song', id?: string | null, country?: Song_Country | null, title?: string | null, description?: any | null, lyrics?: any | null, artists?: Array<{ __typename?: 'Song_Artists_Relationship', value?: { __typename?: 'Artist', id?: string | null, title?: string | null, url?: string | null } | null }> | null, lyricsAuthors?: Array<{ __typename?: 'Song_LyricsAuthors_Relationship', value?: { __typename?: 'Artist', id?: string | null, title?: string | null, url?: string | null } | null }> | null, musicAuthors?: Array<{ __typename?: 'Song_MusicAuthors_Relationship', value?: { __typename?: 'Artist', id?: string | null, title?: string | null, url?: string | null } | null }> | null } | null } | null } | null };
+export type NowSettingQuery = { __typename?: 'Query', Setting?: { __typename?: 'Setting', now?: { __typename?: 'Setting_Now_Relationship', value?: { __typename: 'Performance', id?: string | null, title?: string | null, description?: any | null } | { __typename: 'Song', id?: string | null, countries?: Array<Song_Countries> | null, title?: string | null, description?: any | null, lyrics?: any | null, artists?: Array<{ __typename?: 'Song_Artists_Relationship', value?: { __typename?: 'Artist', id?: string | null, title?: string | null, url?: string | null } | null }> | null, lyricsAuthors?: Array<{ __typename?: 'Song_LyricsAuthors_Relationship', value?: { __typename?: 'Artist', id?: string | null, title?: string | null, url?: string | null } | null }> | null, musicAuthors?: Array<{ __typename?: 'Song_MusicAuthors_Relationship', value?: { __typename?: 'Artist', id?: string | null, title?: string | null, url?: string | null } | null }> | null } | null } | null } | null };
 
 export type PerformanceQueryVariables = Exact<{
   performanceId: Scalars['String'];
@@ -9838,7 +9838,7 @@ export type ShowProgramQueryVariables = Exact<{
 }>;
 
 
-export type ShowProgramQuery = { __typename?: 'Query', Show?: { __typename?: 'Show', program?: Array<{ __typename?: 'Show_Program_Relationship', value?: { __typename: 'Performance', id?: string | null, title?: string | null, description?: any | null } | { __typename: 'Song', id?: string | null, title?: string | null, country?: Song_Country | null, description?: any | null } | null }> | null } | null };
+export type ShowProgramQuery = { __typename?: 'Query', Show?: { __typename?: 'Show', program?: Array<{ __typename?: 'Show_Program_Relationship', value?: { __typename: 'Performance', id?: string | null, title?: string | null, description?: any | null } | { __typename: 'Song', id?: string | null, title?: string | null, countries?: Array<Song_Countries> | null, description?: any | null } | null }> | null } | null };
 
 export type ShowSettingQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -9850,14 +9850,14 @@ export type SongQueryVariables = Exact<{
 }>;
 
 
-export type SongQuery = { __typename?: 'Query', Song?: { __typename?: 'Song', id?: string | null, country?: Song_Country | null, title?: string | null, description?: any | null, lyrics?: any | null, artists?: Array<{ __typename?: 'Song_Artists_Relationship', value?: { __typename?: 'Artist', id?: string | null, title?: string | null, url?: string | null } | null }> | null, lyricsAuthors?: Array<{ __typename?: 'Song_LyricsAuthors_Relationship', value?: { __typename?: 'Artist', id?: string | null, title?: string | null, url?: string | null } | null }> | null, musicAuthors?: Array<{ __typename?: 'Song_MusicAuthors_Relationship', value?: { __typename?: 'Artist', id?: string | null, title?: string | null, url?: string | null } | null }> | null } | null };
+export type SongQuery = { __typename?: 'Query', Song?: { __typename?: 'Song', id?: string | null, countries?: Array<Song_Countries> | null, title?: string | null, description?: any | null, lyrics?: any | null, artists?: Array<{ __typename?: 'Song_Artists_Relationship', value?: { __typename?: 'Artist', id?: string | null, title?: string | null, url?: string | null } | null }> | null, lyricsAuthors?: Array<{ __typename?: 'Song_LyricsAuthors_Relationship', value?: { __typename?: 'Artist', id?: string | null, title?: string | null, url?: string | null } | null }> | null, musicAuthors?: Array<{ __typename?: 'Song_MusicAuthors_Relationship', value?: { __typename?: 'Artist', id?: string | null, title?: string | null, url?: string | null } | null }> | null } | null };
 
 export const ImageFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"Image"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Media"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"alt"}},{"kind":"Field","name":{"kind":"Name","value":"mimeType"}}]}}]} as unknown as DocumentNode<ImageFragment, unknown>;
 export const PerformanceFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"Performance"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Performance"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"description"}}]}}]} as unknown as DocumentNode<PerformanceFragment, unknown>;
 export const PerformanceSummaryFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"PerformanceSummary"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Performance"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"description"}}]}}]} as unknown as DocumentNode<PerformanceSummaryFragment, unknown>;
 export const ArtistSummaryFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ArtistSummary"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Artist"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]} as unknown as DocumentNode<ArtistSummaryFragment, unknown>;
-export const SongFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"Song"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Song"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"country"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"artists"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"value"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ArtistSummary"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"lyricsAuthors"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"value"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ArtistSummary"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"musicAuthors"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"value"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ArtistSummary"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"lyrics"}}]}}]} as unknown as DocumentNode<SongFragment, unknown>;
-export const SongSummaryFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"SongSummary"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Song"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"country"}},{"kind":"Field","name":{"kind":"Name","value":"description"}}]}}]} as unknown as DocumentNode<SongSummaryFragment, unknown>;
+export const SongFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"Song"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Song"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"countries"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"artists"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"value"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ArtistSummary"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"lyricsAuthors"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"value"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ArtistSummary"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"musicAuthors"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"value"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ArtistSummary"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"lyrics"}}]}}]} as unknown as DocumentNode<SongFragment, unknown>;
+export const SongSummaryFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"SongSummary"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Song"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"countries"}},{"kind":"Field","name":{"kind":"Name","value":"description"}}]}}]} as unknown as DocumentNode<SongSummaryFragment, unknown>;
 export const NowSettingDocument = {"kind":"Document", "definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"NowSetting"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"Setting"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"draft"},"value":{"kind":"BooleanValue","value":false}},{"kind":"Argument","name":{"kind":"Name","value":"locale"},"value":{"kind":"EnumValue","value":"en"}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"now"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"value"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"Song"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"Performance"}}]}}]}}]}}]}},...SongFragmentDoc.definitions,...ArtistSummaryFragmentDoc.definitions,...PerformanceFragmentDoc.definitions]} as unknown as DocumentNode<NowSettingQuery, NowSettingQueryVariables>;
 export const PerformanceDocument = {"kind":"Document", "definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Performance"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"performanceId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"Performance"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"performanceId"}}},{"kind":"Argument","name":{"kind":"Name","value":"draft"},"value":{"kind":"BooleanValue","value":false}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"Performance"}}]}}]}},...PerformanceFragmentDoc.definitions]} as unknown as DocumentNode<PerformanceQuery, PerformanceQueryVariables>;
 export const ShowDescriptionDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"ShowDescription"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"showId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"Show"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"showId"}}},{"kind":"Argument","name":{"kind":"Name","value":"draft"},"value":{"kind":"BooleanValue","value":false}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"description"}}]}}]}}]} as unknown as DocumentNode<ShowDescriptionQuery, ShowDescriptionQueryVariables>;

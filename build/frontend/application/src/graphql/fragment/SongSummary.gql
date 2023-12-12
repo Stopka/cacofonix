@@ -1,6 +1,6 @@
 fragment SongSummary on Song {
   id
   title
-  country
+  countries
   description
 }

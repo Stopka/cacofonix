@@ -27,10 +27,11 @@ const SongsCollection: CollectionConfig = {
     TitleField(),
     {
       type: 'select',
-      name: 'country',
+      name: 'countries',
       options: all().map((item) => {
         return { label: item.countryNameEn, value: item.countryCode }
-      })
+      }),
+      hasMany: true
     },
     ArtistsField('artists'),
     ArtistsField('musicAuthors'),
