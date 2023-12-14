@@ -1,0 +1,11 @@
+fragment ShowProgram on Query{
+  Show(id:$showId, draft: false) {
+    program {
+      value {
+        __typename
+        ... PerformanceSummary
+        ... SongSummary
+      }
+    }
+  }
+}

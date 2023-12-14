@@ -5,7 +5,7 @@ import Badge from '../server/Badge'
 import Icon from '../server/Icon'
 import { Show_Program } from '../../graphql/generated/types'
 
-export default function NowBadge ({ item }: { item: Show_Program }): ReactElement {
+export default function NowBadge ({ item }: { item?: Show_Program | null }): ReactElement {
   const { now, loading } = useNowSettings()
 
   if (

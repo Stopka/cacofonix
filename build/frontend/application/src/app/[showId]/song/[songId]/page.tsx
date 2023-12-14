@@ -8,20 +8,22 @@ import handleError from '../../../../graphql/handleError'
 import Song from '../../../../components/server/Song'
 import { Metadata } from 'next'
 import prepareMetadataTitle from '../../../../utils/prepareMetadataTitle'
+import ProgramPaginator from '../../../../components/server/ProgramPaginator'
 
 export const metadata: Metadata = {
   title: prepareMetadataTitle('Píseň')
 }
 
 export default async function SongPage ({ params }: ParamsType<SongParamsInterface & ShowParamsInterface>): Promise<ReactElement> {
-  const { songId } = params
+  const { songId, showId } = params
 
   const graphql = createGraphqlServerClient()
   try {
     const { data } = await graphql.query({
       query: SongDocument,
       variables: {
-        songId
+        songId,
+        showId
       },
       context: {
         fetchOptions: {
@@ -29,7 +31,10 @@ export default async function SongPage ({ params }: ParamsType<SongParamsInterfa
         }
       }
     })
-    return <Song song={data.Song}/>
+    return <>
+      <Song song={data.Song}/>
+      <ProgramPaginator item={data?.Song} program={data?.Show?.program} showId={showId}/>
+    </>
   } catch (e) {
     return handleError(e)
   }

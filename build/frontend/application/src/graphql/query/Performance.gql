@@ -1,5 +1,6 @@
-query Performance($performanceId: String!){
+query Performance($performanceId: String!, $showId: String!){
   Performance(id:$performanceId, draft: false) {
     ...Performance
   }
+  ...ShowProgram
 }

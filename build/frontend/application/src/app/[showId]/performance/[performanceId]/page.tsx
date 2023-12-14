@@ -8,20 +8,22 @@ import PerformanceParamsInterface from './PerformanceParamsInterface'
 import Performance from '../../../../components/server/Performance'
 import { Metadata } from 'next'
 import prepareMetadataTitle from '../../../../utils/prepareMetadataTitle'
+import ProgramPaginator from '../../../../components/server/ProgramPaginator'
 
 export const metadata: Metadata = {
   title: prepareMetadataTitle('Vystopení')
 }
 
 export default async function PerformancePage ({ params }: ParamsType<PerformanceParamsInterface & ShowParamsInterface>): Promise<ReactElement> {
-  const { performanceId } = params
+  const { performanceId, showId } = params
 
   const graphql = createGraphqlServerClient()
   try {
     const { data } = await graphql.query({
       query: PerformanceDocument,
       variables: {
-        performanceId
+        performanceId,
+        showId
       },
       context: {
         fetchOptions: {
@@ -29,7 +31,11 @@ export default async function PerformancePage ({ params }: ParamsType<Performanc
         }
       }
     })
-    return <Performance performance={data.Performance}/>
+    return <>
+      <Performance performance={data.Performance}/>
+
+      <ProgramPaginator item={data.Performance} program={data?.Show?.program} showId={showId}/>
+    </>
   } catch (e) {
     return handleError(e)
   }

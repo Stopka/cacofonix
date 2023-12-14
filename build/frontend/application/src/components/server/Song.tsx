@@ -5,13 +5,14 @@ import Content from './Content'
 import H from './H'
 import CountrySummary from './CountrySummary'
 import CountriesSummary from './CountriesSummary'
+import NowBadge from '../client/NowBadge'
 
 export default function Song ({ song, shiftHLevel }: { song?: SongFragment | null, shiftHLevel?: boolean }): ReactElement {
   if (song === null || song === undefined) {
     return <></>
   }
   return <>
-    <H level={1} shiftLevel={shiftHLevel}>{song.title}</H>
+    <H level={1} shiftLevel={shiftHLevel}>{song.title}{shiftHLevel === true ? '' : <NowBadge item={song}/>}</H>
     {(song?.countries?.length ?? 0) > 0 ||
     (song?.artists?.length ?? 0) > 0 ||
     (song?.musicAuthors?.length ?? 0) > 0 ||

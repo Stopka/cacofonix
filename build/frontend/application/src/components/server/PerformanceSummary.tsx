@@ -1,12 +1,12 @@
 import { ReactElement } from 'react'
 import { PerformanceSummaryFragment } from '../../graphql/generated/types'
-import Link from 'next/link'
+import ProgramItemLink from './ProgramItemLink'
 
 export default function PerformanceSummary ({ performance, showId }: {
   performance: PerformanceSummaryFragment
   showId: string
 }): ReactElement {
-  return <Link className={'stretched-link'} href={`/${showId}/performance/${performance.id ?? ''}`}>
+  return <ProgramItemLink item={performance} showId={showId} className={'stretched-link'}>
     {performance.title}
-  </Link>
+  </ProgramItemLink>
 }

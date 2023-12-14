@@ -1,5 +1,7 @@
-query Song($songId: String!){
+query Song($songId: String!, $showId: String!){
   Song(id:$songId, draft: false) {
     ...Song
   }
+
+  ...ShowProgram
 }
