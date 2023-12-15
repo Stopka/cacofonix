@@ -56,6 +56,8 @@ export default buildConfig({
     disablePlaygroundInProduction: true
   },
   rateLimit: {
-    trustProxy: true
+    trustProxy: true,
+    max: 500,
+    window: 30000
   }
 })
